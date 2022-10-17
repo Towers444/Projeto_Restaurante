@@ -3,10 +3,10 @@
 
 Integrantes:
 
- > André Henrique Parreiras.
- > João Pedro Torres.
- > Rayanne Mirelle de Souza Santos.
- > Seynabou Sall Coulibaly. 
+ * André Henrique Parreiras.
+ * João Pedro Torres.
+ * Rayanne Mirelle de Souza Santos.
+ * Seynabou Sall Coulibaly. 
 
 Curso: Informática - 2° ano A - 
 
