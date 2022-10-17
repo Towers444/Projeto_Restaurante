@@ -14,12 +14,12 @@ Data: 13/09/2022
 
 ## Descrição.
 	
-	* Tendo em vista que o tema do nosso projeto são os restaurantes, decidimos criar um site direcionado ao cliente e a gestão do restaurante. O cliente por sua vez terá acesso a disponibilidade a um cardápio online, em que neste ele poderá realizar os seus pedidos, informando a quantidade destes e as suas respectivas características, informando os itens adicionais e os que deseja retirar. Já a gestão do restaurante poderá acessar os pedidos e visualizar tais especificações, além de criar e alterar os cardápios de acordo com o estoque do estabelecimento, por meio da inserção de valores, descrição e imagem destes itens cadastrados.
+	<p> Tendo em vista que o tema do nosso projeto são os restaurantes, decidimos criar um site direcionado ao cliente e a gestão do restaurante. O cliente por sua vez terá acesso a disponibilidade a um cardápio online, em que neste ele poderá realizar os seus pedidos, informando a quantidade destes e as suas respectivas características, informando os itens adicionais e os que deseja retirar. Já a gestão do restaurante poderá acessar os pedidos e visualizar tais especificações, além de criar e alterar os cardápios de acordo com o estoque do estabelecimento, por meio da inserção de valores, descrição e imagem destes itens cadastrados.
 
 
 ## O que automatizar? Por que automatizar? Benefícios? 
 
-	* O recurso a ser automatizado é o sistema virtual do restaurante na parte que diz respeito ao atendimento ao cliente, ou seja: cardápios, entregas, setor de reclamação, elogio e sugestões, entre outros. Em que esses passam a ser de acesso virtual, tendo em vista a importância de reduzir o uso de materiais como folhas e impressões para cada indivíduo ter acesso a tais informações, além de se tornar mais prático, pois cada pessoa possui em seu celular o conteúdo necessário para fazer o pedido e também se mostra viável, pois menu é mutável a cada atualização em caso de futuras mudanças. 
+	<p> O recurso a ser automatizado é o sistema virtual do restaurante na parte que diz respeito ao atendimento ao cliente, ou seja: cardápios, entregas, setor de reclamação, elogio e sugestões, entre outros. Em que esses passam a ser de acesso virtual, tendo em vista a importância de reduzir o uso de materiais como folhas e impressões para cada indivíduo ter acesso a tais informações, além de se tornar mais prático, pois cada pessoa possui em seu celular o conteúdo necessário para fazer o pedido e também se mostra viável, pois menu é mutável a cada atualização em caso de futuras mudanças. 
 
 
 ## Usuários Envolvidos?
