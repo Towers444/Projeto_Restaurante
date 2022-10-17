@@ -1,7 +1,7 @@
 # Roteiro do Trabalho Interdisciplinar de Programação.<h1>
 
 
-Integrantes:
+### Integrantes:
 
  * André Henrique Parreiras.
  * João Pedro Torres.
@@ -37,7 +37,7 @@ Data: 13/09/2022
  
 ## Lista de Funcionalidades e Caso de Uso.
 
-	* O sistema disponibilizará para os seus usuários a montagem de um cardápio interativo, que será projetado em um meio digital, do qual também pode ser acessado pelo escaneamento de um Qr Code,  em que neste será possível realizar pedidos que serão enviados direto para a cozinha, onde poderão ser preparados no menor tempo possível. Além de também possibilitar aos clientes reservarem mesas com antecedência para não enfrentarem filas nos restaurantes. 
+* O sistema disponibilizará para os seus usuários a montagem de um cardápio interativo, que será projetado em um meio digital, do qual também pode ser acessado pelo escaneamento de um Qr Code,  em que neste será possível realizar pedidos que serão enviados direto para a cozinha, onde poderão ser preparados no menor tempo possível. Além de também possibilitar aos clientes reservarem mesas com antecedência para não enfrentarem filas nos restaurantes. 
 
 ## Ordem de Dependências (sequência de eventos/processos cronológicos)
 
@@ -46,8 +46,6 @@ Data: 13/09/2022
 ## Tecnologias a Utilizar.
 
 * As linguagens de programação que serão utilizadas para o desenvolvimento do trabalho será java-web, incorporando Java, Html, Css e JavaScript, por meio da plataforma NetBeans. Além de sites para a confecção de QrCode, e alguns como o Google Fontes e Css Gradientes para a formação dos templates. 
-
-
 
 
 
