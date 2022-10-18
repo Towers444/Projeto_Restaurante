@@ -4,6 +4,11 @@
  */
 package projeto_restaurante.view;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import projeto_restaurante.model.service.*;
+import projeto_restaurante.common.*;
+
 /**
  *
  * @author Aluno
@@ -16,6 +21,8 @@ public class cadastroProdutos extends javax.swing.JFrame {
     public cadastroProdutos() {
         initComponents();
     }
+    
+    public int contador;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,7 +36,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        LabelTitulo2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         labelNome = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -40,12 +47,18 @@ public class cadastroProdutos extends javax.swing.JFrame {
         labelValor1 = new javax.swing.JLabel();
         textoDescricao = new javax.swing.JTextField();
         labelImagem = new javax.swing.JLabel();
-        botaoAddProdutos = new java.awt.Button();
-        jLabel3 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        textoImagem = new javax.swing.JTextPane();
+        botaoAddProdutos1 = new java.awt.Button();
+        LabelTitulo3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tabela = new javax.swing.JTable();
+        botaoremProduto = new java.awt.Button();
+        LabelTitulo4 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        textoLinha = new javax.swing.JTextPane();
+        LabelTitulo1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         botaoDawnloadQrcode = new java.awt.Button();
 
@@ -64,8 +77,8 @@ public class cadastroProdutos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setText("Cadastro Produtos");
+        LabelTitulo2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        LabelTitulo2.setText("Cadastro Produtos");
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -73,18 +86,21 @@ public class cadastroProdutos extends javax.swing.JFrame {
         labelNome.setLabelFor(textoNome);
         labelNome.setText("Nome do Poduto:");
 
+        textoNome.setText("-nome produto-");
         jScrollPane1.setViewportView(textoNome);
 
         labelValor.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         labelValor.setLabelFor(textoValor);
         labelValor.setText("Valor do Produto:");
 
+        textoValor.setText("R$ 00,00");
         jScrollPane2.setViewportView(textoValor);
 
         labelValor1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         labelValor1.setLabelFor(textoDescricao);
         labelValor1.setText("Descrição do Produto:");
 
+        textoDescricao.setText("-descrição-");
         textoDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textoDescricaoActionPerformed(evt);
@@ -95,13 +111,16 @@ public class cadastroProdutos extends javax.swing.JFrame {
         labelImagem.setLabelFor(textoDescricao);
         labelImagem.setText("Imagem do Produto:");
 
-        botaoAddProdutos.setActionCommand("Adicionar Produto");
-        botaoAddProdutos.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        botaoAddProdutos.setLabel("Adicionar Produto");
-        botaoAddProdutos.setName(""); // NOI18N
-        botaoAddProdutos.addActionListener(new java.awt.event.ActionListener() {
+        textoImagem.setText("-imagem-");
+        jScrollPane4.setViewportView(textoImagem);
+
+        botaoAddProdutos1.setActionCommand("Adicionar Produto");
+        botaoAddProdutos1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        botaoAddProdutos1.setLabel("Adicionar Produto");
+        botaoAddProdutos1.setName(""); // NOI18N
+        botaoAddProdutos1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAddProdutosActionPerformed(evt);
+                botaoAddProdutos1ActionPerformed(evt);
             }
         });
 
@@ -112,29 +131,29 @@ public class cadastroProdutos extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(labelImagem)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(labelNome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(labelValor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelValor1)
+                            .addComponent(labelImagem))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(labelValor1)
-                                .addGap(18, 18, 18)
-                                .addComponent(textoDescricao))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(labelNome)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(labelValor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(22, 22, 22))))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(117, Short.MAX_VALUE)
-                    .addComponent(botaoAddProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(91, 91, 91)))
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(textoDescricao))))
+                .addGap(22, 22, 22))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoAddProdutos1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,52 +173,85 @@ public class cadastroProdutos extends javax.swing.JFrame {
                         .addGap(8, 8, 8)
                         .addComponent(labelValor1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelImagem)
-                .addGap(109, 109, 109))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(466, Short.MAX_VALUE)
-                    .addComponent(botaoAddProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(13, 13, 13)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelImagem, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
+                .addComponent(botaoAddProdutos1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel3.setText("QrCode Gerado:");
+        LabelTitulo3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        LabelTitulo3.setText("QrCode Gerado:");
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Imagem", "Nome", "Valor", "Descricao"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane5.setViewportView(tabela);
+
+        botaoremProduto.setActionCommand("Remover Item");
+        botaoremProduto.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        botaoremProduto.setLabel("Remover Item");
+        botaoremProduto.setName(""); // NOI18N
+        botaoremProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoremProdutoActionPerformed(evt);
+            }
+        });
+
+        LabelTitulo4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        LabelTitulo4.setLabelFor(textoDescricao);
+        LabelTitulo4.setText("Insira  linha que deseja remover:");
+
+        jScrollPane6.setViewportView(textoLinha);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(96, 96, 96)
+                                .addComponent(botaoremProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(LabelTitulo4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(LabelTitulo4))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoremProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel4.setText("Cardápio do Restaurante. ");
+        botaoremProduto.getAccessibleContext().setAccessibleName("Remover Item");
+
+        LabelTitulo1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        LabelTitulo1.setText("Cardápio do Restaurante. ");
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -229,26 +281,26 @@ public class cadastroProdutos extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(32, 32, 32)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(65, 65, 65))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(botaoDawnloadQrcode, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(LabelTitulo3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(botaoDawnloadQrcode, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(jLabel4)
+                .addGap(100, 100, 100)
+                .addComponent(LabelTitulo1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(LabelTitulo2)
                 .addGap(125, 125, 125))
         );
         jPanel1Layout.setVerticalGroup(
@@ -256,22 +308,22 @@ public class cadastroProdutos extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4))
+                    .addComponent(LabelTitulo2)
+                    .addComponent(LabelTitulo1))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(158, 158, 158)
-                        .addComponent(jLabel3)
+                        .addComponent(LabelTitulo3)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botaoDawnloadQrcode, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -282,9 +334,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -298,65 +348,111 @@ public class cadastroProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoDawnloadQrcodeActionPerformed
 
-    private void botaoAddProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdutosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoAddProdutosActionPerformed
+    private void botaoremProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProdutoActionPerformed
+        String stringRemoverLinha = textoLinha.getText();
+        int removerLinha = Integer.parseInt(stringRemoverLinha);
+        if (removerLinha <= 0 || removerLinha > contador) {
+            JOptionPane.showMessageDialog(jScrollPane1, "Número de linha inexistente", "Erro", JOptionPane.ERROR_MESSAGE);
+            textoLinha.requestFocus();
+        } else {
+            removerLinha--;
+            contador--;
+            ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
+        }
+    }//GEN-LAST:event_botaoremProdutoActionPerformed
+
+    private void botaoAddProdutos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdutos1ActionPerformed
+        cadastrarAgenda();
+    }//GEN-LAST:event_botaoAddProdutos1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(cadastroProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(cadastroProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(cadastroProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(cadastroProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new cadastroProdutos().setVisible(true);
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button botaoAddProdutos;
+    private javax.swing.JLabel LabelTitulo1;
+    private javax.swing.JLabel LabelTitulo2;
+    private javax.swing.JLabel LabelTitulo3;
+    private javax.swing.JLabel LabelTitulo4;
+    private java.awt.Button botaoAddProdutos1;
     private java.awt.Button botaoDawnloadQrcode;
+    private java.awt.Button botaoremProduto;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel labelImagem;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelValor;
     private javax.swing.JLabel labelValor1;
+    private javax.swing.JTable tabela;
     private javax.swing.JTextField textoDescricao;
+    private javax.swing.JTextPane textoImagem;
+    private javax.swing.JTextPane textoLinha;
     private javax.swing.JTextPane textoNome;
     private javax.swing.JTextPane textoValor;
     // End of variables declaration//GEN-END:variables
+
+    public void cadastrarAgenda() {
+
+        int cadastros = 0;
+
+        try {
+            String nome = textoNome.getText();
+            ManterProdutoNome.cadastrarProdutoNome(nome);
+            cadastros++;
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            textoNome.requestFocus();
+        }
+
+        try {
+            String descricao = textoDescricao.getText();
+            ManterProdutoDescricao.cadastrarProdutoDescricao(descricao);
+            cadastros++;
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            textoDescricao.requestFocus();
+        }
+
+        try {
+            String valor = textoValor.getText();
+            ManterProdutoValor.cadastrarProdutoValor(valor);
+            cadastros++;
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            textoValor.requestFocus();
+        }
+
+        try {
+            String imagem = textoImagem.getText();
+            ManterProdutoImagem.cadastrarProdutoImagem(imagem);
+            cadastros++;
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            textoImagem.requestFocus();
+        }
+
+        if (cadastros == 4) {
+            String msgDialog = "Todos os campos foram cadastrados com sucesso!";
+            JOptionPane.showMessageDialog(jScrollPane1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
+            carregarTabela();
+        }
+    }
+
+    public void carregarTabela() {
+
+        contador++;
+        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+        Object[] dados = {textoImagem.getText(), textoNome.getText(), textoValor.getText(), textoDescricao.getText()};
+        modelo.addRow(dados);
+
+    }
 }

@@ -35,7 +35,7 @@ public class ProdutoNomeDAO {
 
 	public static ProdutoNome inserir(String nome) throws PersistenciaException {
 
-		if (consultarPorNome(nome) == null || consultarPorNome(nome) != null) {
+		if (consultarPorNome(nome) == null) {
 			ProdutoNome r = new ProdutoNome(chave, nome);
 			produtoNomeList.add(r);
 			chave++;

@@ -22,12 +22,12 @@ public class ManterProdutoNome {
 	public static ProdutoNome cadastrarProdutoNome(String nome) throws NegocioException {
 
 		if (nome.isEmpty())
-			throw new NegocioException(511, "O nome do rótulo é obrigatório.");
+			throw new NegocioException(511, "O nome do produto é obrigatório.");
 
 		try {
 			return ProdutoNomeDAO.inserir(nome);
 		} catch (PersistenciaException ex) {
-			throw new NegocioException(512, "O rótulo de nome '" + nome + "' já está cadastrado.");
+			throw new NegocioException(512, "O produto de nome '" + nome + "' já está cadastrado.");
 		}
 	}
 
