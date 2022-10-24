@@ -6,6 +6,7 @@ package projeto_restaurante.view;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import projeto_restaurante.model.dao.*;
 import projeto_restaurante.model.service.*;
 import projeto_restaurante.common.*;
 
@@ -137,7 +138,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(labelValor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,9 +146,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
                             .addComponent(labelImagem))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textoDescricao))))
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -248,8 +247,6 @@ public class cadastroProdutos extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        botaoremProduto.getAccessibleContext().setAccessibleName("Remover Item");
-
         LabelTitulo1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         LabelTitulo1.setText("Cardápio do Restaurante. ");
 
@@ -323,7 +320,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botaoDawnloadQrcode, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -334,7 +331,9 @@ public class cadastroProdutos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -356,8 +355,12 @@ public class cadastroProdutos extends javax.swing.JFrame {
             textoLinha.requestFocus();
         } else {
             removerLinha--;
+            String valorNumeroNome = (String) tabela.getValueAt(removerLinha, 1);
+            String valorNumeroDescricao = (String) tabela.getValueAt(removerLinha, 2);
             contador--;
             ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
+            ProdutoNomeDAO.excluirProdutoNome(valorNumeroNome);
+            ProdutoDescricaoDAO.excluirProdutoDescricao(valorNumeroDescricao);
         }
     }//GEN-LAST:event_botaoremProdutoActionPerformed
 

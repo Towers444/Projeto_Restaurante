@@ -43,5 +43,13 @@ public class ProdutoNomeDAO {
 		}
 		throw new PersistenciaException("Violação de campo unico: nome");
 	}
+        
+        public static void excluirProdutoNome(String nome) {
+            System.out.println("CHEGOU NOME");
+		for (ProdutoNome r : produtoNomeList)
+			if (r.getNome().equals(nome)) {
+				produtoNomeList.clear();
+			}
+	}
     
 }

@@ -4,6 +4,10 @@
  */
 package projeto_restaurante.view;
 
+import javax.swing.JOptionPane;
+import projeto_restaurante.model.service.*;
+import projeto_restaurante.common.*;
+
 /**
  *
  * @author Aluno
@@ -13,9 +17,12 @@ public class cadastroUsuario extends javax.swing.JFrame {
     /**
      * Creates new form cadastroUsuario
      */
+    
     public cadastroUsuario() {
         initComponents();
     }
+
+    cadastroProdutos janela2 = new cadastroProdutos();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,13 +35,14 @@ public class cadastroUsuario extends javax.swing.JFrame {
 
         labelValor1 = new javax.swing.JLabel();
         button1 = new java.awt.Button();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         labelLogin = new javax.swing.JLabel();
         labelSenha = new javax.swing.JLabel();
         textoUsuario = new javax.swing.JTextField();
         labelUsuario = new javax.swing.JLabel();
         textoSenha = new javax.swing.JPasswordField();
-        botaoDawnloadQrcode = new java.awt.Button();
+        botaoLogin = new java.awt.Button();
         labelLogin1 = new javax.swing.JLabel();
 
         labelValor1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -61,13 +69,18 @@ public class cadastroUsuario extends javax.swing.JFrame {
             }
         });
 
-        botaoDawnloadQrcode.setActionCommand("Adicionar Produto");
-        botaoDawnloadQrcode.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        botaoDawnloadQrcode.setLabel("Fazer Login");
-        botaoDawnloadQrcode.setName(""); // NOI18N
-        botaoDawnloadQrcode.addActionListener(new java.awt.event.ActionListener() {
+        botaoLogin.setActionCommand("Adicionar Produto");
+        botaoLogin.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        botaoLogin.setLabel("Fazer Login");
+        botaoLogin.setName(""); // NOI18N
+        botaoLogin.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                botaoLoginComponentHidden(evt);
+            }
+        });
+        botaoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoDawnloadQrcodeActionPerformed(evt);
+                botaoLoginActionPerformed(evt);
             }
         });
 
@@ -90,7 +103,7 @@ public class cadastroUsuario extends javax.swing.JFrame {
                                 .addComponent(labelSenha)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botaoDawnloadQrcode, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(textoUsuario)
                                 .addComponent(textoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)))))
@@ -110,46 +123,63 @@ public class cadastroUsuario extends javax.swing.JFrame {
                     .addComponent(labelSenha)
                     .addComponent(textoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
-                .addComponent(botaoDawnloadQrcode, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botaoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
         labelLogin1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         labelLogin1.setText("La Casa do Sabor");
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelLogin1)
+                .addGap(150, 150, 150))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(labelLogin1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelLogin1)
-                .addGap(140, 140, 140))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(labelLogin1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoDawnloadQrcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDawnloadQrcodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoDawnloadQrcodeActionPerformed
+    private void botaoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLoginActionPerformed
+        loginUsuario();
+    }//GEN-LAST:event_botaoLoginActionPerformed
 
     private void textoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoSenhaActionPerformed
+
+    private void botaoLoginComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_botaoLoginComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoLoginComponentHidden
 
     /**
      * @param args the command line arguments
@@ -179,17 +209,18 @@ public class cadastroUsuario extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+ /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new cadastroUsuario().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button botaoDawnloadQrcode;
+    private java.awt.Button botaoLogin;
     private java.awt.Button button1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelLogin;
     private javax.swing.JLabel labelLogin1;
     private javax.swing.JLabel labelSenha;
@@ -198,4 +229,49 @@ public class cadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JPasswordField textoSenha;
     private javax.swing.JTextField textoUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public void loginUsuario() {
+
+        int cadastros = 0;
+
+        try {
+            String usuario = textoUsuario.getText();
+            ManterUsuario.cadastrarUsuario(usuario);
+            cadastros++;
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            textoUsuario.requestFocus();
+        }
+
+        try {
+            String senha = textoSenha.getText();
+            ManterSenha.cadastrarSenha(senha);
+            cadastros++;
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            textoSenha.requestFocus();
+        }
+
+        if (cadastros == 2) {
+            String msgDialog = "Todos os campos foram cadastrados com sucesso!";
+            JOptionPane.showMessageDialog(jPanel1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
+            carregarNovaPagina();
+        }
+
+    }
+
+    public void carregarNovaPagina() {
+
+        if (janela2 == null) {
+            janela2 = new cadastroProdutos();
+            janela2.setLocationRelativeTo(null);
+            janela2.setVisible(true);
+            janela2.setResizable(false);
+        } else {
+            janela2.setLocationRelativeTo(null);
+            janela2.setVisible(true);
+            janela2.setResizable(false);
+      }
+
+    }
 }

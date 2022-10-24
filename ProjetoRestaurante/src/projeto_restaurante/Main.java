@@ -4,7 +4,8 @@
  */
 package projeto_restaurante;
 
-import projeto_restaurante.view.cadastroProdutos;
+//import projeto_restaurante.view.cadastroProdutos;
+import projeto_restaurante.view.cadastroUsuario;
 
 /**
  *
@@ -17,9 +18,10 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        java.awt.EventQueue.invokeLater(() -> {
-            new cadastroProdutos().setVisible(true);
-        });
+       java.awt.EventQueue.invokeLater(() -> {
+           new cadastroUsuario().setVisible(true);
+       });
+
     }
     
 }
