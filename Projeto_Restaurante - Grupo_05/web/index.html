@@ -1,40 +1,63 @@
- <link rel="stylesheet type="style.css" href="style.css">
-<div class="container" >
-    <a class="links" id="paracadastro"></a>
-    <a class="links" id="paralogin"></a>
-    
-    <div class="content"> 
-      
-      <!--FORMULÁRIO DE LOGIN-->
-      <div id="login">
-        <form method="post" action=""> 
-          <h1>Faça seu Login - Cliente</h1> 
-          <p> 
-            <label for="nome_login">Nome: </label>
-             <input id="nome_login" name="nome_login" required="required" type="text" placeholder="João Souza" />
-          </p>
-          
-          <p> 
-            <label for="senha_login">Senha:</label>
-            <input id="senha_login" name="senha_login" required="required" type="password" placeholder="1234" /> 
-          </p>
-          
-          <p> 
-            <input type="submit" value="Acessar o site" /> 
-          </p>
-          
-          <p class="link">
-            Não tem login?
-            <a href="cadastro.html">Faça Cadastro</a>
+<!DOCTYPE html>
+<html>
 
-            </p>
+<head>
+    <title>Sabor e Arte</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="imgs/Icon Sabor e Arte.jpeg">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-          <p> Faça seu login em "Gestão" caso seja da administração do restaurante. </p>
-            <a href="loginGestão.html">Gestão</a>
-       
-        </form>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #ffcfc9;
+        font-family: 'Open Sans', sans-serif;
+
+      }
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }   
+      #logo {
+        margin-top: 2%;
+        border-radius: 50%;
+        max-width: 10%;
+      }
+      h1 {
+        font-size: 2em;
+        font-weight: 900;
+        color: whitesmoke;
+        text-shadow: 4px 3px 5px rgba(150, 150, 150, 1);
+        padding: 3vh;
+      }
+      .promocao {
+        border-radius: 30px;
+        max-width: 20%;
+      }
+    </style>
+</head>
+
+<body>
+    <main>
+      <div class="box">
+        <img id="logo" src="imgs/Sabor e arte (2).png" alt="Logomarca">
+        <h1>Restaurante</h1>
+        <img class="promocao" src="imgs/pizza1.jpg" alt="Promoção pizza 1">
+        <nav></nav>
       </div>
-        </form>
-      </div>
-    </div>
-  </div> 
+    </main>
+</body>
+
+</html>
+     
