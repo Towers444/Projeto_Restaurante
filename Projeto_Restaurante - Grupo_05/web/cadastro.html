@@ -1,9 +1,95 @@
-<link rel="stylesheet type="style.css" href="style.css">
-<div class="container" >
-    <a class="links" id="paracadastro"></a>
-    <a class="links" id="paralogin"></a>
-    
-<!--FORMULÁRIO DE CADASTRO-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sabor e Arte</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="imgs/Icon Sabor e Arte.jpeg">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+ 
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #ffcfc9;
+        font-family: 'Open Sans', sans-serif;
+
+      }
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }   
+      #logo {
+        margin-top: 2%;
+        border-radius: 50%;
+        max-width: 10%;
+      }
+      h1 {
+        font-size: 2em;
+        font-weight: 900;
+        color: whitesmoke;
+        text-shadow: 4px 3px 5px rgba(150, 150, 150, 1);
+        padding: 3vh;
+        margin-bottom: 2em;
+      }
+      .botao {
+        background-color: #c0c0c0;
+        width: 20%;
+        padding: 1.5em;
+        border-radius: 2em;
+        margin: 1em;
+      }
+      h3 {
+        color: whitesmoke;
+        font-family: 'Lato', sans-serif;
+        font-size: 1.7em;
+      }
+      input {
+        background-color:#c0c0c0 ;
+        font-size: 1em;
+        border: none;
+      }
+      input:focus {
+        outline:none!important;
+      }
+      #submit {
+        background-color: #ad1c11;
+      }
+      input[type=submit] {
+        background-color: #ad1c11;
+        font-size: 1em;
+        border: none;
+        color: whitesmoke;
+      }
+    </style>
+</head>
+
+<body>
+    <main>
+      <div class="box">
+        <img id="logo" src="imgs/Sabor e arte (2).png" alt="Logomarca">
+        <h1>Cadastre-se</h1>    
+        <div class="botao box"><h3><input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="Lara Silva" /></h3></div>
+        <div class="botao box"><h3><input id="email_cad" name="email_cad" required="required" type="email" placeholder="larasilva@gmail.com"/></h3></div>
+        <div class="botao box"><h3><input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="1234"/></h3></div>
+        <div class="botao box" id="submit"><h3><a href="cardapio.html"><input type="submit" value="Cadastrar"/></a> </h3></div>
+    </main>
+</body>
+
+</html>
+     
+<!--FORMULÁRIO DE CADASTRO
       <div id="cadastro">
         <form method="post" action=""> 
           <h1>Faça seu Cadastro - Cliente</h1> 
@@ -33,4 +119,4 @@
           </p>
         </form>
       </div>
-</html>
+      -->

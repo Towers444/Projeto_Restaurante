@@ -43,7 +43,28 @@
       }
       .promocao {
         border-radius: 30px;
+        max-width: 15%;
+      }
+      nav {
         max-width: 20%;
+      }
+      .check {
+        max-width: 25%;
+      }
+      #check {
+        flex-direction: row;
+      }
+      h2, a {
+        color: #ad1c11;
+      }
+      a:visited {
+        color: #63100a;
+      }
+      a:hover {
+        color: #ff2818;
+      }
+      a:active {
+        color: rgb(251, 255, 0);
       }
     </style>
 </head>
@@ -54,7 +75,12 @@
         <img id="logo" src="imgs/Sabor e arte (2).png" alt="Logomarca">
         <h1>Restaurante</h1>
         <img class="promocao" src="imgs/pizza1.jpg" alt="Promoção pizza 1">
-        <nav></nav>
+        <nav class="box" id="check">
+          <img class="check" src="imgs/full circle.png" alt="Checkbox">
+          <img class="check" src="imgs/circle.png" alt="Checkbox">
+          <img class="check" src="imgs/circle.png" alt="Checkbox">
+        </nav>
+        <h2><a href="login.html">Faça Login</a>  ou <a href="cardapio.html">continue sem cadastro</a></h2>
       </div>
     </main>
 </body>
