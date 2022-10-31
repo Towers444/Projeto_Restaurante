@@ -22,7 +22,7 @@ public class cadastroUsuario extends javax.swing.JFrame {
         initComponents();
     }
 
-    cadastroProdutos janela2 = new cadastroProdutos();
+    PaginaGestao janela4 = new PaginaGestao();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -262,15 +262,15 @@ public class cadastroUsuario extends javax.swing.JFrame {
 
     public void carregarNovaPagina() {
 
-        if (janela2 == null) {
-            janela2 = new cadastroProdutos();
-            janela2.setLocationRelativeTo(null);
-            janela2.setVisible(true);
-            janela2.setResizable(false);
+        if (janela4 == null) {
+            janela4 = new PaginaGestao();
+            janela4.setLocationRelativeTo(null);
+            janela4.setVisible(true);
+            janela4.setResizable(false);
         } else {
-            janela2.setLocationRelativeTo(null);
-            janela2.setVisible(true);
-            janela2.setResizable(false);
+            janela4.setLocationRelativeTo(null);
+            janela4.setVisible(true);
+            janela4.setResizable(false);
       }
 
     }

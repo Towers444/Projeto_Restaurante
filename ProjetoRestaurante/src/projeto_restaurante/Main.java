@@ -5,7 +5,7 @@
 package projeto_restaurante;
 
 //import projeto_restaurante.view.cadastroProdutos;
-import projeto_restaurante.view.cadastroUsuario;
+import projeto_restaurante.view.TelaIncial;
 
 /**
  *
@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
         
        java.awt.EventQueue.invokeLater(() -> {
-           new cadastroUsuario().setVisible(true);
+           new TelaIncial().setVisible(true);
        });
 
     }
