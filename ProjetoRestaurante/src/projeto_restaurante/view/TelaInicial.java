@@ -1,24 +1,24 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package projeto_restaurante.view;
 
 /**
  *
- * @author Aluno
+ * @author Usuário
  */
-public class TelaIncial extends javax.swing.JPanel {
+public class TelaInicial extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaIncial
+     * Creates new form TelaInicial
      */
-    public TelaIncial() {
+    public TelaInicial() {
         initComponents();
     }
     
-    cadastroUsuario janela2 = new cadastroUsuario();
-    PaginaCliente janela3 = new PaginaCliente();
+    cadastroUsuario janela10 = new cadastroUsuario();
+    PaginaClientes janela11 = new PaginaClientes();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,6 +35,8 @@ public class TelaIncial extends javax.swing.JPanel {
         botaoPaginaCliente = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         jPanel1.setBackground(new java.awt.Color(235, 191, 16));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
@@ -45,7 +47,7 @@ public class TelaIncial extends javax.swing.JPanel {
         botaoPaginaGestao.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         botaoPaginaGestao.setForeground(new java.awt.Color(255, 255, 255));
         botaoPaginaGestao.setText("Gestão");
-        botaoPaginaGestao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        botaoPaginaGestao.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         botaoPaginaGestao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPaginaGestaoActionPerformed(evt);
@@ -56,7 +58,7 @@ public class TelaIncial extends javax.swing.JPanel {
         botaoPaginaCliente.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         botaoPaginaCliente.setForeground(new java.awt.Color(255, 255, 255));
         botaoPaginaCliente.setText("Cliente");
-        botaoPaginaCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        botaoPaginaCliente.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         botaoPaginaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPaginaClienteActionPerformed(evt);
@@ -72,36 +74,36 @@ public class TelaIncial extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(303, Short.MAX_VALUE)
+                .addContainerGap(235, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(botaoPaginaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(botaoPaginaGestao, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(342, 342, 342)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(374, 374, 374))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(269, 269, 269))))
+                        .addGap(202, 202, 202))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(290, 290, 290))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botaoPaginaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoPaginaGestao, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(260, 260, 260))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(156, 156, 156)
+                .addGap(117, 117, 117)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
+                .addGap(63, 63, 63)
                 .addComponent(jLabel2)
-                .addGap(26, 26, 26)
+                .addGap(40, 40, 40)
                 .addComponent(botaoPaginaGestao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(28, 28, 28)
                 .addComponent(botaoPaginaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -110,6 +112,8 @@ public class TelaIncial extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoPaginaGestaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPaginaGestaoActionPerformed
@@ -120,6 +124,35 @@ public class TelaIncial extends javax.swing.JPanel {
         carregarNovaPaginaCliente();
     }//GEN-LAST:event_botaoPaginaClienteActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoPaginaCliente;
@@ -131,37 +164,35 @@ public class TelaIncial extends javax.swing.JPanel {
 
     public void carregarNovaPaginaGestao() {
 
-        if (janela2 == null) {
-            janela2 = new cadastroUsuario();
-            janela2.setLocationRelativeTo(null);
-            janela2.setVisible(true);
-            janela2.setResizable(false);
+        if (janela10 == null) {
+            janela10 = new cadastroUsuario();
+            janela10.setLocationRelativeTo(null);
+            janela10.setVisible(true);
+            janela10.setResizable(false);
+            this.dispose();
         } else {
-            janela2.setLocationRelativeTo(null);
-            janela2.setVisible(true);
-            janela2.setResizable(false);
+            janela10.setLocationRelativeTo(null);
+            janela10.setVisible(true);
+            janela10.setResizable(false);
+            this.dispose();
       }
 
     }
     
     public void carregarNovaPaginaCliente() {
 
-        if (janela3 == null) {
-            janela3 = new PaginaCliente();
-            janela3.setLocationRelativeTo(null);
-            janela3.setVisible(true);
-            janela3.setResizable(false);
+        
+        if (janela11 == null) {
+            janela11 = new PaginaClientes();
+            janela11.setLocationRelativeTo(null);
+            janela11.setVisible(true);
+            janela11.setResizable(false);
         } else {
-            janela3.setLocationRelativeTo(null);
-            janela3.setVisible(true);
-            janela3.setResizable(false);
+            janela11.setLocationRelativeTo(null);
+            janela11.setVisible(true);
+            janela11.setResizable(false);
       }
 
     }
     
-    
 }
-
-
-
-

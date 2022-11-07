@@ -4,8 +4,8 @@
  */
 package projeto_restaurante;
 
-//import projeto_restaurante.view.cadastroProdutos;
-import projeto_restaurante.view.TelaIncial;
+//import projeto_restaurante.view.TelaInicial;
+import projeto_restaurante.view.TelaInicial2;
 
 /**
  *
@@ -19,9 +19,9 @@ public class Main {
     public static void main(String[] args) {
         
        java.awt.EventQueue.invokeLater(() -> {
-           new TelaIncial().setVisible(true);
+           new TelaInicial2().setVisible(true);
        });
-
+        
     }
     
 }

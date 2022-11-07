@@ -1,22 +1,25 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package projeto_restaurante.view;
 
 /**
  *
- * @author Aluno
+ * @author Usuário
  */
-public class PaginaGestao extends javax.swing.JPanel {
+public class PaginaClientes extends javax.swing.JFrame {
 
     /**
-     * Creates new form PaginaGestao
+     * Creates new form PaginaClientes
      */
-    public PaginaGestao() {
+    public PaginaClientes() {
         initComponents();
     }
 
+    pedidosProdutos janela8 = new pedidosProdutos();
+    //TelaInicial janela9 = new TelaInicial();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,57 +29,18 @@ public class PaginaGestao extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        BotaoMostrarCardapio = new javax.swing.JButton();
+        botaoInicio = new javax.swing.JButton();
+        BotaoPedidos = new javax.swing.JButton();
+        BotaoCreditos = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Início");
-
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Início");
-
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Cardápio");
-
-        jButton4.setBackground(new java.awt.Color(255, 0, 0));
-        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Início");
-        jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton6.setBackground(new java.awt.Color(255, 0, 0));
-        jButton6.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Comanda");
-        jButton6.setBorder(null);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        setBackground(new java.awt.Color(255, 0, 0));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(235, 191, 16));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -107,47 +71,47 @@ public class PaginaGestao extends javax.swing.JPanel {
                 .addGap(50, 50, 50))
         );
 
-        jButton2.setBackground(new java.awt.Color(176, 48, 39));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Cardápio");
-        jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BotaoMostrarCardapio.setBackground(new java.awt.Color(176, 48, 39));
+        BotaoMostrarCardapio.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        BotaoMostrarCardapio.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoMostrarCardapio.setText("Cardápio");
+        BotaoMostrarCardapio.setBorder(null);
+        BotaoMostrarCardapio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BotaoMostrarCardapioActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(176, 48, 39));
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Início");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        botaoInicio.setBackground(new java.awt.Color(176, 48, 39));
+        botaoInicio.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        botaoInicio.setForeground(new java.awt.Color(255, 255, 255));
+        botaoInicio.setText("Início");
+        botaoInicio.setBorder(null);
+        botaoInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                botaoInicioActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(176, 48, 39));
-        jButton5.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Comanda");
-        jButton5.setBorder(null);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        BotaoPedidos.setBackground(new java.awt.Color(176, 48, 39));
+        BotaoPedidos.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        BotaoPedidos.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoPedidos.setText("Comanda");
+        BotaoPedidos.setBorder(null);
+        BotaoPedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                BotaoPedidosActionPerformed(evt);
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(176, 48, 39));
-        jButton7.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Sobre nós");
-        jButton7.setBorder(null);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        BotaoCreditos.setBackground(new java.awt.Color(176, 48, 39));
+        BotaoCreditos.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        BotaoCreditos.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoCreditos.setText("Sobre nós");
+        BotaoCreditos.setBorder(null);
+        BotaoCreditos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                BotaoCreditosActionPerformed(evt);
             }
         });
 
@@ -158,28 +122,28 @@ public class PaginaGestao extends javax.swing.JPanel {
             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(103, 103, 103)
-                .addComponent(jButton3))
+                .addComponent(botaoInicio))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton7)
+                    .addComponent(BotaoCreditos)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton5)
-                        .addComponent(jButton2))))
+                        .addComponent(BotaoPedidos)
+                        .addComponent(BotaoMostrarCardapio))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
-                .addComponent(jButton3)
+                .addComponent(botaoInicio)
                 .addGap(38, 38, 38)
-                .addComponent(jButton2)
+                .addComponent(BotaoMostrarCardapio)
                 .addGap(35, 35, 35)
-                .addComponent(jButton5)
+                .addComponent(BotaoPedidos)
                 .addGap(34, 34, 34)
-                .addComponent(jButton7)
-                .addGap(0, 109, Short.MAX_VALUE))
+                .addComponent(BotaoCreditos)
+                .addGap(0, 101, Short.MAX_VALUE))
         );
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
@@ -200,7 +164,7 @@ public class PaginaGestao extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(153, 153, 153)
                         .addComponent(jLabel9)
-                        .addGap(0, 160, Short.MAX_VALUE))
+                        .addGap(0, 134, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel10)
@@ -217,66 +181,118 @@ public class PaginaGestao extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void BotaoMostrarCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoMostrarCardapioActionPerformed
+        carregarNovaPaginaPedidos();
+    }//GEN-LAST:event_BotaoMostrarCardapioActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void botaoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInicioActionPerformed
+        //carregarNovaPaginaTelaInicial();
+    }//GEN-LAST:event_botaoInicioActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void BotaoPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPedidosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_BotaoPedidosActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void BotaoCreditosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCreditosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_BotaoCreditosActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(PaginaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(PaginaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(PaginaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PaginaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
+        /* Create and display the form */
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PaginaClientes().setVisible(true);
+            }
+        });*/
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton BotaoCreditos;
+    private javax.swing.JButton BotaoMostrarCardapio;
+    private javax.swing.JButton BotaoPedidos;
+    private javax.swing.JButton botaoInicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
-    void setLocationRelativeTo(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public void carregarNovaPaginaPedidos() {
 
-    void setResizable(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (janela8 == null) {
+            janela8 = new pedidosProdutos();
+            janela8.setLocationRelativeTo(null);
+            janela8.setVisible(true);
+            janela8.setResizable(false);
+            this.dispose();
+        } else {
+            janela8.setLocationRelativeTo(null);
+            janela8.setVisible(true);
+            janela8.setResizable(false);
+            this.dispose();
+      }
+
     }
+    
+    /*public void carregarNovaPaginaTelaInicial() {
+
+        if (janela9 == null) {
+            janela9 = new TelaInicial();
+            janela9.setLocationRelativeTo(null);
+            janela9.setVisible(true);
+            janela9.setResizable(false);
+            this.dispose();
+        } else {
+            janela9.setLocationRelativeTo(null);
+            janela9.setVisible(true);
+            janela9.setResizable(false);
+            this.dispose();
+      }
+
+    }*/
+    
 }

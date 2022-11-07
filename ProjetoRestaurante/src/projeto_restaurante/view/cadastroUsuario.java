@@ -22,7 +22,7 @@ public class cadastroUsuario extends javax.swing.JFrame {
         initComponents();
     }
 
-    PaginaGestao janela4 = new PaginaGestao();
+    PaginaGestaos janela4 = new PaginaGestaos();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,7 +42,7 @@ public class cadastroUsuario extends javax.swing.JFrame {
         textoUsuario = new javax.swing.JTextField();
         labelUsuario = new javax.swing.JLabel();
         textoSenha = new javax.swing.JPasswordField();
-        botaoLogin = new java.awt.Button();
+        botaoPaginaGestao = new javax.swing.JButton();
         labelLogin1 = new javax.swing.JLabel();
 
         labelValor1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -52,15 +52,20 @@ public class cadastroUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(235, 191, 16));
+
+        jPanel1.setBackground(new java.awt.Color(173, 48, 19));
 
         labelLogin.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        labelLogin.setForeground(new java.awt.Color(255, 255, 255));
         labelLogin.setText("Login do Usuário ");
 
         labelSenha.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        labelSenha.setForeground(new java.awt.Color(255, 255, 255));
         labelSenha.setText("Senha:");
 
         labelUsuario.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        labelUsuario.setForeground(new java.awt.Color(255, 255, 255));
         labelUsuario.setText("Usuário:");
 
         textoSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -69,18 +74,14 @@ public class cadastroUsuario extends javax.swing.JFrame {
             }
         });
 
-        botaoLogin.setActionCommand("Adicionar Produto");
-        botaoLogin.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        botaoLogin.setLabel("Fazer Login");
-        botaoLogin.setName(""); // NOI18N
-        botaoLogin.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentHidden(java.awt.event.ComponentEvent evt) {
-                botaoLoginComponentHidden(evt);
-            }
-        });
-        botaoLogin.addActionListener(new java.awt.event.ActionListener() {
+        botaoPaginaGestao.setBackground(new java.awt.Color(173, 28, 17));
+        botaoPaginaGestao.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        botaoPaginaGestao.setForeground(new java.awt.Color(255, 255, 255));
+        botaoPaginaGestao.setText("Fazer Login");
+        botaoPaginaGestao.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        botaoPaginaGestao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoLoginActionPerformed(evt);
+                botaoPaginaGestaoActionPerformed(evt);
             }
         });
 
@@ -88,6 +89,10 @@ public class cadastroUsuario extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 74, Short.MAX_VALUE)
+                .addComponent(botaoPaginaGestao, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -102,12 +107,10 @@ public class cadastroUsuario extends javax.swing.JFrame {
                                 .addGap(26, 26, 26)
                                 .addComponent(labelSenha)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botaoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(textoUsuario)
-                                .addComponent(textoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textoUsuario)
+                            .addComponent(textoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,12 +125,14 @@ public class cadastroUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSenha)
                     .addComponent(textoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addComponent(botaoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addComponent(botaoPaginaGestao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
+        labelLogin1.setBackground(new java.awt.Color(255, 255, 255));
         labelLogin1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        labelLogin1.setForeground(new java.awt.Color(255, 255, 255));
         labelLogin1.setText("La Casa do Sabor");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -169,17 +174,13 @@ public class cadastroUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLoginActionPerformed
-        loginUsuario();
-    }//GEN-LAST:event_botaoLoginActionPerformed
-
     private void textoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoSenhaActionPerformed
 
-    private void botaoLoginComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_botaoLoginComponentHidden
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoLoginComponentHidden
+    private void botaoPaginaGestaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPaginaGestaoActionPerformed
+        loginUsuario();
+    }//GEN-LAST:event_botaoPaginaGestaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,7 +218,7 @@ public class cadastroUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button botaoLogin;
+    private javax.swing.JButton botaoPaginaGestao;
     private java.awt.Button button1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -233,7 +234,7 @@ public class cadastroUsuario extends javax.swing.JFrame {
     public void loginUsuario() {
 
         int cadastros = 0;
-
+        
         try {
             String usuario = textoUsuario.getText();
             ManterUsuario.cadastrarUsuario(usuario);
@@ -254,6 +255,7 @@ public class cadastroUsuario extends javax.swing.JFrame {
 
         if (cadastros == 2) {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
+            System.out.print("Chegou");
             JOptionPane.showMessageDialog(jPanel1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
             carregarNovaPagina();
         }
@@ -263,14 +265,16 @@ public class cadastroUsuario extends javax.swing.JFrame {
     public void carregarNovaPagina() {
 
         if (janela4 == null) {
-            janela4 = new PaginaGestao();
+            janela4 = new PaginaGestaos();
             janela4.setLocationRelativeTo(null);
             janela4.setVisible(true);
             janela4.setResizable(false);
+            this.dispose();
         } else {
             janela4.setLocationRelativeTo(null);
             janela4.setVisible(true);
             janela4.setResizable(false);
+            this.dispose();
       }
 
     }
