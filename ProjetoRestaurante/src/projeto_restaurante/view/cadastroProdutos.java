@@ -86,6 +86,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
+        botaoEstoque = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -593,10 +594,24 @@ public class cadastroProdutos extends javax.swing.JFrame {
             }
         });
 
+        botaoEstoque.setBackground(new java.awt.Color(176, 48, 39));
+        botaoEstoque.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        botaoEstoque.setForeground(new java.awt.Color(255, 255, 255));
+        botaoEstoque.setText("Consultar Estoque");
+        botaoEstoque.setBorder(null);
+        botaoEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEstoqueActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addComponent(jButton15)
+                .addGap(26, 26, 26))
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
@@ -609,12 +624,11 @@ public class cadastroProdutos extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(jButton11))
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jButton15))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jButton13)))
-                .addGap(29, 29, 29))
+                        .addGap(41, 41, 41)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botaoEstoque)
+                            .addComponent(jButton13))))
+                .addGap(46, 46, 46))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -623,11 +637,13 @@ public class cadastroProdutos extends javax.swing.JFrame {
                 .addComponent(jButton12)
                 .addGap(42, 42, 42)
                 .addComponent(jButton11)
-                .addGap(58, 58, 58)
+                .addGap(28, 28, 28)
                 .addComponent(jButton15)
-                .addGap(54, 54, 54)
+                .addGap(29, 29, 29)
                 .addComponent(jButton13)
-                .addGap(49, 49, 49)
+                .addGap(35, 35, 35)
+                .addComponent(botaoEstoque)
+                .addGap(40, 40, 40)
                 .addComponent(jButton14)
                 .addGap(0, 93, Short.MAX_VALUE))
         );
@@ -790,6 +806,10 @@ public class cadastroProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton15ActionPerformed
 
+    private void botaoEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEstoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoEstoqueActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -799,6 +819,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel LabelTitulo2;
     private javax.swing.JLabel LabelTitulo4;
     private java.awt.Button botaoAddProdutos1;
+    private javax.swing.JButton botaoEstoque;
     private java.awt.Button botaoremProduto;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
