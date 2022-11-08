@@ -11,21 +11,19 @@ import javax.swing.table.DefaultTableModel;
  * @author Usuário
  */
 public class pedidosProdutos extends javax.swing.JFrame {
-    
 
     /**
      * Creates new form pedidosProdutos
      */
     public pedidosProdutos() {
         initComponents();
-        carregarTabela(null, null, null, null);
     }
-    
+
     public void enviaPalavras(cadastroProdutos msgCadastroProdutos, String nome, String valor, String descricao, String imagem) {
-        
-        
+
+        initComponents();
         carregarTabela(nome, valor, descricao, imagem);
-      
+
     }
 
     /**
@@ -473,7 +471,7 @@ public class pedidosProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoremProdutoActionPerformed
 
     private void botaoremProduto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProduto1ActionPerformed
-        
+
     }//GEN-LAST:event_botaoremProduto1ActionPerformed
 
     private void textoDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoDescricaoActionPerformed
@@ -512,11 +510,11 @@ public class pedidosProdutos extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+ /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new pedidosProdutos().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -556,26 +554,10 @@ public class pedidosProdutos extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void carregarTabela(String nome, String valor, String descricao, String imagem) {
-        
+
         DefaultTableModel modelo2 = (DefaultTableModel) tabela4.getModel();
-        
         Object[] dados2 = {nome, valor, descricao, imagem};
-        System.out.print(dados2[1]);
-        
-//        modelo2.addRow(dados2);
+        modelo2.addRow(dados2);
 
-modelo2.addRow(dados2);
-/*        modelo2.addRow(dados2[0]);
-        modelo2.addRow(dados2[1]);
-        modelo2.addRow(dados2[2]);
-        modelo2.addRow(dados2[3]);        */
-        
     }
-/*        
-        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
-        Object[] dados = {textoImagem.getText(), textoNome.getText(), textoValor.getText(), textoDescricao.getText()};
-        modelo.addRow(dados);
-*/
-    
-
 }
