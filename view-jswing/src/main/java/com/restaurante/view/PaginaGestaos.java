@@ -20,6 +20,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
     //TelaInicial2 janela7 = new TelaInicial2();
     cadastroProdutos janela6 = new cadastroProdutos();
     PedidosGestao janela11 = new PedidosGestao();
+    CadastroEstoqueGestao janela3 = new CadastroEstoqueGestao();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -280,7 +281,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCadastroFuncionarioActionPerformed
 
     private void botaoEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEstoqueActionPerformed
-        // TODO add your handling code here:
+        carregarNovaPaginaCadastroEstoqueGestao();
     }//GEN-LAST:event_botaoEstoqueActionPerformed
 
     /**
@@ -377,6 +378,21 @@ public class PaginaGestaos extends javax.swing.JFrame {
             janela11.setLocationRelativeTo(null);
             janela11.setVisible(true);
             janela11.setResizable(false);
+      }
+
+    }
+    
+    public void carregarNovaPaginaCadastroEstoqueGestao() {
+
+        if (janela3 == null) {
+            janela3 = new CadastroEstoqueGestao();
+            janela3.setLocationRelativeTo(null);
+            janela3.setVisible(true);
+            janela3.setResizable(false);
+        } else {
+            janela3.setLocationRelativeTo(null);
+            janela3.setVisible(true);
+            janela3.setResizable(false);
       }
 
     }

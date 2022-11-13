@@ -744,7 +744,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoremProdutoActionPerformed
 
     private void botaoAddProdutos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdutos1ActionPerformed
-        cadastrarAgenda();
+        cadastrarProdutos();
     }//GEN-LAST:event_botaoAddProdutos1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -865,7 +865,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
     private javax.swing.JTextPane textoValor;
     // End of variables declaration//GEN-END:variables
 
-    public void cadastrarAgenda() {
+    public void cadastrarProdutos() {
 
         int cadastros = 0;
 
@@ -891,43 +891,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             textoNome.requestFocus();
         }
-        /*
-        try {
-            String nome = textoNome.getText();
-            ManterProdutoNome.cadastrarProdutoNome(nome);
-            cadastros++;
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoNome.requestFocus();
-        }
-
-        try {
-            String descricao = textoDescricao.getText();
-            ManterProdutoDescricao.cadastrarProdutoDescricao(descricao);
-            cadastros++;
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoDescricao.requestFocus();
-        }
-
-        try {
-            String valor = textoValor.getText();
-            ManterProdutoValor.cadastrarProdutoValor(valor);
-            cadastros++;
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoValor.requestFocus();
-        }
-
-        try {
-            String imagem = textoImagem.getText();
-            ManterProdutoImagem.cadastrarProdutoImagem(imagem);
-            cadastros++;
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoImagem.requestFocus();
-        }*/
-
+        
         if (cadastros == 4) {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
             JOptionPane.showMessageDialog(jScrollPane1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
