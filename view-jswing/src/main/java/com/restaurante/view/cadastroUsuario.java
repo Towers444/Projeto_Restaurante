@@ -4,12 +4,11 @@
  */
 package com.restaurante.view;
 
+import com.projetorestaurante.model.service.GerenciarUsuarios;
 import com.restaurante.model.service.ManterSenha;
 import com.restaurante.model.service.ManterUsuario;
 import com.restaurante.common.NegocioException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.restaurante.others.InitializeFiles;
 import javax.swing.JOptionPane;
 
 /**
@@ -54,7 +53,7 @@ public class cadastroUsuario extends javax.swing.JFrame {
 
         button1.setLabel("button1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(235, 191, 16));
 
@@ -181,9 +180,20 @@ public class cadastroUsuario extends javax.swing.JFrame {
     private void textoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoSenhaActionPerformed
-
+    GerenciarUsuarios registrar = new GerenciarUsuarios();
     private void botaoPaginaGestaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPaginaGestaoActionPerformed
-        loginUsuario();
+        new InitializeFiles().initCadastros();
+        if(!registrar.userExist(textoUsuario.getText())){
+            registrar.Registrar(textoUsuario.getText(), textoSenha.getPassword());
+            
+            String msgDialog = "Todos os campos foram cadastrados com sucesso!";
+            JOptionPane.showMessageDialog(this, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
+            
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(this, String.format("Bem-vindo de volta, %s", textoUsuario.getText()));
+        }
+        carregarNovaPagina();
     }//GEN-LAST:event_botaoPaginaGestaoActionPerformed
 
     /**
@@ -235,42 +245,19 @@ public class cadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField textoUsuario;
     // End of variables declaration//GEN-END:variables
 
-    public void loginUsuario() throws SQLException {
+    public void loginUsuario() {
 
         int cadastros = 0;
         
-        Connection conn = EstoqueBD.conectar();
-        int flag = 0;
-        String userG = "logGerente";
-        String senhaG = "cefet123";
-
         try {
-            String consultar = "SELECT * FROM `login`";
-            ResultSet r = null;
-            Statement stm = conn.createStatement();
-            r = stm.executeQuery(consultar);
-            while (r.next()) {
-                //r.getString(nome da coluna) pu r.getInt(nome da coluna)...
-                try {
-                    String usuario = textoUsuario.getText();
-                    String senha = textoSenha.getText();
-                    ManterUsuario.cadastrarUsuario(usuario, senha);
-                    //cadastros++;
-                    carregarNovaPagina();
-                } catch (NegocioException ex) {
-                    JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-                    textoUsuario.requestFocus();
-                }
-            }
+            String usuario = textoUsuario.getText();
+            ManterUsuario.cadastrarUsuario(usuario);
+            cadastros++;
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            textoUsuario.requestFocus();
+        }
 
-            r.close();
-        } catch (SQLException ex) {
-            System.out.println("Não conseguiu consultar um produto no BD.");
-        } finally {
-            EstoqueBD.desconectar(conn);
-            return flag;
-        }
-        /*
         try {
             String senha = textoSenha.getText();
             ManterSenha.cadastrarSenha(senha);
@@ -286,7 +273,7 @@ public class cadastroUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(jPanel1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
             carregarNovaPagina();
         }
-        */
+
     }
 
     public void carregarNovaPagina() {

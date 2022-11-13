@@ -16,9 +16,6 @@ public class TelaInicial2 extends javax.swing.JFrame {
     public TelaInicial2() {
         initComponents();
     }
-    
-    cadastroUsuario janela2 = new cadastroUsuario();
-    PaginaClientes janela3 = new PaginaClientes();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -162,6 +159,7 @@ public class TelaInicial2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
+    cadastroUsuario janela2 = new cadastroUsuario();
     public void carregarNovaPaginaGestao() {
 
         if (janela2 == null) {
@@ -179,18 +177,10 @@ public class TelaInicial2 extends javax.swing.JFrame {
     }
     
     public void carregarNovaPaginaCliente() {
-
-        
-        if (janela3 == null) {
-            janela3 = new PaginaClientes();
-            janela3.setLocationRelativeTo(null);
-            janela3.setVisible(true);
-            janela3.setResizable(false);
-        } else {
-            janela3.setLocationRelativeTo(null);
-            janela3.setVisible(true);
-            janela3.setResizable(false);
-      }
+        PaginaClientes janela3 = new PaginaClientes();
+        janela3.setLocationRelativeTo(null);
+        janela3.setVisible(true);
+        janela3.setResizable(false);
 
     }
 

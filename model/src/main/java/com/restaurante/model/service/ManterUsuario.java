@@ -8,7 +8,6 @@ import com.restaurante.model.dto.Usuario;
 import com.restaurante.model.dao.UsuarioDAO;
 import com.restaurante.common.NegocioException;
 import com.restaurante.common.PersistenciaException;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -20,14 +19,14 @@ public class ManterUsuario {
     private ManterUsuario() {
     }
 
-    public static Usuario cadastrarUsuario(String nome, String cpf) throws NegocioException, SQLException {
+    public static Usuario cadastrarUsuario(String nome) throws NegocioException {
 
         if (nome.isEmpty()) {
             throw new NegocioException(511, "O nome do usuário é obrigatório.");
         }
 
         try {
-            return UsuarioDAO.inserir(nome, cpf);
+            return UsuarioDAO.inserir(nome);
         } catch (PersistenciaException ex) {
             throw new NegocioException(512, "O produto de nome '" + nome + "' já está cadastrado.");
         }

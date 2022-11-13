@@ -1,0 +1,22 @@
+{
+  "estoques": {
+    "arroz": {
+      "Preço": 99,
+      "Temp. Armazenamento": 59.0,
+      "Ingredientes": "batata",
+      "Quantidade": 1,
+      "Descrição": "Arroz e batata com shampoo",
+      "Validade": "01/10/1988",
+      "Disponivel": true
+    },
+    "batata": {
+      "Preço": 59,
+      "Temp. Armazenamento": 99.0,
+      "Ingredientes": "arroz",
+      "Quantidade": 0,
+      "Descrição": "macaco",
+      "Validade": "02/10/1988",
+      "Disponivel": false
+    }
+  }
+}
