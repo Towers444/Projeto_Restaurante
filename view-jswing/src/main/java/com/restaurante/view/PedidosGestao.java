@@ -297,27 +297,20 @@ public class PedidosGestao extends javax.swing.JFrame {
                 .addComponent(LabelTitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 939, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 10, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 571, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -328,7 +321,7 @@ public class PedidosGestao extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCadastroCardapioActionPerformed
 
     private void botaoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInicioActionPerformed
-        //carregarNovaPaginaInicial();
+       this.dispose();
     }//GEN-LAST:event_botaoInicioActionPerformed
 
     private void botaoPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPedidosActionPerformed
@@ -392,10 +385,6 @@ public class PedidosGestao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LabelTitulo10;
-    private javax.swing.JLabel LabelTitulo11;
-    private javax.swing.JLabel LabelTitulo12;
-    private javax.swing.JLabel LabelTitulo13;
     private javax.swing.JLabel LabelTitulo14;
     private javax.swing.JLabel LabelTitulo2;
     private javax.swing.JLabel LabelTitulo3;
@@ -405,35 +394,15 @@ public class PedidosGestao extends javax.swing.JFrame {
     private javax.swing.JButton botaoEstoque;
     private javax.swing.JButton botaoInicio;
     private javax.swing.JButton botaoPedidos;
-    private java.awt.Button botaoremProduto3;
-    private java.awt.Button botaoremProduto4;
-    private java.awt.Button botaoremProduto5;
-    private java.awt.Button botaoremProduto6;
     private java.awt.Button botaoremProduto7;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable tabela5;
-    private javax.swing.JTable tabela6;
-    private javax.swing.JTable tabela7;
-    private javax.swing.JTable tabela8;
     private javax.swing.JTable tabela9;
-    private javax.swing.JTextField textoValor;
-    private javax.swing.JTextField textoValor1;
-    private javax.swing.JTextField textoValor2;
-    private javax.swing.JTextField textoValor3;
     private javax.swing.JTextField textoValor4;
     // End of variables declaration//GEN-END:variables
 }

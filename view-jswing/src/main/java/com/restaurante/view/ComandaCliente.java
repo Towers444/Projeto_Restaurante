@@ -16,7 +16,7 @@ public class ComandaCliente extends javax.swing.JFrame {
     public ComandaCliente() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -385,7 +385,7 @@ public class ComandaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoMostrarCardapioActionPerformed
 
     private void botaoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInicioActionPerformed
-        //carregarNovaPaginaTelaInicial();
+        this.dispose();
     }//GEN-LAST:event_botaoInicioActionPerformed
 
     private void BotaoPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPedidosActionPerformed
@@ -476,4 +476,5 @@ public class ComandaCliente extends javax.swing.JFrame {
     private javax.swing.JTextPane textoLinha2;
     private javax.swing.JTextField textoValor;
     // End of variables declaration//GEN-END:variables
+
 }

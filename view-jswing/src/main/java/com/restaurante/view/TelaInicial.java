@@ -17,8 +17,8 @@ public class TelaInicial extends javax.swing.JFrame {
         initComponents();
     }
     
-    cadastroUsuario janela10 = new cadastroUsuario();
-    PaginaClientes janela11 = new PaginaClientes();
+    //cadastroUsuario janela10 = new cadastroUsuario();
+    //PaginaClientes janela11 = new PaginaClientes();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -117,11 +117,11 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoPaginaGestaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPaginaGestaoActionPerformed
-        carregarNovaPaginaGestao();
+        //carregarNovaPaginaGestao();
     }//GEN-LAST:event_botaoPaginaGestaoActionPerformed
 
     private void botaoPaginaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPaginaClienteActionPerformed
-        carregarNovaPaginaCliente();
+        //carregarNovaPaginaCliente();
     }//GEN-LAST:event_botaoPaginaClienteActionPerformed
 
     /**
@@ -162,7 +162,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    public void carregarNovaPaginaGestao() {
+    /*public void carregarNovaPaginaGestao() {
 
         if (janela10 == null) {
             janela10 = new cadastroUsuario();
@@ -193,6 +193,6 @@ public class TelaInicial extends javax.swing.JFrame {
             janela11.setResizable(false);
       }
 
-    }
+    }*/
     
 }

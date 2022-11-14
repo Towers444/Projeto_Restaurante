@@ -17,10 +17,10 @@ public class PaginaGestaos extends javax.swing.JFrame {
         initComponents();
     }
     
-    //TelaInicial2 janela7 = new TelaInicial2();
+    CadastroUsuarioGestao janela7 = new CadastroUsuarioGestao();
     cadastroProdutos janela6 = new cadastroProdutos();
     PedidosGestao janela11 = new PedidosGestao();
-    CadastroEstoqueGestao janela3 = new CadastroEstoqueGestao();
+    CadastroEstoqueGestoes janela3 = new CadastroEstoqueGestoes();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -265,7 +265,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCadastroCardapioActionPerformed
 
     private void botaoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInicioActionPerformed
-        //carregarNovaPaginaInicial();
+        this.dispose();
     }//GEN-LAST:event_botaoInicioActionPerformed
 
     private void botaoPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPedidosActionPerformed
@@ -277,7 +277,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCreditosActionPerformed
 
     private void botaoCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroFuncionarioActionPerformed
-        // TODO add your handling code here:
+        carregarNovaPaginaFuncionarios();
     }//GEN-LAST:event_botaoCadastroFuncionarioActionPerformed
 
     private void botaoEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEstoqueActionPerformed
@@ -337,10 +337,10 @@ public class PaginaGestaos extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 
-    /*public void carregarNovaPaginaInicial() {
+    public void carregarNovaPaginaFuncionarios() {
 
         if (janela7 == null) {
-            janela7 = new TelaInicial2();
+            janela7 = new CadastroUsuarioGestao();
             janela7.setLocationRelativeTo(null);
             janela7.setVisible(true);
             janela7.setResizable(false);
@@ -350,7 +350,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
             janela7.setResizable(false);
       }
 
-    }*/
+    }
     
     public void carregarNovaPaginaCadastroCardapio() {
 
@@ -385,7 +385,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
     public void carregarNovaPaginaCadastroEstoqueGestao() {
 
         if (janela3 == null) {
-            janela3 = new CadastroEstoqueGestao();
+            janela3 = new CadastroEstoqueGestoes();
             janela3.setLocationRelativeTo(null);
             janela3.setVisible(true);
             janela3.setResizable(false);

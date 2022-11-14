@@ -22,7 +22,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
         initComponents();
     }
     
-    pedidosProdutos janela7 = new pedidosProdutos();
+    //pedidosProdutos janela7 = new pedidosProdutos();
     
     public int contador;
 
@@ -81,7 +81,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        TelaInicial = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
@@ -549,14 +549,14 @@ public class cadastroProdutos extends javax.swing.JFrame {
             }
         });
 
-        jButton12.setBackground(new java.awt.Color(176, 48, 39));
-        jButton12.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jButton12.setForeground(new java.awt.Color(255, 255, 255));
-        jButton12.setText("Início");
-        jButton12.setBorder(null);
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        TelaInicial.setBackground(new java.awt.Color(176, 48, 39));
+        TelaInicial.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        TelaInicial.setForeground(new java.awt.Color(255, 255, 255));
+        TelaInicial.setText("Início");
+        TelaInicial.setBorder(null);
+        TelaInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                TelaInicialActionPerformed(evt);
             }
         });
 
@@ -618,7 +618,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
                         .addComponent(jButton14))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(102, 102, 102)
-                        .addComponent(jButton12))
+                        .addComponent(TelaInicial))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addComponent(jButton11))
@@ -633,7 +633,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
-                .addComponent(jButton12)
+                .addComponent(TelaInicial)
                 .addGap(42, 42, 42)
                 .addComponent(jButton11)
                 .addGap(28, 28, 28)
@@ -787,9 +787,9 @@ public class cadastroProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    private void TelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelaInicialActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_TelaInicialActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
@@ -815,12 +815,12 @@ public class cadastroProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel LabelTitulo1;
     private javax.swing.JLabel LabelTitulo2;
     private javax.swing.JLabel LabelTitulo4;
+    private javax.swing.JButton TelaInicial;
     private java.awt.Button botaoAddProdutos1;
     private javax.swing.JButton botaoEstoque;
     private java.awt.Button botaoremProduto;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -895,7 +895,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
         if (cadastros == 4) {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
             JOptionPane.showMessageDialog(jScrollPane1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
-            janela7.enviaPalavras(this, textoNome.getText(), textoValor.getText(), textoDescricao.getText(), textoImagem.getText());
+            //janela7.enviaPalavras(this, textoNome.getText(), textoValor.getText(), textoDescricao.getText(), textoImagem.getText());
             carregarTabela();
         }
     }

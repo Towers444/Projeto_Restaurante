@@ -18,7 +18,7 @@ public class PaginaClientes extends javax.swing.JFrame {
     }
 
     pedidosProdutos janela8 = new pedidosProdutos();
-    //TelaInicial janela9 = new TelaInicial();
+    ComandaCliente janela9 = new ComandaCliente();
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -209,11 +209,11 @@ public class PaginaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoMostrarCardapioActionPerformed
 
     private void botaoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInicioActionPerformed
-        //carregarNovaPaginaTelaInicial();
+        this.dispose();
     }//GEN-LAST:event_botaoInicioActionPerformed
 
     private void BotaoPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPedidosActionPerformed
-        // TODO add your handling code here:
+        carregarNovaPaginaComandaCliente();
     }//GEN-LAST:event_BotaoPedidosActionPerformed
 
     private void BotaoCreditosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCreditosActionPerformed
@@ -276,31 +276,26 @@ public class PaginaClientes extends javax.swing.JFrame {
             janela8.setLocationRelativeTo(null);
             janela8.setVisible(true);
             janela8.setResizable(false);
-            this.dispose();
         } else {
             janela8.setLocationRelativeTo(null);
             janela8.setVisible(true);
             janela8.setResizable(false);
-            this.dispose();
       }
 
     }
     
-    /*public void carregarNovaPaginaTelaInicial() {
+    public void carregarNovaPaginaComandaCliente() {
 
         if (janela9 == null) {
-            janela9 = new TelaInicial();
+            janela9 = new ComandaCliente();
             janela9.setLocationRelativeTo(null);
             janela9.setVisible(true);
             janela9.setResizable(false);
-            this.dispose();
         } else {
             janela9.setLocationRelativeTo(null);
             janela9.setVisible(true);
             janela9.setResizable(false);
-            this.dispose();
       }
 
-    }*/
-    
+    }
 }

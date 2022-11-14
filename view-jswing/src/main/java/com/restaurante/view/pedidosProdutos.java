@@ -453,7 +453,7 @@ public class pedidosProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoMostrarCardapioActionPerformed
 
     private void botaoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInicioActionPerformed
-        //carregarNovaPaginaInicial();
+       this.dispose();
     }//GEN-LAST:event_botaoInicioActionPerformed
 
     private void BotaoPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPedidosActionPerformed

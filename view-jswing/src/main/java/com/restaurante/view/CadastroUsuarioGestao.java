@@ -464,7 +464,7 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -576,7 +576,6 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
             if(salario != null) {
                 cadastros++;
             }
-            
         } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             textoNome.requestFocus();

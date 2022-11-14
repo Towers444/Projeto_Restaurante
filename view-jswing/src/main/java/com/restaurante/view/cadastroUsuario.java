@@ -235,7 +235,6 @@ public class cadastroUsuario extends javax.swing.JFrame {
     public void loginUsuario() {
 
         int cadastros = 0;
-        
         try {
             String usuario = textoUsuario.getText();
             ManterUsuario.cadastrarUsuario(usuario);
@@ -258,13 +257,16 @@ public class cadastroUsuario extends javax.swing.JFrame {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
             System.out.print("Chegou");
             JOptionPane.showMessageDialog(jPanel1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
-            carregarNovaPagina();
+            if("admin".equals(textoUsuario.getText()) && "123".equals(textoSenha.getText())) {
+                System.out.print("Entrou");
+                carregarNovaPagina();
+            }
         }
 
     }
 
     public void carregarNovaPagina() {
-
+        
         if (janela4 == null) {
             janela4 = new PaginaGestaos();
             janela4.setLocationRelativeTo(null);

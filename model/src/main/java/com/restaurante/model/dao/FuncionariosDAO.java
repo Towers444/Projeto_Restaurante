@@ -34,6 +34,7 @@ public class FuncionariosDAO {
             }
         }
 
+
         return null; // não encontrou
     }
 
@@ -41,7 +42,7 @@ public class FuncionariosDAO {
 
         if (consultarNome(nome, senha, especialidade, salario) != null) {
             throw new PersistenciaException("Violação de campo unico: nome");
-        }
+        } 
         if (consultarNome(nome, senha, especialidade, salario) == null) {
             
             Funcionarios r = new Funcionarios(chave, nome, senha, especialidade, salario);

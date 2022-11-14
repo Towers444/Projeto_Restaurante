@@ -14,7 +14,7 @@ public class Alimentos {
 	private String ingrediente;
         private String quantidade;
         
-        public Alimentos(String nome, String ingrediente, String quantidade) {
+        public Alimentos(String ingrediente, String quantidade) {
 		this.codigo = 0;
                 this.ingrediente = ingrediente;
                 this.quantidade = quantidade;
