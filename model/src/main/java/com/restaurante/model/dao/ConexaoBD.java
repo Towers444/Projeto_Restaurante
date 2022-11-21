@@ -18,9 +18,9 @@ public class ConexaoBD {
     private ConexaoBD() {}
     
     //TODO completar as strings vazias com as informações do banco de dados
-    private static final String URL = "";
-    private static final String USUARIO = "";
-    private static final String SENHA = "";
+    private static final String URL = "saborearte.chwxs6wwh47k.us-east-1.rds.amazonaws.com";
+    private static final String USUARIO = "admin";
+    private static final String SENHA = "saborearteC*1";
     
     /**
      * Tenta estabelecer uma conexão com o bando de dados.
