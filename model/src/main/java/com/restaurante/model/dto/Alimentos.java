@@ -10,4 +10,27 @@ package com.restaurante.model.dto;
  */
 public class Alimentos {
     
+        private int codigo;
+	private String ingrediente;
+        private String quantidade;
+        
+        public Alimentos(String ingrediente, String quantidade) {
+		this.codigo = 0;
+                this.ingrediente = ingrediente;
+                this.quantidade = quantidade;
+	}
+        
+	public Alimentos(int codigo, String ingrediente, String quantidade) {
+		this.codigo = codigo;
+                this.ingrediente = ingrediente;
+                this.quantidade = quantidade;
+	}
+
+	public String getIngrediente() {
+		return ingrediente;
+	}
+        
+        public String getQuantidade() {
+		return quantidade;
+	}    
 }

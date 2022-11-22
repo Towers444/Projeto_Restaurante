@@ -17,8 +17,10 @@ public class PaginaGestaos extends javax.swing.JFrame {
         initComponents();
     }
     
-    //TelaInicial2 janela7 = new TelaInicial2();
+    CadastroUsuarioGestao janela7 = new CadastroUsuarioGestao();
     cadastroProdutos janela6 = new cadastroProdutos();
+    PedidosGestao janela11 = new PedidosGestao();
+    CadastroEstoqueGestoes janela3 = new CadastroEstoqueGestoes();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,6 +31,8 @@ public class PaginaGestaos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -40,9 +44,20 @@ public class PaginaGestaos extends javax.swing.JFrame {
         botaoCadastroFuncionario = new javax.swing.JButton();
         botaoEstoque = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jTextArea1.setBackground(new java.awt.Color(235, 191, 16));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Seja bem vindo ao Sistema Sabor e Arte, um projeto para a administração de restaurantes.\n\nEssa página é dedicada a gestão do sistema e nela você pode encontrar funções como o gerenciamento de cardápio, o gerenciamento de pedidos, a consul-ta de estoque e  uma página de créditos dos desenvolvedores do projeto.");
+        jTextArea1.setBorder(null);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(235, 191, 16));
 
@@ -184,9 +199,15 @@ public class PaginaGestaos extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Sistema Sabor e Arte");
 
-        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Descrição do Projeto");
+        jTextArea2.setBackground(new java.awt.Color(235, 191, 16));
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("Seja bem vindo ao Sistema Sabor e Arte, um projeto para a administração de restaurantes.\n\nEssa página é dedicada a gestão do sistema e nela você pode encontrar funções como o gerenciamento de cardápio, o gerenciamento de pedidos, a consul-ta de estoque e  uma página de créditos dos desenvolvedores do projeto.");
+        jTextArea2.setBorder(null);
+        jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -201,8 +222,8 @@ public class PaginaGestaos extends javax.swing.JFrame {
                         .addGap(0, 164, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel12)
-                        .addGap(229, 229, 229))))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,9 +231,9 @@ public class PaginaGestaos extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,11 +265,11 @@ public class PaginaGestaos extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCadastroCardapioActionPerformed
 
     private void botaoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInicioActionPerformed
-        //carregarNovaPaginaInicial();
+        this.dispose();
     }//GEN-LAST:event_botaoInicioActionPerformed
 
     private void botaoPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPedidosActionPerformed
-        // TODO add your handling code here:
+        carregarNovaPaginaPedidosGestao();
     }//GEN-LAST:event_botaoPedidosActionPerformed
 
     private void botaoCreditosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCreditosActionPerformed
@@ -256,11 +277,11 @@ public class PaginaGestaos extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCreditosActionPerformed
 
     private void botaoCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroFuncionarioActionPerformed
-        // TODO add your handling code here:
+        carregarNovaPaginaFuncionarios();
     }//GEN-LAST:event_botaoCadastroFuncionarioActionPerformed
 
     private void botaoEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEstoqueActionPerformed
-        // TODO add your handling code here:
+        carregarNovaPaginaCadastroEstoqueGestao();
     }//GEN-LAST:event_botaoEstoqueActionPerformed
 
     /**
@@ -306,17 +327,20 @@ public class PaginaGestaos extends javax.swing.JFrame {
     private javax.swing.JButton botaoInicio;
     private javax.swing.JButton botaoPedidos;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 
-    /*public void carregarNovaPaginaInicial() {
+    public void carregarNovaPaginaFuncionarios() {
 
         if (janela7 == null) {
-            janela7 = new TelaInicial2();
+            janela7 = new CadastroUsuarioGestao();
             janela7.setLocationRelativeTo(null);
             janela7.setVisible(true);
             janela7.setResizable(false);
@@ -326,7 +350,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
             janela7.setResizable(false);
       }
 
-    }*/
+    }
     
     public void carregarNovaPaginaCadastroCardapio() {
 
@@ -339,6 +363,36 @@ public class PaginaGestaos extends javax.swing.JFrame {
             janela6.setLocationRelativeTo(null);
             janela6.setVisible(true);
             janela6.setResizable(false);
+      }
+
+    }
+    
+    public void carregarNovaPaginaPedidosGestao() {
+
+        if (janela11 == null) {
+            janela11 = new PedidosGestao();
+            janela11.setLocationRelativeTo(null);
+            janela11.setVisible(true);
+            janela11.setResizable(false);
+        } else {
+            janela11.setLocationRelativeTo(null);
+            janela11.setVisible(true);
+            janela11.setResizable(false);
+      }
+
+    }
+    
+    public void carregarNovaPaginaCadastroEstoqueGestao() {
+
+        if (janela3 == null) {
+            janela3 = new CadastroEstoqueGestoes();
+            janela3.setLocationRelativeTo(null);
+            janela3.setVisible(true);
+            janela3.setResizable(false);
+        } else {
+            janela3.setLocationRelativeTo(null);
+            janela3.setVisible(true);
+            janela3.setResizable(false);
       }
 
     }

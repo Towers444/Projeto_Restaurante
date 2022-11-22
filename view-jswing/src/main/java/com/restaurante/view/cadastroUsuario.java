@@ -4,11 +4,9 @@
  */
 package com.restaurante.view;
 
-import com.projetorestaurante.model.service.GerenciarUsuarios;
 import com.restaurante.model.service.ManterSenha;
 import com.restaurante.model.service.ManterUsuario;
 import com.restaurante.common.NegocioException;
-import com.restaurante.others.InitializeFiles;
 import javax.swing.JOptionPane;
 
 /**
@@ -53,7 +51,7 @@ public class cadastroUsuario extends javax.swing.JFrame {
 
         button1.setLabel("button1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(235, 191, 16));
 
@@ -180,20 +178,9 @@ public class cadastroUsuario extends javax.swing.JFrame {
     private void textoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoSenhaActionPerformed
-    GerenciarUsuarios registrar = new GerenciarUsuarios();
+
     private void botaoPaginaGestaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPaginaGestaoActionPerformed
-        new InitializeFiles().initCadastros();
-        if(!registrar.userExist(textoUsuario.getText())){
-            registrar.Registrar(textoUsuario.getText(), textoSenha.getPassword());
-            
-            String msgDialog = "Todos os campos foram cadastrados com sucesso!";
-            JOptionPane.showMessageDialog(this, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
-            
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(this, String.format("Bem-vindo de volta, %s", textoUsuario.getText()));
-        }
-        carregarNovaPagina();
+        loginUsuario();
     }//GEN-LAST:event_botaoPaginaGestaoActionPerformed
 
     /**
@@ -248,7 +235,6 @@ public class cadastroUsuario extends javax.swing.JFrame {
     public void loginUsuario() {
 
         int cadastros = 0;
-        
         try {
             String usuario = textoUsuario.getText();
             ManterUsuario.cadastrarUsuario(usuario);
@@ -271,13 +257,16 @@ public class cadastroUsuario extends javax.swing.JFrame {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
             System.out.print("Chegou");
             JOptionPane.showMessageDialog(jPanel1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
-            carregarNovaPagina();
+            if("admin".equals(textoUsuario.getText()) && "123".equals(textoSenha.getText())) {
+                System.out.print("Entrou");
+                carregarNovaPagina();
+            }
         }
 
     }
 
     public void carregarNovaPagina() {
-
+        
         if (janela4 == null) {
             janela4 = new PaginaGestaos();
             janela4.setLocationRelativeTo(null);
