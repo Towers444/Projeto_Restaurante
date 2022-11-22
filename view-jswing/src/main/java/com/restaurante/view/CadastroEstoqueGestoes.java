@@ -6,6 +6,9 @@ package com.restaurante.view;
 
 import com.restaurante.common.NegocioException;
 import com.restaurante.model.service.ManterAlimentos;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -404,7 +407,13 @@ public class CadastroEstoqueGestoes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAddProdutosbotaoAddProdutos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdutosbotaoAddProdutos1ActionPerformed
-        cadastrarEstoque();
+        try {
+            cadastrarEstoque();
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_botaoAddProdutosbotaoAddProdutos1ActionPerformed
 
     private void botaoremProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProdutoActionPerformed
@@ -516,7 +525,7 @@ public class CadastroEstoqueGestoes extends javax.swing.JFrame {
     private javax.swing.JTextPane textoQuantidade;
     // End of variables declaration//GEN-END:variables
 
-public void cadastrarEstoque() {    
+public void cadastrarEstoque() throws SQLException, ClassNotFoundException {    
     
     int cadastros = 0;
         try {
