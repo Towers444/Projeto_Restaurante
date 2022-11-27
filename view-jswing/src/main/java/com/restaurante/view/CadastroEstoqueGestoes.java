@@ -5,8 +5,10 @@
 package com.restaurante.view;
 
 import com.restaurante.common.NegocioException;
+import com.restaurante.model.dto.Alimentos;
 import com.restaurante.model.service.ManterAlimentos;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -23,6 +25,14 @@ public class CadastroEstoqueGestoes extends javax.swing.JFrame {
      */
     public CadastroEstoqueGestoes() {
         initComponents();
+        
+        try {
+            carregarTabela(ManterAlimentos.listarAlimentos());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jPanel45, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jPanel45, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     public int contador;
@@ -407,29 +417,41 @@ public class CadastroEstoqueGestoes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAddProdutosbotaoAddProdutos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdutosbotaoAddProdutos1ActionPerformed
-        try {
             cadastrarEstoque();
-        } catch (SQLException ex) {
-            Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }//GEN-LAST:event_botaoAddProdutosbotaoAddProdutos1ActionPerformed
 
     private void botaoremProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProdutoActionPerformed
         String stringRemoverLinha = textoLinha.getText();
         int removerLinha = Integer.parseInt(stringRemoverLinha);
-        if (removerLinha <= 0 || removerLinha > contador) {
+        if (removerLinha <= 0 || removerLinha > 5) {
             JOptionPane.showMessageDialog(jPanel45, "Número de linha inexistente", "Erro", JOptionPane.ERROR_MESSAGE);
             textoLinha.requestFocus();
         } else {
             removerLinha--;
             String valorNumeroNome = (String) tabela.getValueAt(removerLinha, 0);
-            String valorNumeroDescricao = (String) tabela.getValueAt(removerLinha, 1);
+            String valorNumeroQuantidade = (String) tabela.getValueAt(removerLinha, 1);
+            System.out.print("GARRRRRRRRRRRRRRRRRRRROOOOOOOOOU");
+            System.out.print(valorNumeroNome);
+            System.out.print(valorNumeroQuantidade);
+            try {
+                System.out.print("CHAMAAAAAAAAAAANDO");
+                ManterAlimentos.excluirAlimentos(valorNumeroNome, valorNumeroQuantidade);
+                System.out.print("CHAMAAAAAAAAAAAMOOOOOOOOOOOOOOOOOOOOOOOOU");
+            } catch (NegocioException ex) {
+                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
+            }
             contador--;
-            ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
-            //ProdutoNomeDAO.excluirProdutoNome(valorNumeroNome);
-            //ProdutoDAO.excluirProdutoDescricao(valorNumeroDescricao);
+            try {
+                carregarTabela(ManterAlimentos.listarAlimentos());
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_botaoremProdutoActionPerformed
 
@@ -525,38 +547,56 @@ public class CadastroEstoqueGestoes extends javax.swing.JFrame {
     private javax.swing.JTextPane textoQuantidade;
     // End of variables declaration//GEN-END:variables
 
-public void cadastrarEstoque() throws SQLException, ClassNotFoundException {    
-    
-    int cadastros = 0;
+    public void cadastrarEstoque() {
+
+        int cadastros = 0;
         try {
             String ingrediente = textoIngrediente.getText();
             String quantidade = textoQuantidade.getText();
             ManterAlimentos.cadastrarAlimentos(ingrediente, quantidade);
-            if(ingrediente != null) {
+            if (ingrediente != null) {
                 cadastros++;
             }
-            if(quantidade != null) {
+            if (quantidade != null) {
                 cadastros++;
-            }   
+            }
+        
+
+            if (cadastros == 2) {
+                String msgDialog = "Todos os campos foram cadastrados com sucesso!";
+                JOptionPane.showMessageDialog(jPanel45, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
+                carregarTabela(ManterAlimentos.listarAlimentos());
+            }
         } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(jPanel45, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             textoIngrediente.requestFocus();
-        }
-        
-        if (cadastros == 2) {
-            String msgDialog = "Todos os campos foram cadastrados com sucesso!";
-            JOptionPane.showMessageDialog(jPanel45, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
-            carregarTabela();
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jPanel45, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jPanel45, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void carregarTabela() {
-
+    public void carregarTabela(HashSet<Alimentos> lista) {
         contador++;
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
-        Object[] dados = {textoIngrediente.getText(), textoQuantidade.getText()};
-        modelo.addRow(dados);
+        
+        modelo.getDataVector().removeAllElements();
+        modelo.fireTableDataChanged();
+        
+        for(Alimentos alimento : lista) {
+            modelo.insertRow(modelo.getRowCount(), new Object[] {alimento.getIngrediente(), alimento.getQuantidade()});
+        }
 
     }
 
+    public void carregarTabelaMomentanea() {
+        contador++;
+        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+        modelo.getDataVector().removeAllElements();
+        modelo.fireTableDataChanged();
+        
+        Object[] dados = {textoIngrediente.getText(), textoQuantidade.getText()};
+        modelo.addRow(dados);
+    }
 }

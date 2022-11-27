@@ -9,6 +9,8 @@ import com.restaurante.model.dto.Funcionarios;
 import com.restaurante.model.dao.FuncionariosDAO;
 import com.restaurante.common.NegocioException;
 import com.restaurante.common.PersistenciaException;
+import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -21,14 +23,14 @@ public class ManterFuncionarios {
     private ManterFuncionarios() {
     }
 
-    public static Funcionarios cadastrarFuncionarios(String nome, String senha, String especialidade, String salario) throws NegocioException {
+    public static int cadastrarFuncionarios(String codigo, String nome, String especialidade, String salario) throws NegocioException, SQLException, ClassNotFoundException {
+
+        if (codigo.isEmpty()) {
+            throw new NegocioException(511, "O codigo é obrigatório.");
+        }
 
         if (nome.isEmpty()) {
             throw new NegocioException(511, "O nome é obrigatório.");
-        }
-
-        if (senha.isEmpty()) {
-            throw new NegocioException(511, "A senha é obrigatória.");
         }
         
         if (especialidade.isEmpty()) {
@@ -36,18 +38,24 @@ public class ManterFuncionarios {
         }
         
         if (salario.isEmpty()) {
-            throw new NegocioException(511, "O salário é obrigatório.");
+            throw new NegocioException(511, "O salario é obrigatório.");
         }
         
+        
+        
         try {
-            return FuncionariosDAO.inserir(nome, senha, especialidade, salario);
+            Funcionarios funcionario = new Funcionarios(Integer.parseInt(codigo), nome, especialidade, Integer.parseInt(salario));
+            
+            return FuncionariosDAO.inserir(funcionario);
         } catch (PersistenciaException ex) {
-            throw new NegocioException(512, "O funcionarios ja foi cadastrado.");
+            throw new NegocioException(512, "O funcionarios cadastrado apresenta ingredientes repetidos.");
         }
     }
 
-    public static void excluirFuncionariosDescricao(String ingrediente) {
-
+    public static int excluirFuncionarios(String ingrediente, String quantidade) throws NegocioException, SQLException, ClassNotFoundException {
+        
+        return 0;
+        
     }
 
     public static void alterarFuncionariosDescricao(String nomeAnterior, String novoNome) {
@@ -55,9 +63,8 @@ public class ManterFuncionarios {
     }
 
     // ao abrir a tela ou alterar/cadastrar/excluir contato
-    public static List<Funcionarios> listarFuncionarioss() {
-
-        return null;
+    public static HashSet<Funcionarios> listarFuncionarios() throws ClassNotFoundException, SQLException {
+        return FuncionariosDAO.listar();
     }
 
 }

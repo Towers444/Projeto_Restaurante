@@ -5,7 +5,12 @@
 package com.restaurante.view;
 
 import com.restaurante.common.NegocioException;
+import com.restaurante.model.dto.Funcionarios;
+import com.restaurante.model.service.ManterAlimentos;
 import com.restaurante.model.service.ManterFuncionarios;
+import com.restaurante.model.service.ManterUsuario;
+import java.sql.SQLException;
+import java.util.HashSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +25,14 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
      */
     public CadastroUsuarioGestao() {
         initComponents();
+        
+        try {
+            carregarTabela(ManterFuncionarios.listarFuncionarios());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     public int contador = 0; 
@@ -41,7 +54,7 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
         textoNome = new javax.swing.JTextPane();
         labelValor = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        textoSenha = new javax.swing.JTextPane();
+        textoCodigo = new javax.swing.JTextPane();
         botaoAddFuncionario = new java.awt.Button();
         labelSalario = new javax.swing.JLabel();
         labelEspecialidade = new javax.swing.JLabel();
@@ -49,6 +62,9 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
         textoSalario = new javax.swing.JTextPane();
         jScrollPane4 = new javax.swing.JScrollPane();
         textoEspecialidade = new javax.swing.JTextPane();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        textoSenha = new javax.swing.JTextPane();
+        labelSenha = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
@@ -86,10 +102,10 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
 
         labelValor.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         labelValor.setForeground(new java.awt.Color(255, 255, 255));
-        labelValor.setText("Senha:");
+        labelValor.setText("CPF:");
 
-        textoSenha.setText("-senha funcionario-");
-        jScrollPane2.setViewportView(textoSenha);
+        textoCodigo.setText("-CPF funcionario-");
+        jScrollPane2.setViewportView(textoCodigo);
 
         botaoAddFuncionario.setActionCommand("Adicionar Produto");
         botaoAddFuncionario.setBackground(new java.awt.Color(173, 28, 17));
@@ -117,6 +133,13 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
         textoEspecialidade.setText("-especialidade-");
         jScrollPane4.setViewportView(textoEspecialidade);
 
+        textoSenha.setText("-Senha funcionario-");
+        jScrollPane7.setViewportView(textoSenha);
+
+        labelSenha.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        labelSenha.setForeground(new java.awt.Color(255, 255, 255));
+        labelSenha.setText("Senha:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -138,12 +161,14 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labelEspecialidade, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(labelSalario, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(labelSalario, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelSenha, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGap(18, 18, 18)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(22, 22, 22))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(85, 85, 85)
@@ -161,17 +186,21 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelValor)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelSenha))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelEspecialidade))
-                .addGap(25, 25, 25)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelSalario))
-                .addGap(26, 26, 26)
+                .addGap(34, 34, 34)
                 .addComponent(botaoAddFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
 
         jPanel3.setBackground(new java.awt.Color(173, 48, 19));
@@ -180,7 +209,7 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
             new Object [][] {
             },
             new String [] {
-                "Funcionário", "Senha", "Especialização", "Salário"
+                "CPF", "Funcionario", "Especialização", "Salário"
             }
         ));
         jScrollPane5.setViewportView(tabela);
@@ -542,11 +571,14 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JLabel labelEspecialidade;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelSalario;
+    private javax.swing.JLabel labelSenha;
     private javax.swing.JLabel labelValor;
     private javax.swing.JTable tabela;
+    private javax.swing.JTextPane textoCodigo;
     private javax.swing.JTextPane textoEspecialidade;
     private javax.swing.JTextPane textoLinha;
     private javax.swing.JTextPane textoNome;
@@ -560,14 +592,16 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
 
         try {
             String nome = textoNome.getText();
+            String codigo = textoCodigo.getText();
             String senha = textoSenha.getText();
             String especialidade = textoEspecialidade.getText();
             String salario = textoSalario.getText();
-            ManterFuncionarios.cadastrarFuncionarios(nome, senha, especialidade, salario);
+            ManterFuncionarios.cadastrarFuncionarios(codigo, nome, especialidade, salario);
+            ManterUsuario.cadastrarUsuario(codigo, senha);
             if(nome != null) {
                 cadastros++;
             }
-            if(senha != null) {
+            if(codigo != null) {
                 cadastros++;
             }
             if(especialidade != null) {
@@ -576,25 +610,41 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
             if(salario != null) {
                 cadastros++;
             }
+            
+            if (cadastros == 4) {
+            String msgDialog = "Todos os campos foram cadastrados com sucesso!";
+            JOptionPane.showMessageDialog(jScrollPane1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
+            carregarTabelaMomentanea();
+        }
         } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             textoNome.requestFocus();
-        }
-        
-        if (cadastros == 4) {
-            String msgDialog = "Todos os campos foram cadastrados com sucesso!";
-            JOptionPane.showMessageDialog(jScrollPane1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
-            carregarTabela();
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void carregarTabela() {
+    public void carregarTabela(HashSet<Funcionarios> lista) {
 
         contador++;
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
-        Object[] dados = {textoNome.getText(), textoSenha.getText(), textoEspecialidade.getText(), textoSalario.getText()};
-        modelo.addRow(dados);
-
+        modelo.getDataVector().removeAllElements();
+        modelo.fireTableDataChanged();
+        
+        for(Funcionarios funcionario : lista) {
+            modelo.insertRow(modelo.getRowCount(), new Object[] {funcionario.getCodigo(), funcionario.getNome(), funcionario.getEspecialidade(), funcionario.getSalario()});
+        }
     }
-
-}
+    
+    public void carregarTabelaMomentanea() {
+        contador++;
+        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+        modelo.getDataVector().removeAllElements();
+        modelo.fireTableDataChanged();
+        
+        Object[] dados = {textoCodigo.getText(), textoNome.getText(), textoEspecialidade.getText(), textoSalario.getText()};
+        modelo.addRow(dados);
+    }
+    }

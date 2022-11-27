@@ -7,6 +7,7 @@ package com.restaurante.view;
 import com.restaurante.model.service.ManterSenha;
 import com.restaurante.model.service.ManterUsuario;
 import com.restaurante.common.NegocioException;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -236,33 +237,31 @@ public class cadastroUsuario extends javax.swing.JFrame {
 
         int cadastros = 0;
         try {
-            String usuario = textoUsuario.getText();
-            ManterUsuario.cadastrarUsuario(usuario);
-            cadastros++;
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoUsuario.requestFocus();
-        }
-
-        try {
+            String codigo = textoUsuario.getText();
             String senha = textoSenha.getText();
-            ManterSenha.cadastrarSenha(senha);
-            cadastros++;
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoSenha.requestFocus();
-        }
-
-        if (cadastros == 2) {
+            ManterUsuario.excluirUsuario(codigo, senha);
+            if(codigo != null) {
+                cadastros++;
+            }
+            if(senha != null) {
+                cadastros++;
+            }
+            if (cadastros == 2) {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
-            System.out.print("Chegou");
             JOptionPane.showMessageDialog(jPanel1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
             if("admin".equals(textoUsuario.getText()) && "123".equals(textoSenha.getText())) {
                 System.out.print("Entrou");
                 carregarNovaPagina();
             }
         }
-
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            textoUsuario.requestFocus();
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public void carregarNovaPagina() {

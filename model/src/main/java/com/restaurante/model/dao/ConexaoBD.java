@@ -18,7 +18,7 @@ public class ConexaoBD {
     private ConexaoBD() {}
     
     //TODO completar as strings vazias com as informações do banco de dados
-    private static final String URL = "saborearte.chwxs6wwh47k.us-east-1.rds.amazonaws.com";
+    private static final String URL = "jdbc:mysql://saborearte.chwxs6wwh47k.us-east-1.rds.amazonaws.com/sys";
     private static final String USUARIO = "admin";
     private static final String SENHA = "saborearteC*1";
     

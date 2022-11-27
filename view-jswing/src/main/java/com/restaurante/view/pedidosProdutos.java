@@ -4,6 +4,11 @@
  */
 package com.restaurante.view;
 
+import com.restaurante.model.dto.Produto;
+import com.restaurante.model.service.ManterProduto;
+import java.sql.SQLException;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,13 +22,14 @@ public class pedidosProdutos extends javax.swing.JFrame {
      */
     public pedidosProdutos() {
         initComponents();
-    }
-
-    public void enviaPalavras(cadastroProdutos msgCadastroProdutos, String nome, String valor, String descricao, String imagem) {
-
-        initComponents();
-        carregarTabela(nome, valor, descricao, imagem);
-
+        
+        try {
+            carregarTabela(ManterProduto.listarProduto());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -342,11 +348,9 @@ public class pedidosProdutos extends javax.swing.JFrame {
         });
 
         tabela4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Imagem", "d", "d", "ddd"},
-            },
+            new Object [][] {},
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nome", "Valor", "Descricao"
             }
         ));
         jScrollPane1.setViewportView(tabela4);
@@ -551,11 +555,15 @@ public class pedidosProdutos extends javax.swing.JFrame {
     private javax.swing.JTextPane textoLinha2;
     // End of variables declaration//GEN-END:variables
 
-    public void carregarTabela(String nome, String valor, String descricao, String imagem) {
-
-        DefaultTableModel modelo2 = (DefaultTableModel) tabela4.getModel();
-        Object[] dados2 = {nome, valor, descricao, imagem};
-        modelo2.addRow(dados2);
+    public void carregarTabela(HashSet<Produto> lista) {
+        DefaultTableModel modelo = (DefaultTableModel) tabela4.getModel();
+        
+        modelo.getDataVector().removeAllElements();
+        modelo.fireTableDataChanged();
+        
+        for(Produto produto : lista) {
+            modelo.insertRow(modelo.getRowCount(), new Object[] {produto.getNome(), produto.getValor(), produto.getDescricao()});
+        }
 
     }
 }

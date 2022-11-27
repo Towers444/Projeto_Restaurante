@@ -52,11 +52,10 @@ public class AlimentosDAO {
             * A função para conseguir o PreparedStatement recebe como parâmetro um código SQL que será executado
             * Cada '?' é um campo que será substituído por um valor
             */
-            ps = conexao.prepareStatement("INSERT INTO alimentos VALUES(?, ?, ?)");
+            ps = conexao.prepareStatement("INSERT INTO alimentos VALUES(?, ?)");
             
-            ps.setString(1, alimento.getCodigo()); //Troca o primeiro '?' pela String 'id'
-            ps.setString(2, alimento.getIngrediente()); //Troca o segundo '?' pela String 'ingrediente'
-            ps.setInt(3, alimento.getQuantidade()); //Troca o terceiro '?' pelo int 'quantidade'
+            ps.setString(1, alimento.getIngrediente()); //Troca o primeiro '?' pela String 'ingrediente'
+            ps.setInt(2, alimento.getQuantidade()); //Troca o segundo '?' pelo int 'quantidade'
             
             /*
             * Executa o código SQL recebido por parâmetro na função prepareStatement
@@ -93,9 +92,9 @@ public class AlimentosDAO {
         try {
             conexao = ConexaoBD.conectar();
             
-            ps = conexao.prepareStatement("DELETE FROM alimentos WHERE codigo = ?");
+            ps = conexao.prepareStatement("DELETE FROM alimentos WHERE ingrediente = ?");
             
-            ps.setString(1, alimento.getCodigo());
+            ps.setString(1, alimento.getIngrediente());
             
             retorno = ps.executeUpdate();
         } finally {
@@ -157,8 +156,7 @@ public class AlimentosDAO {
                 * Para acessar as colunas de um registro, basta utilizar a função get (existem várias, cada uma retornando um tipo diferente)
                 * As colunas recebem o mesmo nome das que constam na tabela do banco de dados
                 */
-                alimento = new Alimentos(rs.getString("codigo"),
-                        rs.getString("ingrediente"),
+                alimento = new Alimentos(rs.getString("ingrediente"),
                         rs.getInt("quantidade"));
                 
                 lista.add(alimento);
@@ -191,8 +189,7 @@ public class AlimentosDAO {
             
             //Se houver um próximo registo no ResultSet, significa que encontramos o registro desejado
             while(rs.next()) {
-                alimento = new Alimentos(rs.getString("codigo"),
-                        rs.getString("ingrediente"),
+                alimento = new Alimentos(rs.getString("ingrediente"),
                         rs.getInt("quantidade"));
             }
         } finally {

@@ -6,6 +6,10 @@ package com.restaurante.view;
 
 import com.restaurante.model.service.ManterProduto;
 import com.restaurante.common.NegocioException;
+import com.restaurante.model.dto.Alimentos;
+import com.restaurante.model.dto.Produto;
+import java.sql.SQLException;
+import java.util.HashSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +24,14 @@ public class cadastroProdutos extends javax.swing.JFrame {
      */
     public cadastroProdutos() {
         initComponents();
+        
+        try {
+            carregarTabela(ManterProduto.listarProduto());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     //pedidosProdutos janela7 = new pedidosProdutos();
@@ -463,7 +475,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
             new Object [][] {
             },
             new String [] {
-                "Imagem", "Nome", "Valor", "Descricao"
+                "Nome", "Valor", "Descricao"
             }
         ));
         jScrollPane5.setViewportView(tabela);
@@ -736,6 +748,8 @@ public class cadastroProdutos extends javax.swing.JFrame {
             removerLinha--;
             String valorNumeroNome = (String) tabela.getValueAt(removerLinha, 1);
             String valorNumeroDescricao = (String) tabela.getValueAt(removerLinha, 2);
+            System.out.print(valorNumeroNome);
+            System.out.print(valorNumeroDescricao);
             contador--;
             ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
             //ProdutoNomeDAO.excluirProdutoNome(valorNumeroNome);
@@ -887,24 +901,36 @@ public class cadastroProdutos extends javax.swing.JFrame {
             if(imagem != null) {
                 cadastros++;
             }
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoNome.requestFocus();
-        }
         
         if (cadastros == 4) {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
             JOptionPane.showMessageDialog(jScrollPane1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
             //janela7.enviaPalavras(this, textoNome.getText(), textoValor.getText(), textoDescricao.getText(), textoImagem.getText());
-            carregarTabela();
+            carregarTabela(ManterProduto.listarProduto());
         }
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            textoNome.requestFocus();
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }
 
-    public void carregarTabela() {
-
+    public void carregarTabela(HashSet<Produto> lista) {
         contador++;
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
-        Object[] dados = {textoImagem.getText(), textoNome.getText(), textoValor.getText(), textoDescricao.getText()};
+        
+        modelo.getDataVector().removeAllElements();
+        modelo.fireTableDataChanged();
+        
+        for(Produto produto : lista) {
+            modelo.insertRow(modelo.getRowCount(), new Object[] {produto.getNome(), produto.getValor(), produto.getDescricao()});
+        }
+        
+        Object[] dados = {textoNome.getText(), textoValor.getText(), textoDescricao.getText()};
         modelo.addRow(dados);
 
     }

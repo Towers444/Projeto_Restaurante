@@ -13,40 +13,41 @@ public class Funcionarios {
     
         private int codigo;
 	private String nome;
-        private String senha;
         private String especialidade;
-        private String salario;
+        private int salario;
         
-        public Funcionarios(String nome, String senha, String especialidade, String salario) {
+        public Funcionarios(String nome, String senha, String especialidade, int salario) {
 		this.codigo = 0;
                 this.nome = nome;
-                this.nome = senha;
-                this.nome = especialidade;
-                this.nome = salario;
+                this.especialidade = especialidade;
+                this.salario = salario;
 	}
         
-	public Funcionarios(int codigo, String nome, String senha, String especialidade, String salario) {
+	public Funcionarios(int codigo, String nome, String especialidade, int salario) {
 		this.codigo = codigo;
                 this.nome = nome;
-                this.nome = senha;
-                this.nome = especialidade;
-                this.nome = salario;
+                this.especialidade = especialidade;
+                this.salario = salario;
 	}
 
-	public String getNome() {
-		return nome;
+	public int getCogigo() {
+		return codigo;
 	}
         
-        public String getSenha() {
-		return senha;
+        public String getNome() {
+		return nome;
 	}
         
         public String getEspecialidade() {
 		return especialidade;
 	}
         
-        public String getSalario() {
+        public int getSalario() {
 		return salario;
 	}
+
+    public int getCodigo() {
+        return codigo;
+    }
     
 }
