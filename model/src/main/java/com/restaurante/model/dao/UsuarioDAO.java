@@ -167,8 +167,7 @@ public class UsuarioDAO {
         return lista;
     }
 
-    public static Usuario consultarIngredientes(String ingrediente) throws ClassNotFoundException, SQLException {
-        Usuario usuario = null;
+    public static int consultarUsuarios(Usuario usuario) throws ClassNotFoundException, SQLException {
         
         Connection conexao = null;
         
@@ -180,21 +179,25 @@ public class UsuarioDAO {
             conexao = ConexaoBD.conectar();
             
             //Seleciona os registros que atendem aos requisitos
-            ps = conexao.prepareStatement("SELECT * FROM usuarios WHERE ingrediente = ?");
+            ps = conexao.prepareStatement("SELECT * FROM usuarios WHERE ingrediente = ?, ?");
             
-            ps.setString(1, ingrediente);
+            ps.setInt(1, usuario.getCpf());
+            ps.setInt(2, usuario.getSenha());
             
             rs = ps.executeQuery();
             
             //Se houver um próximo registo no ResultSet, significa que encontramos o registro desejado
             while(rs.next()) {
                 usuario = new Usuario(rs.getInt("cpf"),
-                        rs.getInt("quantidade"));
+                        rs.getInt("senha"));
             }
         } finally {
             ConexaoBD.fecharConexao(conexao, ps, rs);
         }
-        
-        return usuario;
+        if (usuario != null) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }

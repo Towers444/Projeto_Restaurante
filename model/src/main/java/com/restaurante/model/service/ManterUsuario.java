@@ -42,6 +42,20 @@ public class ManterUsuario {
         }
     }
 
+    public static int consultarUsuario(String cpf, String senha) throws NegocioException, SQLException, ClassNotFoundException {
+
+        if (cpf.isEmpty()) {
+            throw new NegocioException(511, "O CPF é obrigatório.");
+        }
+
+        if (senha.isEmpty()) {
+            throw new NegocioException(511, "A quantidade é obrigatória.");
+        }
+        
+        Usuario usuario = new Usuario(Integer.parseInt(cpf), Integer.parseInt(senha));
+        return UsuarioDAO.consultarUsuarios(usuario);
+    }
+    
     public static int excluirUsuario(String ingrediente, String quantidade) throws NegocioException, SQLException, ClassNotFoundException {
         return 0;
     }

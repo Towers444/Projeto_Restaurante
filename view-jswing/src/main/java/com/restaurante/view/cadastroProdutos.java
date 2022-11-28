@@ -473,9 +473,10 @@ public class cadastroProdutos extends javax.swing.JFrame {
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+
             },
             new String [] {
-                "Nome", "Valor", "Descricao"
+                "Nome", "Valor", "Descrição"
             }
         ));
         jScrollPane5.setViewportView(tabela);
@@ -687,7 +688,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 163, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 166, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -741,14 +742,18 @@ public class cadastroProdutos extends javax.swing.JFrame {
     private void botaoremProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProdutoActionPerformed
         String stringRemoverLinha = textoLinha.getText();
         int removerLinha = Integer.parseInt(stringRemoverLinha);
-        if (removerLinha <= 0 || removerLinha > contador) {
+        if (removerLinha <= 0 || removerLinha > 10) {
             JOptionPane.showMessageDialog(jScrollPane1, "Número de linha inexistente", "Erro", JOptionPane.ERROR_MESSAGE);
             textoLinha.requestFocus();
         } else {
             removerLinha--;
-            String valorNumeroNome = (String) tabela.getValueAt(removerLinha, 1);
-            String valorNumeroDescricao = (String) tabela.getValueAt(removerLinha, 2);
+            DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+            
+            String valorNumeroNome = modelo.getValueAt(removerLinha, 0).toString();
+            String valorNumeroValor = modelo.getValueAt(removerLinha, 1).toString();
+            String valorNumeroDescricao = modelo.getValueAt(removerLinha, 2).toString();
             System.out.print(valorNumeroNome);
+            System.out.print(valorNumeroValor);
             System.out.print(valorNumeroDescricao);
             contador--;
             ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
@@ -906,7 +911,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
             JOptionPane.showMessageDialog(jScrollPane1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
             //janela7.enviaPalavras(this, textoNome.getText(), textoValor.getText(), textoDescricao.getText(), textoImagem.getText());
-            carregarTabela(ManterProduto.listarProduto());
+            carregarTabelaMomentanea();
         }
         } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
@@ -920,7 +925,6 @@ public class cadastroProdutos extends javax.swing.JFrame {
     }
 
     public void carregarTabela(HashSet<Produto> lista) {
-        contador++;
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         
         modelo.getDataVector().removeAllElements();
@@ -929,9 +933,18 @@ public class cadastroProdutos extends javax.swing.JFrame {
         for(Produto produto : lista) {
             modelo.insertRow(modelo.getRowCount(), new Object[] {produto.getNome(), produto.getValor(), produto.getDescricao()});
         }
+       
+    }
+    
+    public void carregarTabelaMomentanea() {
+        contador++;
+        
+        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+        
+        modelo.getDataVector().removeAllElements();
+        modelo.fireTableDataChanged();
         
         Object[] dados = {textoNome.getText(), textoValor.getText(), textoDescricao.getText()};
         modelo.addRow(dados);
-
     }
 }

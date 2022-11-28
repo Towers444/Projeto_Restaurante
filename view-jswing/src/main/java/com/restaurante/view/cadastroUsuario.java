@@ -236,10 +236,10 @@ public class cadastroUsuario extends javax.swing.JFrame {
     public void loginUsuario() {
 
         int cadastros = 0;
-        try {
+        //try {
             String codigo = textoUsuario.getText();
             String senha = textoSenha.getText();
-            ManterUsuario.excluirUsuario(codigo, senha);
+            //int retorno = ManterUsuario.consultarUsuario(codigo, senha);
             if(codigo != null) {
                 cadastros++;
             }
@@ -250,20 +250,19 @@ public class cadastroUsuario extends javax.swing.JFrame {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
             JOptionPane.showMessageDialog(jPanel1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
             if("admin".equals(textoUsuario.getText()) && "123".equals(textoSenha.getText())) {
-                System.out.print("Entrou");
                 carregarNovaPagina();
             }
         }
-        } catch (NegocioException ex) {
+        /*} catch (NegocioException ex) {
             JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             textoUsuario.requestFocus();
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
+        }*/
     }
-
+    
     public void carregarNovaPagina() {
         
         if (janela4 == null) {
