@@ -22,8 +22,8 @@
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="script/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="script/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/estilos.css">
 
     <title>Sabor e Arte - Página Gestão</title>

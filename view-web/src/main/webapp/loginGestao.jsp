@@ -22,8 +22,8 @@
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="script/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="script/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/estilos.css">
 
     <title>Sabor e Arte -  Login Gestão</title>
@@ -69,16 +69,16 @@
         <main class="flex-fill">
             <div class="container">
                 <div class="row justify-content-center">
-                    <form class="col-sm-10 col-md-8 col-lg-6">
+                    <form action="loginGestaoServelet" method="POST" class="col-sm-10 col-md-8 col-lg-6">
                         <h1>Identifique-se, por favor</h1>
 
                         <div class="form-floating mb-3">
-                            <input type="number" id="txtEmail" class="form-control" placeholder=" " autofocus>
+                            <input type="number" name="cpf" id="txtEmail" class="form-control" placeholder=" " autofocus>
                             <label for="txtEmail">CPF</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="password" id="txtSenha" class="form-control" placeholder=" ">
+                            <input type="password" name="senha" id="txtSenha" class="form-control" placeholder=" ">
                             <label for="txtSenha">Senha</label>
                         </div>
 
@@ -89,7 +89,6 @@
 
                         <button type="button" onclick="window.location.href='gestao.jsp'"
                             class="btn btn-lg btn-danger">Entrar</button>
-
                     </form>
                 </div>
             </div>

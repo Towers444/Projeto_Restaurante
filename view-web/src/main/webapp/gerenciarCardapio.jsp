@@ -22,8 +22,8 @@
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="script/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="script/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/estilos.css">
 
     <title>Sabor e Arte - Gerenciamento do Cardápio</title>
@@ -298,21 +298,23 @@
           </thead>
           <tbody>
           </tbody>
+          
         </table>
       </div>
   
       <div class="modal-container">
         <div class="modal">
-          <form>
+          <form action="./cadastroCardapioServlet" method="POST">
             <label for="m-nome-prato">Nome do Prato</label>
-            <input id="m-nome-prato" type="text" required />
+            <input id="m-nome-prato" name="nome" type="text" required />
     
             <label for="m-descricao">Descrição</label>
-            <input id="m-descricao" type="text" required />
+            <input id="m-descricao" name="descricao" type="text" required />
     
             <label for="m-valor">Valor</label>
-            <input id="m-valor" type="number" required />
-            <button id="btnSalvo">Salvar</button>
+            <input id="m-valor" name="valor" type="number" required />
+            
+            <input type="submit" value="Salvar" />
           </form>
         </div>
       </div>

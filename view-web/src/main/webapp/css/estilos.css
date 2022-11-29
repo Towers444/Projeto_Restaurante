@@ -53,3 +53,4 @@ label .text-dark {
 fieldset.row .form-floating>label {
     margin-left: calc(var(--bs-gutter-x) * 0.5);
 }
+
