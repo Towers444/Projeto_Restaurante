@@ -12,19 +12,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/img/favicon/manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="script/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="script/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/estilos.css">
 
     <title>Sabor e Arte - Página Principal</title>
 </head>
@@ -41,25 +41,25 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/index.html">Principal</a>
+                            <a class="nav-link text-white" href="">Principal</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/contato.html">Contato</a>
+                            <a class="nav-link text-white" href="contato.jsp">Contato</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/quemsomos.html">Quem Somos</a>
+                            <a class="nav-link text-white" href="quemsomos.jsp">Quem Somos</a>
                         </li>
                     </ul>
                     <div class="align-self-end">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="/loginGestao.html" class="nav-link text-white">Gestão</a>
+                                <a href="loginGestao.jsp" class="nav-link text-white">Gestão</a>
                             </li>
                             <li class="nav-item">
                                 <span class="badge rounded-pill bg-light text-danger position-absolute ms-4 mt-0"
                                     title="5 produto(s) no carrinho"><small>5</small></span>
-                                <a href="/carrinho.html" class="nav-link text-white">
+                                <a href="carrinho.jsp" class="nav-link text-white">
                                     <i class="bi-cart" style="font-size:24px;line-height:24px;"></i>
                                 </a>
                             </li>
@@ -78,16 +78,16 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="3000">
-                        <img src="/img/slides/slide01.jpg" class="d-none d-md-block w-100" alt="">
-                        <img src="/img/slides/slide01small.jpg" class="d-block d-md-none  w-100" alt="">
+                        <img src="img/slides/slide01.jpg" class="d-none d-md-block w-100" alt="">
+                        <img src="img/slides/slide01small.jpg" class="d-block d-md-none  w-100" alt="">
                     </div>
                     <div class="carousel-item" data-bs-interval="3000">
-                        <img src="/img/slides/slide01.jpg" class="d-none d-md-block w-100" alt="">
-                        <img src="/img/slides/slide01small.jpg" class="d-block d-md-none  w-100" alt="">
+                        <img src="img/slides/slide01.jpg" class="d-none d-md-block w-100" alt="">
+                        <img src="img/slides/slide01small.jpg" class="d-block d-md-none  w-100" alt="">
                     </div>
                     <div class="carousel-item" data-bs-interval="3000">
-                        <img src="/img/slides/slide01.jpg" class="d-none d-md-block w-100" alt="">
-                        <img src="/img/slides/slide01small.jpg" class="d-block d-md-none  w-100" alt="">
+                        <img src="img/slides/slide01.jpg" class="d-none d-md-block w-100" alt="">
+                        <img src="img/slides/slide01small.jpg" class="d-block d-md-none  w-100" alt="">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselMain" data-bs-slide="prev">
@@ -156,8 +156,8 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <a href="/produto.html">
-                                <img src="/img/produtos/000001.jpg" class="card-img-top">
+                            <a href="produto.jsp">
+                                <img src="img/produtos/000001.jpg" class="card-img-top">
                             </a>
                             <div class="card-header">
                                 R$ 4,50
@@ -169,7 +169,7 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
                                     Adicionar ao Carrinho
                                 </a>
                                 <small class="text-success">320,5kg em estoque</small>
@@ -181,7 +181,7 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="/img/produtos/000002.jpg" class="card-img-top">
+                            <img src="img/produtos/000002.jpg" class="card-img-top">
                             <div class="card-header">
                                 R$ 4,50
                             </div>
@@ -192,7 +192,7 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
                                     Adicionar ao Carrinho
                                 </a>
                                 <small class="text-success">320,5kg em estoque</small>
@@ -204,7 +204,7 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="/img/produtos/000003.jpg" class="card-img-top">
+                            <img src="img/produtos/000003.jpg" class="card-img-top">
                             <div class="card-header">
                                 R$ 4,50
                             </div>
@@ -229,7 +229,7 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart-fill" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="/img/produtos/000004.jpg" class="card-img-top">
+                            <img src="img/produtos/000004.jpg" class="card-img-top">
                             <div class="card-header">
                                 R$ 4,50
                             </div>
@@ -240,7 +240,7 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
                                     Adicionar ao Carrinho
                                 </a>
                                 <small class="text-success">320,5kg em estoque</small>
@@ -252,7 +252,7 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="/img/produtos/000005.jpg" class="card-img-top">
+                            <img src="img/produtos/000005.jpg" class="card-img-top">
                             <div class="card-header">
                                 R$ 4,50
                             </div>
@@ -263,7 +263,7 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
                                     Adicionar ao Carrinho
                                 </a>
                                 <small class="text-success">320,5kg em estoque</small>
@@ -275,7 +275,7 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="/img/produtos/000006.jpg" class="card-img-top">
+                            <img src="img/produtos/000006.jpg" class="card-img-top">
                             <div class="card-header">
                                 R$ 4,50
                             </div>
@@ -286,7 +286,7 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
                                     Adicionar ao Carrinho
                                 </a>
                                 <small class="text-success">320,5kg em estoque</small>
@@ -298,7 +298,7 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="/img/produtos/000007.jpg" class="card-img-top">
+                            <img src="img/produtos/000007.jpg" class="card-img-top">
                             <div class="card-header">
                                 R$ 4,50
                             </div>
@@ -309,7 +309,7 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
                                     Adicionar ao Carrinho
                                 </a>
                                 <small class="text-success">320,5kg em estoque</small>
@@ -321,7 +321,7 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="/img/produtos/000008.jpg" class="card-img-top">
+                            <img src="img/produtos/000008.jpg" class="card-img-top">
                             <div class="card-header">
                                 R$ 4,50
                             </div>
@@ -332,7 +332,7 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
                                     Adicionar ao Carrinho
                                 </a>
                                 <small class="text-success">320,5kg em estoque</small>
@@ -344,7 +344,7 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart-fill" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="/img/produtos/000009.jpg" class="card-img-top">
+                            <img src="img/produtos/000009.jpg" class="card-img-top">
                             <div class="card-header">
                                 R$ 4,50
                             </div>
@@ -355,7 +355,7 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
                                     Adicionar ao Carrinho
                                 </a>
                                 <small class="text-success">320,5kg em estoque</small>
@@ -367,7 +367,7 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="/img/produtos/000010.jpg" class="card-img-top">
+                            <img src="img/produtos/000010.jpg" class="card-img-top">
                             <div class="card-header">
                                 R$ 4,50
                             </div>
@@ -378,7 +378,7 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
                                     Adicionar ao Carrinho
                                 </a>
                                 <small class="text-success">320,5kg em estoque</small>
@@ -390,7 +390,7 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="/img/produtos/000011.jpg" class="card-img-top">
+                            <img src="img/produtos/000011.jpg" class="card-img-top">
                             <div class="card-header">
                                 R$ 4,50
                             </div>
@@ -401,7 +401,7 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
                                     Adicionar ao Carrinho
                                 </a>
                                 <small class="text-success">320,5kg em estoque</small>
@@ -413,7 +413,7 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="/img/produtos/000012.jpg" class="card-img-top">
+                            <img src="img/produtos/000012.jpg" class="card-img-top">
                             <div class="card-header">
                                 R$ 4,50
                             </div>
@@ -424,7 +424,7 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
                                     Adicionar ao Carrinho
                                 </a>
                                 <small class="text-success">320,5kg em estoque</small>
@@ -480,7 +480,7 @@
                         &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais <br>
                     </div>
                     <div class="col-12 col-md-4 text-center">
-                        <a href="/contato.html" class="text-decoration-none text-dark">
+                        <a href="/contato.jsp" class="text-decoration-none text-dark">
                             Contato pelo Site
                         </a><br>
                         Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
@@ -491,7 +491,22 @@
             </div>
         </footer>
     </div>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/alert.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/carousel.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/base-component.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/button.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/collapse.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/dropdown.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/modal.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/offcanvas.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/popover.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/scrollspy.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/tab.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/toast.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/tooltip.js"></script>
+    
+    
+    
 </body>
 
 </html>

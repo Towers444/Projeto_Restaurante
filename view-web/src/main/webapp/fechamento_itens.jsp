@@ -22,9 +22,9 @@
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="script/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="script/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/estilos.css">
 
     <title>Sabor e Arte - Fechamento da Compra</title>
 </head>
@@ -41,29 +41,29 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/index.html">Principal</a>
+                            <a class="nav-link text-white" href="index.jsp">Principal</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/contato.html">Contato</a>
+                            <a class="nav-link text-white" href="contato.jsp">Contato</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/quemsomos.html">Quem Somos</a>
+                            <a class="nav-link text-white" href="quemsomos.jsp">Quem Somos</a>
                         </li>
                     </ul>
                     <div class="align-self-end">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="/cadastro.html" class="nav-link text-white">
+                                <a href="cadastro.jsp" class="nav-link text-white">
                                     Logado como <b>Ricardo Maroquio</b>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/login.html" class="nav-link text-white">Sair</a>
+                                <a href="login.jsp" class="nav-link text-white">Sair</a>
                             </li>
                             <li class="nav-item">
                                 <span class="badge rounded-pill bg-light text-danger position-absolute ms-4 mt-0"
                                     title="5 produto(s) no carrinho"><small>5</small></span>
-                                <a href="/carrinho.html" class="nav-link text-white">
+                                <a href="carrinho.jsp" class="nav-link text-white">
                                     <i class="bi-cart" style="font-size:24px;line-height:24px;"></i>
                                 </a>
                             </li>
@@ -172,10 +172,10 @@
                             <h4 class="text-dark mb-3">
                                 Valor Total: R$ 63,84
                             </h4>
-                            <a href="/carrinho.html" class="btn btn-outline-success btn-lg mb-3">
+                            <a href="carrinho.jsp" class="btn btn-outline-success btn-lg mb-3">
                                 Voltar ao Carrinho
                             </a>
-                            <a href="/conclusao_pedido.html" class="btn btn-danger btn-lg ms-2 mb-3">Continuar</a>
+                            <a href="conclusao_pedido.jsp" class="btn btn-danger btn-lg ms-2 mb-3">Continuar</a>
                         </div>
                     </li>
                 </ul>
@@ -189,7 +189,7 @@
                         &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais
                     </div>
                     <div class="col-12 col-md-4 text-center">
-                        <a href="/contato.html" class="text-decoration-none text-dark">
+                        <a href="contato.jsp" class="text-decoration-none text-dark">
                             Contato pelo Site
                         </a><br>
                         Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
