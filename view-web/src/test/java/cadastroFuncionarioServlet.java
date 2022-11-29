@@ -3,15 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-import com.restaurante.model.service.ManterProduto;
 import com.restaurante.common.NegocioException;
-import com.restaurante.model.dto.Produto;
+import com.restaurante.model.service.ManterAlimentos;
+import com.restaurante.model.service.ManterFuncionarios;
+import com.restaurante.model.service.ManterUsuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Usuário
  */
-@WebServlet(urlPatterns = {"/cadastroCardapioServlet"})
-public class cadastroCardapioServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/cadastroFuncionarioServlet"})
+public class cadastroFuncionarioServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,24 +33,26 @@ public class cadastroCardapioServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, NegocioException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
             
-            int cadastros = 0;
+            String cpf = request.getParameter("cpf");
             String nome = request.getParameter("nome");
-            String valor = request.getParameter("valor");
-            String descricao = request.getParameter("descricao");
+            String senha = request.getParameter("senha");
+            String especialidade = request.getParameter("especialidade"); 
+            String salario = request.getParameter("salario");
             
-            ManterProduto.cadastrarProduto(nome, valor, descricao);
+            ManterFuncionarios.cadastrarFuncionarios(cpf, nome, especialidade, salario);
+            ManterUsuario.cadastrarUsuario(nome, senha);
             
-        } catch (NegocioException ex) {
-            System.out.print("Error");
-        } catch (ClassNotFoundException ex) {
-            System.out.print("Error");
-        } catch (SQLException ex) {
-            System.out.print("Error");
-        }
+            } catch (NegocioException ex) {
+                System.out.print("Error");
+            } catch (ClassNotFoundException ex) {
+                System.out.print("Error");
+            } catch (SQLException ex) {
+                System.out.print("Error");
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,15 +67,7 @@ public class cadastroCardapioServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (NegocioException ex) {
-            Logger.getLogger(cadastroCardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(cadastroCardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(cadastroCardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -89,15 +81,7 @@ public class cadastroCardapioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (NegocioException ex) {
-            Logger.getLogger(cadastroCardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(cadastroCardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(cadastroCardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

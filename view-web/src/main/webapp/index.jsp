@@ -491,19 +491,18 @@
             </div>
         </footer>
     </div>
-    <script src="script/node_modules/bootstrap/js/src/alert.js"></script>
-    <script src="script/node_modules/bootstrap/js/src/carousel.js"></script>
-    <script src="script/node_modules/bootstrap/js/src/base-component.js"></script>
-    <script src="script/node_modules/bootstrap/js/src/button.js"></script><!-- comment -->
-    <script src="script/node_modules/bootstrap/js/src/collapse.js"></script><!-- comment -->
-    <script src="script/node_modules/bootstrap/js/src/dropdown.js"></script>
-    <script src="script/node_modules/bootstrap/js/src/modal.js"></script><!-- comment -->
-    <script src="script/node_modules/bootstrap/js/src/offcanvas.js"></script><!-- comment -->
-    <script src="script/node_modules/bootstrap/js/src/popover.js"></script><!-- comment -->
-    <script src="script/node_modules/bootstrap/js/src/scrollspy.js"></script>
-    <script src="script/node_modules/bootstrap/js/src/tab.js"></script><!-- comment -->
-    <script src="script/node_modules/bootstrap/js/src/toast.js"></script>
-    <script src="script/node_modules/bootstrap/js/src/tooltip.js"></script>
+    <script src="js/src/alert.js"></script>
+    <script src="js/src/base-component.js"></script>
+    <script src="js/src/button.js"></script><!-- comment -->
+    <script src="js/src/collapse.js"></script><!-- comment -->
+    <script src="js/src/dropdown.js"></script>
+    <script src="js/src/modal.js"></script><!-- comment -->
+    <script src="js/src/offcanvas.js"></script><!-- comment -->
+    <script src="js/src/popover.js"></script><!-- comment -->
+    <script src="js/src/scrollspy.js"></script>
+    <script src="js/src/tab.js"></script><!-- comment -->
+    <script src="js/src/toast.js"></script>
+    <script src="js/src/tooltip.js"></script>
     
     
     

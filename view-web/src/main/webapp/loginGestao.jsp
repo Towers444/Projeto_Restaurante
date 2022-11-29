@@ -69,11 +69,11 @@
         <main class="flex-fill">
             <div class="container">
                 <div class="row justify-content-center">
-                    <form action="loginGestaoServelet" method="POST" class="col-sm-10 col-md-8 col-lg-6">
+                    <form action="/loginServlet" method="POST" class="col-sm-10 col-md-8 col-lg-6">
                         <h1>Identifique-se, por favor</h1>
 
                         <div class="form-floating mb-3">
-                            <input type="number" name="cpf" id="txtEmail" class="form-control" placeholder=" " autofocus>
+                            <input type="text" name="cpf" id="txtEmail" class="form-control" placeholder=" " autofocus>
                             <label for="txtEmail">CPF</label>
                         </div>
 
@@ -87,8 +87,7 @@
                             <label for="chkLembrar" class="form-check-label">Lembrar de mim</label>
                         </div>
 
-                        <button type="button" onclick="window.location.href='gestao.jsp'"
-                            class="btn btn-lg btn-danger">Entrar</button>
+                        <input type="submit" value="Entrar" class="btn btn-lg btn-danger">
                     </form>
                 </div>
             </div>

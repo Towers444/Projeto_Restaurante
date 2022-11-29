@@ -295,11 +295,7 @@ td button i:first-child {
         <thead>
           <tr>
             <th>Nome do produto</th>
-            <th>Código</th>
             <th>Quantidade</th>
-            <th>Data de Validade</th>
-            <th>Temperatura de Armazenamento</th>
-            <th>Situação</th>
             <th class="acao">Editar</th>
             <th class="acao">Excluir</th>
           </tr>
@@ -311,29 +307,14 @@ td button i:first-child {
 
     <div class="modal-container">
       <div class="modal">
-        <form>
+        <form action="./cadastroEstoqueServlet" method="POST">
           <label for="m-nome">Nome do produto</label>
-          <input id="m-nome" type="text" required />
-  
-          <label for="m-codigo">Código</label>
-          <input id="m-codigo" type="number" required />
-  
+          <input id="m-nome" name="nome" type="text" required />
+
           <label for="m-quantidade">Quantidade</label>
-          <input id="m-quantidade" type="number" required />
+          <input id="m-quantidade" name="quantidade" type="number" required />
 
-          <label for="m-data">Data de validade</label>
-          <input id="m-data" type="date" required />
-
-          <label for="m-temperatura">Temperatura de armazenamento</label>
-          <input id="m-temperatura" type="number" required />
-
-            <label for="m-disponibilidade">Disponibilidade do produto
-              <select>
-                <option value="disponivel">Disponível</option>
-                <option value="em-falta" selected>Em falta</option>
-              </select>
-           </label>
-          <button id="btnSalvar">Salvar</button>
+          <input type="submit" value="Salvar" />
         </form>
       </div>
     </div>

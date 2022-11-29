@@ -289,6 +289,7 @@ td button i:first-child {
       <table>
         <thead>
           <tr>
+            <th>CPF</th>
             <th>Nome</th>
             <th>Função</th>
             <th>Salário</th>
@@ -304,14 +305,18 @@ td button i:first-child {
     <div class="modal-container">
       <div class="modal">
         <form>
+          <label for="m-cpf">CPF</label>
+          <input id="m-cpf" name="cpf" type="number" required />  
+            
           <label for="m-nome">Nome</label>
-          <input id="m-nome" type="text" required />
+          <input id="m-nome" name="nome" type="text" required />
   
           <label for="m-funcao">Função</label>
-          <input id="m-funcao" type="text" required />
+          <input id="m-funcao" name="especialidade" type="text" required />
   
           <label for="m-salario">Salário</label>
-          <input id="m-salario" type="number" required />
+          <input id="m-salario" name="salario" type="number" required /> 
+          
           <button id="btnSalvar">Salvar</button>
         </form>
       </div>
