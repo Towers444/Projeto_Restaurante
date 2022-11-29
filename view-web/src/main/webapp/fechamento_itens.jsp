@@ -1,3 +1,10 @@
+<%-- 
+    Document   : fechamento_itens
+    Created on : 29 de nov de 2022, 09:33:38
+    Author     : Aluno
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -19,14 +26,14 @@
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/estilos.css">
 
-    <title>Quitanda Online :: Carrinho de Compras</title>
+    <title>Sabor e Arte - Fechamento da Compra</title>
 </head>
 
 <body>
     <div class="d-flex flex-column wrapper">
         <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom shadow-sm mb-3">
             <div class="container">
-                <a class="navbar-brand" href="/"><b>Sabor e Arte</b></a>
+                <a class="navbar-brand" href="/"><b>Quitanda Online</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -36,7 +43,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="/index.html">Principal</a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link text-white" href="/contato.html">Contato</a>
                         </li>
@@ -47,7 +53,12 @@
                     <div class="align-self-end">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="/loginGestao.html" class="nav-link text-white">Gestão</a>
+                                <a href="/cadastro.html" class="nav-link text-white">
+                                    Logado como <b>Ricardo Maroquio</b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/login.html" class="nav-link text-white">Sair</a>
                             </li>
                             <li class="nav-item">
                                 <span class="badge rounded-pill bg-light text-danger position-absolute ms-4 mt-0"
@@ -64,7 +75,8 @@
 
         <main class="flex-fill">
             <div class="container">
-                <h1>Carrinho de Compras</h1>
+                <h1>Confira os Itens</h1>
+                <h3>Confira os itens e clique em <b>Continuar</b> para prosseguir para a <b>seleção do endereço de entrega</b>.</h3>
                 <ul class="list-group mb-3">
                     <li class="list-group-item py-3">
                         <div class="row g-3">
@@ -80,27 +92,13 @@
                                 </h4>
                                 <h5>
                                     Abacate manteiga da melhor qualidade possível e muito fresco.
+                                    <br>
+                                    <b>
+                                        4 unidade(s) <br>
+                                        R$ 15,96
+                                    </b>
                                 </h5>
-                            </div>
-                            <div
-                                class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
-                                <div class="input-group">
-                                    <button class="btn btn-outline-dark btn-sm" type="button">
-                                        <i class="bi-caret-down" style="font-size: 16px; line-height: 16px;"></i>
-                                    </button>
-                                    <input type="text" class="form-control text-center border-dark" value="4">
-                                    <button class="btn btn-outline-dark btn-sm" type="button">
-                                        <i class="bi-caret-up" style="font-size: 16px; line-height: 16px;"></i>
-                                    </button>
-                                    <button class="btn btn-outline-danger border-dark btn-sm" type="button">
-                                        <i class="bi-trash" style="font-size: 16px; line-height: 16px;"></i>
-                                    </button>
-                                </div>
-                                <div class="text-end mt-2">
-                                    <small class="text-secondary">Valor kg: R$ 3,99</small><br>
-                                    <span class="text-dark">Valor Item: R$ 15,96</span>
-                                </div>
-                            </div>
+                            </div>                            
                         </div>
                     </li>
                     <li class="list-group-item py-3">
@@ -116,28 +114,13 @@
                                             Abacate Manteiga</a></b>
                                 </h4>
                                 <h5>
-                                    Abacate manteiga da melhor qualidade possível e muito fresco.
+                                    Abacate manteiga da melhor qualidade possível e muito fresco. <br>
+                                    <b>
+                                        4 unidade(s) <br>
+                                        R$ 15,96
+                                    </b>
                                 </h5>
-                            </div>
-                            <div
-                                class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
-                                <div class="input-group">
-                                    <button class="btn btn-outline-dark btn-sm" type="button">
-                                        <i class="bi-caret-down" style="font-size: 16px; line-height: 16px;"></i>
-                                    </button>
-                                    <input type="text" class="form-control text-center border-dark" value="4">
-                                    <button class="btn btn-outline-dark btn-sm" type="button">
-                                        <i class="bi-caret-up" style="font-size: 16px; line-height: 16px;"></i>
-                                    </button>
-                                    <button class="btn btn-outline-danger border-dark btn-sm" type="button">
-                                        <i class="bi-trash" style="font-size: 16px; line-height: 16px;"></i>
-                                    </button>
-                                </div>
-                                <div class="text-end mt-2">
-                                    <small class="text-secondary">Valor kg: R$ 3,99</small><br>
-                                    <span class="text-dark">Valor Item: R$ 15,96</span>
-                                </div>
-                            </div>
+                            </div>                            
                         </div>
                     </li>
                     <li class="list-group-item py-3">
@@ -153,28 +136,13 @@
                                             Abacate Manteiga</a></b>
                                 </h4>
                                 <h5>
-                                    Abacate manteiga da melhor qualidade possível e muito fresco.
+                                    Abacate manteiga da melhor qualidade possível e muito fresco. <br>
+                                    <b>
+                                        4 unidade(s) <br>
+                                        R$ 15,96
+                                    </b>
                                 </h5>
-                            </div>
-                            <div
-                                class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
-                                <div class="input-group">
-                                    <button class="btn btn-outline-dark btn-sm" type="button">
-                                        <i class="bi-caret-down" style="font-size: 16px; line-height: 16px;"></i>
-                                    </button>
-                                    <input type="text" class="form-control text-center border-dark" value="4">
-                                    <button class="btn btn-outline-dark btn-sm" type="button">
-                                        <i class="bi-caret-up" style="font-size: 16px; line-height: 16px;"></i>
-                                    </button>
-                                    <button class="btn btn-outline-danger border-dark btn-sm" type="button">
-                                        <i class="bi-trash" style="font-size: 16px; line-height: 16px;"></i>
-                                    </button>
-                                </div>
-                                <div class="text-end mt-2">
-                                    <small class="text-secondary">Valor kg: R$ 3,99</small><br>
-                                    <span class="text-dark">Valor Item: R$ 15,96</span>
-                                </div>
-                            </div>
+                            </div>                    
                         </div>
                     </li>
                     <li class="list-group-item py-3">
@@ -190,39 +158,24 @@
                                             Abacate Manteiga</a></b>
                                 </h4>
                                 <h5>
-                                    Abacate manteiga da melhor qualidade possível e muito fresco.
+                                    Abacate manteiga da melhor qualidade possível e muito fresco. <br>
+                                    <b>
+                                        4 unidade(s) <br>
+                                        R$ 15,96
+                                    </b>
                                 </h5>
-                            </div>
-                            <div
-                                class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
-                                <div class="input-group">
-                                    <button class="btn btn-outline-dark btn-sm" type="button">
-                                        <i class="bi-caret-down" style="font-size: 16px; line-height: 16px;"></i>
-                                    </button>
-                                    <input type="text" class="form-control text-center border-dark" value="4">
-                                    <button class="btn btn-outline-dark btn-sm" type="button">
-                                        <i class="bi-caret-up" style="font-size: 16px; line-height: 16px;"></i>
-                                    </button>
-                                    <button class="btn btn-outline-danger border-dark btn-sm" type="button">
-                                        <i class="bi-trash" style="font-size: 16px; line-height: 16px;"></i>
-                                    </button>
-                                </div>
-                                <div class="text-end mt-2">
-                                    <small class="text-secondary">Valor kg: R$ 3,99</small><br>
-                                    <span class="text-dark">Valor Item: R$ 15,96</span>
-                                </div>
-                            </div>
+                            </div>                            
                         </div>
                     </li>
-                    <li class="list-group-item py-3">
+                    <li class="list-group-item pt-3 pb-0">
                         <div class="text-end">
                             <h4 class="text-dark mb-3">
                                 Valor Total: R$ 63,84
                             </h4>
-                            <a href="/index.html" class="btn btn-outline-success btn-lg">
-                                Continuar Comprando                            
+                            <a href="/carrinho.html" class="btn btn-outline-success btn-lg mb-3">
+                                Voltar ao Carrinho
                             </a>
-                            <a href="/fechamento_itens.html" class="btn btn-danger btn-lg ms-2 mt-xs-3">Fechar Compra</a>
+                            <a href="/conclusao_pedido.html" class="btn btn-danger btn-lg ms-2 mb-3">Continuar</a>
                         </div>
                     </li>
                 </ul>
@@ -233,12 +186,11 @@
             <div class="container">
                 <div class="row py-3">
                     <div class="col-12 col-md-4 text-center">
-                        &copy; 2022 - Centro Federal de Educaçaõ Tecnológica de Minas Gerais
+                        &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais
                     </div>
                     <div class="col-12 col-md-4 text-center">
                         <a href="/contato.html" class="text-decoration-none text-dark">
                             Contato pelo Site
-                        </a><br>
                         </a><br>
                         Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
                             (28) 99999-0000

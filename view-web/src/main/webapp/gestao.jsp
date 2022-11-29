@@ -1,3 +1,10 @@
+<%-- 
+    Document   : gestao
+    Created on : 29 de nov de 2022, 09:42:01
+    Author     : Aluno
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -19,7 +26,7 @@
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/estilos.css">
 
-    <title>Sabor e Arte - Contato</title>
+    <title>Sabor e Arte - Página Gestão</title>
 </head>
 
 <body>
@@ -34,64 +41,49 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/index.html">Principal</a>
+                            <a class="nav-link text-white" href="/gestao.html">Principal</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/contato.html">Contato</a>
+                            <a class="nav-link text-white" href="/gerenciarCardapio.html">Cardápio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/quemsomos.html">Quem Somos</a>
+                            <a class="nav-link text-white" href="/gerenciarestoque.html">Estoque</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/gerenciarfuncionario.html">Funcionários</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/pedidosGestao.html">Pedidos</a>
                         </li>
                     </ul>
                     <div class="align-self-end">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="/loginGestao.html" class="nav-link text-white">Gestão</a>
+                                <a href="/index.html" class="nav-link text-white">Visualizar como cliente</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
- 
+         
         <main class="flex-fill">
             <div class="container">
-                <div class="row justify-content-center">
-                    <form class="col-sm-10 col-md-8 col-lg-6">
-                        <h1>Entre em Contato</h1>
-
-                        <div class="form-floating mb-3">
-                            <input type="text" id="txtNomeCompleto" class="form-control" placeholder=" " autofocus>
-                            <label for="txtNomeCompleto">Nome Completo</label>
-                        </div>
-                        
-                        <div class="form-floating mb-3">
-                            <input type="email" id="txtEmail" class="form-control" placeholder=" ">
-                            <label for="txtEmail">E-mail</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <textarea id="txtMensagem" class="form-control" placeholder=" " style="height: 200px;"></textarea>
-                            <label for="txtMensagem">Mensagem</label>
-                        </div>
-
-                        <button type="button" onclick="window.location.href='/confirmcontato.html'" class="btn btn-lg btn-danger">Enviar Mensagem</button>
-
-
-                        <p class="mt-3">
-                            Central de Relacionamento Sabor e Arte
-                        </p>
-                    </form>
-                </div>
+                <p>Seja bem vindo ao Sistema Sabor e Arte, um projeto para a administração de restaurantes. 
+                    Essa sessão é dedicada a gestão do sistema e nela você pode encontrar funções como o gerenciamento
+                     de cardápio, o gerenciamento de pedidos, gerenciamento de estoque e uma página de créditos dos 
+                     desenvolvedores do projeto.</p>
             </div>
         </main>
+
+
 
         <footer class="border-top text-muted bg-light">
             <div class="container">
                 <div class="row py-3">
                     <div class="col-12 col-md-4 text-center">
-                        &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais
+                        &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais <br>
                     </div>
                     <div class="col-12 col-md-4 text-center">
                         <a href="/contato.html" class="text-decoration-none text-dark">

@@ -1,3 +1,10 @@
+<%-- 
+    Document   : pedidosGestao
+    Created on : 29 de nov de 2022, 09:44:16
+    Author     : Aluno
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -19,10 +26,16 @@
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/estilos.css">
 
-    <title>Sabor e Arte - Página Gestão</title>
+    <title>Sabor e Arte - Página Principal</title>
 </head>
 
-<body>
+<main class="flex-fill">
+    <div class="container">
+
+    </div>
+</main>
+
+<body>     
     <div class="d-flex flex-column wrapper">
         <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom shadow-sm mb-3">
             <div class="container">
@@ -60,37 +73,24 @@
                 </div>
             </div>
         </nav>
-         
-        <main class="flex-fill">
-            <div class="container">
-                <p>Seja bem vindo ao Sistema Sabor e Arte, um projeto para a administração de restaurantes. 
-                    Essa sessão é dedicada a gestão do sistema e nela você pode encontrar funções como o gerenciamento
-                     de cardápio, o gerenciamento de pedidos, gerenciamento de estoque e uma página de créditos dos 
-                     desenvolvedores do projeto.</p>
+            
+    <footer class="border-top text-muted bg-light">
+    <div class="container">
+        <div class="row py-3">
+            <div class="col-12 col-md-4 text-center">
+                &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais
             </div>
-        </main>
-
-
-
-        <footer class="border-top text-muted bg-light">
-            <div class="container">
-                <div class="row py-3">
-                    <div class="col-12 col-md-4 text-center">
-                        &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais <br>
-                    </div>
-                    <div class="col-12 col-md-4 text-center">
-                        <a href="/contato.html" class="text-decoration-none text-dark">
-                            Contato pelo Site
-                        </a><br>
-                        Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
-                            (28) 99999-0000
-                        </a>
-                    </div>
-                </div>
+            <div class="col-12 col-md-4 text-center">
+                <a href="/contato.html" class="text-decoration-none text-dark">
+                    Contato pelo Site
+                </a><br>
+                </a><br>
+                Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
+                    (28) 99999-0000
+                </a>
             </div>
-        </footer>
+        </div>
     </div>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+</footer>
+</div>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script></body>

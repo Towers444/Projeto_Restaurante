@@ -1,3 +1,10 @@
+<%-- 
+    Document   : fechamento_pedido
+    Created on : 29 de nov de 2022, 09:36:57
+    Author     : Aluno
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -19,7 +26,7 @@
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/estilos.css">
 
-    <title>Quitanda Online :: Página Principal</title>
+    <title>Sabor e Arte - Fechamento da Compra</title>
 </head>
 
 <body>
@@ -46,7 +53,12 @@
                     <div class="align-self-end">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="/login.html" class="nav-link text-white">Entrar</a>
+                                <a href="/cadastro.html" class="nav-link text-white">
+                                    Logado como <b>Ricardo Maroquio</b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/login.html" class="nav-link text-white">Sair</a>
                             </li>
                             <li class="nav-item">
                                 <span class="badge rounded-pill bg-light text-danger position-absolute ms-4 mt-0"
@@ -62,8 +74,20 @@
         </nav>
  
         <main class="flex-fill">
-            <div class="container">
-
+            <div class="container text-center">
+                <h1>Obrigado!</h1>
+                <hr>
+                <h3>Anote o número de seu pedido:</h3>
+                <h2 class="text-danger"><b>004571</b></h2>
+                <p>Em até 2 horas, seu pedido será entregue. Qualquer dúvida sobre este pedido, entre em contato conosco e informe o número do pedido para que possamos te ajudar.</p>
+                <p>Tenha um ótimo dia!</p>
+                <p>
+                    Atenciosamente,<br>
+                    Equipe Quitanda Online
+                </p>
+                <p>
+                    <a href="/index.html" class="btn btn-danger btn-lg">Voltar à Página Principal</a>
+                </p>
             </div>
         </main>
 
@@ -76,7 +100,6 @@
                     <div class="col-12 col-md-4 text-center">
                         <a href="/contato.html" class="text-decoration-none text-dark">
                             Contato pelo Site
-                        </a><br>
                         </a><br>
                         Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
                             (28) 99999-0000

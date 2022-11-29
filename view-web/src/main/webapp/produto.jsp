@@ -1,3 +1,10 @@
+<%-- 
+    Document   : produto
+    Created on : 29 de nov de 2022, 09:44:38
+    Author     : Aluno
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -19,7 +26,7 @@
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/estilos.css">
 
-    <title>Quitanda Online :: Página Principal</title>
+    <title>Sabor e Arte - Detalhes do Produto</title>
 </head>
 
 <body>
@@ -39,12 +46,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="/contato.html">Contato</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="/quemsomos.html">Quem Somos</a>
-                        </li>
                     </ul>
                     <div class="align-self-end">
                         <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="/cadastro.html" class="nav-link text-white">Quero Me Cadastrar</a>
+                            </li>
                             <li class="nav-item">
                                 <a href="/login.html" class="nav-link text-white">Entrar</a>
                             </li>
@@ -60,11 +67,51 @@
                 </div>
             </div>
         </nav>
- 
+
         <main class="flex-fill">
             <div class="container">
-                <h2> Pedido Conluído com sucesso!</h2>
-                <h3> Dirija-se ao caixa para efetuar o pagamento. Depois de conluído o pagamento, aguarde seu pedido em sua mesa. </h3>
+                <div class="row g-3">
+                    <div class="col-12 col-sm-6">
+                        <img src="/img/produtos/000001.jpg" class="img-thumbnail" id="imgProduto">
+                        <br class="clearfix">
+                        <div class="row my-3 gx-3">
+                            <div class="col-3">
+                                <img src="/img/produtos/000001.jpg" class="img-thumbnail" onclick="trocarImagem(this)">
+                            </div>
+                            <div class="col-3">
+                                <img src="/img/produtos/000002.jpg" class="img-thumbnail" onclick="trocarImagem(this)">
+                            </div>
+                            <div class="col-3">
+                                <img src="/img/produtos/000003.jpg" class="img-thumbnail" onclick="trocarImagem(this)">
+                            </div>
+                            <div class="col-3">
+                                <img src="/img/produtos/000004.jpg" class="img-thumbnail" onclick="trocarImagem(this)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <h1>Banana Prata</h1>
+                        <p>
+                            Quis officia irure deserunt reprehenderit sunt non ut amet. Sunt veniam cillum aliqua. Elit
+                            labore duis laboris reprehenderit laborum magna velit dolor veniam sint.
+                        </p>
+                        <p>
+                            Do ut ad quis et qui qui tempor do irure laborum ullamco excepteur. Adipisicing ipsum ad
+                            excepteur sit ipsum adipisicing. Ut ut elit proident fugiat. Ad deserunt et consequat
+                            aliquip nisi ut dolore sit ut veniam fugiat culpa nulla. Consequat eiusmod ad deserunt ad
+                            sunt adipisicing deserunt nulla est cupidatat commodo do. Minim aliquip dolor in deserunt
+                            elit officia. Anim duis ullamco cillum nulla voluptate dolore velit ad Lorem adipisicing.
+                        </p>
+                        <p>
+                            <button class="btn btn-lg btn-danger mb-3 mb-xl-0 me-2">
+                                <i class="bi-cart"></i> Adicionar ao Carrinho
+                            </button>
+                            <button class="btn btn-lg btn-outline-danger">
+                                <i class="bi-heart"></i> Adicionar aos Favoritos
+                            </button>
+                        </p>
+                    </div>
+                </div>
             </div>
         </main>
 
@@ -72,12 +119,11 @@
             <div class="container">
                 <div class="row py-3">
                     <div class="col-12 col-md-4 text-center">
-                        &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais
+                        &copy; 2022 - Centro Federal de Educaçaõ Tecnológica de Minas Gerais
                     </div>
                     <div class="col-12 col-md-4 text-center">
                         <a href="/contato.html" class="text-decoration-none text-dark">
                             Contato pelo Site
-                        </a><br>
                         </a><br>
                         Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
                             (28) 99999-0000
@@ -88,6 +134,12 @@
         </footer>
     </div>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function trocarImagem(el) {
+            var imgProduto = document.getElementById("imgProduto");
+            imgProduto.src = el.src;
+        }
+    </script>
 </body>
 
 </html>

@@ -1,3 +1,10 @@
+<%-- 
+    Document   : conclusao_pedido
+    Created on : 29 de nov de 2022, 09:29:52
+    Author     : Aluno
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -19,14 +26,14 @@
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/estilos.css">
 
-    <title>Sabor e Arte - Quem Somos</title>
+    <title>Quitanda Online :: Página Principal</title>
 </head>
 
 <body>
     <div class="d-flex flex-column wrapper">
         <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom shadow-sm mb-3">
             <div class="container">
-                <a class="navbar-brand" href="/"><b>Sabor e Arte</b></a>
+                <a class="navbar-brand" href="/"><b>Quitanda Online</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -36,7 +43,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="/index.html">Principal</a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link text-white" href="/contato.html">Contato</a>
                         </li>
@@ -47,7 +53,7 @@
                     <div class="align-self-end">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="/loginGestao.html" class="nav-link text-white">Gestão</a>
+                                <a href="/login.html" class="nav-link text-white">Entrar</a>
                             </li>
                             <li class="nav-item">
                                 <span class="badge rounded-pill bg-light text-danger position-absolute ms-4 mt-0"
@@ -61,20 +67,11 @@
                 </div>
             </div>
         </nav>
-
-
+ 
         <main class="flex-fill">
             <div class="container">
-                <h1>Quem Somos</h1>
-                <h4>Conheça um poucos mais os desenvolvedores do nosso sistema:</h4> 
-                <h5>João Torres</h5>
-                <p></p>
-                <h5>André Parreiras</h5>
-                <p></p>
-                <h5>Seynabou Sall </h5>
-                <p></p>
-                <h5>Rayanne Mirelle</h5>
-                <p></p>
+                <h2> Pedido Conluído com sucesso!</h2>
+                <h3> Dirija-se ao caixa para efetuar o pagamento. Depois de conluído o pagamento, aguarde seu pedido em sua mesa. </h3>
             </div>
         </main>
 
@@ -84,10 +81,10 @@
                     <div class="col-12 col-md-4 text-center">
                         &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais
                     </div>
-
                     <div class="col-12 col-md-4 text-center">
                         <a href="/contato.html" class="text-decoration-none text-dark">
                             Contato pelo Site
+                        </a><br>
                         </a><br>
                         Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
                             (28) 99999-0000

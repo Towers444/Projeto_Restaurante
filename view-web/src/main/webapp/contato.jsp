@@ -1,3 +1,10 @@
+<%-- 
+    Document   : contato
+    Created on : 29 de nov de 2022, 09:32:51
+    Author     : Aluno
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -19,7 +26,7 @@
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/estilos.css">
 
-    <title>Sabor e Arte -  Mensagem Recebida</title>
+    <title>Sabor e Arte - Contato</title>
 </head>
 
 <body>
@@ -40,6 +47,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="/contato.html">Contato</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/quemsomos.html">Quem Somos</a>
+                        </li>
                     </ul>
                     <div class="align-self-end">
                         <ul class="navbar-nav">
@@ -51,23 +61,36 @@
                 </div>
             </div>
         </nav>
+ 
         <main class="flex-fill">
             <div class="container">
-                <h1>Mensagem Recebida!</h1>
-                <hr>
-                <p>
-                    Caro cliente,
-                </p>
-                <p>
-                   Informamos que sua mensagem foi encaminhada com sucesso para nossa central de relacionamento com clientes. 
-                </p>
-                <p>
-                    Agradecemos pela confiança em nossos serviços.
-                </p>
-                <p>
-                    Cordialmente,<br>
-                    Central de Relacionamento Sabor e Arte
-                </p>
+                <div class="row justify-content-center">
+                    <form class="col-sm-10 col-md-8 col-lg-6">
+                        <h1>Entre em Contato</h1>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" id="txtNomeCompleto" class="form-control" placeholder=" " autofocus>
+                            <label for="txtNomeCompleto">Nome Completo</label>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="email" id="txtEmail" class="form-control" placeholder=" ">
+                            <label for="txtEmail">E-mail</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <textarea id="txtMensagem" class="form-control" placeholder=" " style="height: 200px;"></textarea>
+                            <label for="txtMensagem">Mensagem</label>
+                        </div>
+
+                        <button type="button" onclick="window.location.href='/confirmcontato.html'" class="btn btn-lg btn-danger">Enviar Mensagem</button>
+
+
+                        <p class="mt-3">
+                            Central de Relacionamento Sabor e Arte
+                        </p>
+                    </form>
+                </div>
             </div>
         </main>
 

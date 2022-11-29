@@ -1,4 +1,11 @@
-<!doctype html>
+<%-- 
+    Document   : confirmcontato
+    Created on : 29 de nov de 2022, 09:31:43
+    Author     : Aluno
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+!doctype html>
 <html lang="pt-br">
 
 <head>
@@ -19,14 +26,14 @@
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/estilos.css">
 
-    <title>Sabor e Arte - Fechamento da Compra</title>
+    <title>Sabor e Arte -  Mensagem Recebida</title>
 </head>
 
 <body>
     <div class="d-flex flex-column wrapper">
         <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom shadow-sm mb-3">
             <div class="container">
-                <a class="navbar-brand" href="/"><b>Quitanda Online</b></a>
+                <a class="navbar-brand" href="/"><b>Sabor e Arte</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -36,50 +43,37 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="/index.html">Principal</a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-white" href="/contato.html">Contato</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="/quemsomos.html">Quem Somos</a>
                         </li>
                     </ul>
                     <div class="align-self-end">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="/cadastro.html" class="nav-link text-white">
-                                    Logado como <b>Ricardo Maroquio</b>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/login.html" class="nav-link text-white">Sair</a>
-                            </li>
-                            <li class="nav-item">
-                                <span class="badge rounded-pill bg-light text-danger position-absolute ms-4 mt-0"
-                                    title="5 produto(s) no carrinho"><small>5</small></span>
-                                <a href="/carrinho.html" class="nav-link text-white">
-                                    <i class="bi-cart" style="font-size:24px;line-height:24px;"></i>
-                                </a>
+                                <a href="/loginGestao.html" class="nav-link text-white">Gestão</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
- 
         <main class="flex-fill">
-            <div class="container text-center">
-                <h1>Obrigado!</h1>
+            <div class="container">
+                <h1>Mensagem Recebida!</h1>
                 <hr>
-                <h3>Anote o número de seu pedido:</h3>
-                <h2 class="text-danger"><b>004571</b></h2>
-                <p>Em até 2 horas, seu pedido será entregue. Qualquer dúvida sobre este pedido, entre em contato conosco e informe o número do pedido para que possamos te ajudar.</p>
-                <p>Tenha um ótimo dia!</p>
                 <p>
-                    Atenciosamente,<br>
-                    Equipe Quitanda Online
+                    Caro cliente,
                 </p>
                 <p>
-                    <a href="/index.html" class="btn btn-danger btn-lg">Voltar à Página Principal</a>
+                   Informamos que sua mensagem foi encaminhada com sucesso para nossa central de relacionamento com clientes. 
+                </p>
+                <p>
+                    Agradecemos pela confiança em nossos serviços.
+                </p>
+                <p>
+                    Cordialmente,<br>
+                    Central de Relacionamento Sabor e Arte
                 </p>
             </div>
         </main>

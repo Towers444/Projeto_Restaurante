@@ -1,3 +1,10 @@
+<%-- 
+    Document   : gerenciar_cardapio
+    Created on : 29 de nov de 2022, 09:38:44
+    Author     : Aluno
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="pt-br">
 
