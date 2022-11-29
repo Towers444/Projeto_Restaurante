@@ -4,6 +4,15 @@
  */
 package com.restaurante.view;
 
+import com.restaurante.model.dto.Pedidos;
+import com.restaurante.model.dto.PedidosCliente;
+import com.restaurante.model.service.ManterPedidos;
+import com.restaurante.model.service.ManterPedidosCliente;
+import java.sql.SQLException;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Aluno
@@ -15,6 +24,14 @@ public class ComandaCliente extends javax.swing.JFrame {
      */
     public ComandaCliente() {
         initComponents();
+        
+        try {
+            carregarTabela(ManterPedidosCliente.listarPedidosCliente());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jScrollPane9, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jScrollPane9, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     /**
@@ -477,4 +494,16 @@ public class ComandaCliente extends javax.swing.JFrame {
     private javax.swing.JTextField textoValor;
     // End of variables declaration//GEN-END:variables
 
+    public void carregarTabela(HashSet<PedidosCliente> lista) {
+        DefaultTableModel modelo = (DefaultTableModel) tabela5.getModel();
+        
+        modelo.getDataVector().removeAllElements();
+        modelo.fireTableDataChanged();
+        
+        for(PedidosCliente pedidosCliente : lista) {
+            modelo.insertRow(modelo.getRowCount(), new Object[] {pedidosCliente.getNome(), pedidosCliente.getValor()});
+        }
+
+    }
+    
 }

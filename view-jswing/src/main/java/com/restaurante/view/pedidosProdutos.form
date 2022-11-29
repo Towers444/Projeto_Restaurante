@@ -511,7 +511,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="textoDescricao" min="-2" pref="276" max="-2" attributes="0"/>
+                      <Component id="textoCaracteristica" min="-2" pref="276" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -554,7 +554,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="LabelTitulo7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="textoDescricao" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="textoCaracteristica" min="-2" pref="34" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoremProduto2" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -581,7 +581,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextPane" name="textoLinha2">
+                <Component class="javax.swing.JTextPane" name="textoLinhaPedido">
                 </Component>
               </SubComponents>
             </Container>
@@ -596,9 +596,9 @@
                 <Property name="text" type="java.lang.String" value="Informe suas requisi&#xe7;&#xf5;es adicionais:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="textoDescricao">
+            <Component class="javax.swing.JTextField" name="textoCaracteristica">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoDescricaoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoCaracteristicaActionPerformed"/>
               </Events>
             </Component>
             <Component class="java.awt.Button" name="botaoremProduto2">

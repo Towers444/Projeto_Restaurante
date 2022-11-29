@@ -4,6 +4,17 @@
  */
 package com.restaurante.view;
 
+import com.restaurante.common.NegocioException;
+import com.restaurante.model.dto.Pedidos;
+import com.restaurante.model.service.ManterPedidos;
+import com.restaurante.model.service.ManterProduto;
+import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Aluno
@@ -15,6 +26,14 @@ public class PedidosGestao extends javax.swing.JFrame {
      */
     public PedidosGestao() {
         initComponents();
+        
+        try {
+            carregarTabela(ManterPedidos.listarPedidos());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jScrollPane6, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jScrollPane6, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -44,7 +63,8 @@ public class PedidosGestao extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         tabela9 = new javax.swing.JTable();
         LabelTitulo14 = new javax.swing.JLabel();
-        textoValor4 = new javax.swing.JTextField();
+        textoLinha = new javax.swing.JTextField();
+        botaoremProduto = new java.awt.Button();
 
         LabelTitulo2.setBackground(new java.awt.Color(255, 255, 255));
         LabelTitulo2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -226,9 +246,21 @@ public class PedidosGestao extends javax.swing.JFrame {
         LabelTitulo14.setForeground(new java.awt.Color(255, 255, 255));
         LabelTitulo14.setText("Insira a linha do produto finalizado:");
 
-        textoValor4.addActionListener(new java.awt.event.ActionListener() {
+        textoLinha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoValor4ActionPerformed(evt);
+                textoLinhaActionPerformed(evt);
+            }
+        });
+
+        botaoremProduto.setActionCommand("Remover Item");
+        botaoremProduto.setBackground(new java.awt.Color(173, 28, 17));
+        botaoremProduto.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        botaoremProduto.setForeground(new java.awt.Color(255, 255, 255));
+        botaoremProduto.setLabel("Finalizar");
+        botaoremProduto.setName(""); // NOI18N
+        botaoremProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoremProdutoActionPerformed(evt);
             }
         });
 
@@ -236,10 +268,6 @@ public class PedidosGestao extends javax.swing.JFrame {
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
@@ -249,8 +277,17 @@ public class PedidosGestao extends javax.swing.JFrame {
                         .addGap(156, 156, 156)
                         .addComponent(LabelTitulo14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textoValor4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(textoLinha, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(97, 97, 97))
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(236, 236, 236)
+                        .addComponent(botaoremProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,8 +297,10 @@ public class PedidosGestao extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelTitulo14)
-                    .addComponent(textoValor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(112, 112, 112)
+                    .addComponent(textoLinha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoremProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
                 .addComponent(botaoremProduto7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -276,9 +315,9 @@ public class PedidosGestao extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(161, 161, 161)
                         .addComponent(jLabel9)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 193, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(LabelTitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -296,8 +335,8 @@ public class PedidosGestao extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(LabelTitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -310,7 +349,7 @@ public class PedidosGestao extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -344,9 +383,29 @@ public class PedidosGestao extends javax.swing.JFrame {
         //
     }//GEN-LAST:event_botaoremProduto7ActionPerformed
 
-    private void textoValor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoValor4ActionPerformed
+    private void textoLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoLinhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textoValor4ActionPerformed
+    }//GEN-LAST:event_textoLinhaActionPerformed
+
+    private void botaoremProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProdutoActionPerformed
+        String stringRemoverLinha = textoLinha.getText();
+        int removerLinha = Integer.parseInt(stringRemoverLinha);
+            removerLinha--;
+            DefaultTableModel modelo = (DefaultTableModel) tabela9.getModel();
+            String valorNumeroNome = modelo.getValueAt(removerLinha, 0).toString();
+            String valorNumeroCaracteristica = modelo.getValueAt(removerLinha, 1).toString();
+            System.out.print("HELLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLOOOOOOOOOOOOOO");
+        try {
+            ManterPedidos.excluirPedidos(valorNumeroNome, valorNumeroCaracteristica);
+        } catch (NegocioException ex) {
+            Logger.getLogger(PedidosGestao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(PedidosGestao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PedidosGestao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            ((DefaultTableModel) tabela9.getModel()).removeRow(removerLinha); tabela9.repaint(); tabela9.validate();
+    }//GEN-LAST:event_botaoremProdutoActionPerformed
 
     
     /**
@@ -394,6 +453,7 @@ public class PedidosGestao extends javax.swing.JFrame {
     private javax.swing.JButton botaoEstoque;
     private javax.swing.JButton botaoInicio;
     private javax.swing.JButton botaoPedidos;
+    private java.awt.Button botaoremProduto;
     private java.awt.Button botaoremProduto7;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel9;
@@ -403,6 +463,18 @@ public class PedidosGestao extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable tabela9;
-    private javax.swing.JTextField textoValor4;
+    private javax.swing.JTextField textoLinha;
     // End of variables declaration//GEN-END:variables
+
+public void carregarTabela(HashSet<Pedidos> lista) {
+        DefaultTableModel modelo = (DefaultTableModel) tabela9.getModel();
+        
+        modelo.getDataVector().removeAllElements();
+        modelo.fireTableDataChanged();
+        
+        for(Pedidos pedidos : lista) {
+            modelo.insertRow(modelo.getRowCount(), new Object[] {pedidos.getNome(), pedidos.getCaracteristica()});
+        }
+
+    }
 }
