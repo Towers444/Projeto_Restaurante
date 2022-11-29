@@ -10,6 +10,8 @@ import com.restaurante.model.dto.Alimentos;
 import com.restaurante.model.dto.Produto;
 import java.sql.SQLException;
 import java.util.HashSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -752,13 +754,17 @@ public class cadastroProdutos extends javax.swing.JFrame {
             String valorNumeroNome = modelo.getValueAt(removerLinha, 0).toString();
             String valorNumeroValor = modelo.getValueAt(removerLinha, 1).toString();
             String valorNumeroDescricao = modelo.getValueAt(removerLinha, 2).toString();
-            System.out.print(valorNumeroNome);
-            System.out.print(valorNumeroValor);
-            System.out.print(valorNumeroDescricao);
             contador--;
+            try {
+                ManterProduto.excluirProduto(valorNumeroNome, valorNumeroValor, valorNumeroDescricao);
+            } catch (NegocioException ex) {
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            }
             ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
-            //ProdutoNomeDAO.excluirProdutoNome(valorNumeroNome);
-            //ProdutoDAO.excluirProdutoDescricao(valorNumeroDescricao);
         }
     }//GEN-LAST:event_botaoremProdutoActionPerformed
 

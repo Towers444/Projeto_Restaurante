@@ -47,7 +47,8 @@ public class ManterProduto {
     }
 
     public static int excluirProduto(String nome, String valor, String descricao) throws NegocioException, SQLException, ClassNotFoundException {
-        return 0;
+        Produto produto = new Produto(nome, Integer.parseInt(valor), descricao);
+        return ProdutoDAO.excluir(produto);
     }
 
     public static void alterarProdutoDescricao(String nomeAnterior, String novoNome) {
