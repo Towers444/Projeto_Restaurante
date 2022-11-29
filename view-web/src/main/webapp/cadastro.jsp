@@ -22,9 +22,9 @@
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="script/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="script/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/estilos.css">
     
     <title>Quitanda Online :: Cadastro</title>
 </head>
@@ -41,25 +41,25 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/index.html">Principal</a>
+                            <a class="nav-link text-white" href="index.jsp">Principal</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/contato.html">Contato</a>
+                            <a class="nav-link text-white" href="contato.jsp">Contato</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/quemsomos.html">Quem Somos</a>
+                            <a class="nav-link text-white" href="quemsomos.jsp">Quem Somos</a>
                         </li>
                     </ul>
                     <div class="align-self-end">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="/loginGestao.html" class="nav-link text-white">Gestão</a>
+                                <a href="loginGestao.jsp" class="nav-link text-white">Gestão</a>
                             </li>
                             <li class="nav-item">
                                 <span class="badge rounded-pill bg-light text-danger position-absolute ms-4 mt-0"
                                     title="5 produto(s) no carrinho"><small>5</small></span>
-                                <a href="/carrinho.html" class="nav-link text-white">
+                                <a href="carrinho.jsp" class="nav-link text-white">
                                     <i class="bi-cart" style="font-size:24px;line-height:24px;"></i>
                                 </a>
                             </li>
@@ -155,7 +155,7 @@
                     <div class="mb-3 text-left">
                         <a class="btn btn-lg btn-light btn-outline-danger" href="/">Cancelar</a>
                         <input type="button" value="Criar meu cadastro" class="btn btn-lg btn-danger"
-                            onclick="window.location.href='/confirmarcadastro.html'" />
+                            onclick="window.location.href='confirmarcadastro.jsp'" />
                     </div>
                 </form>
             </div>
@@ -168,7 +168,7 @@
                         &copy; 2022 - Centro Federal de Educaçaõ Tecnológica de Minas Gerais
                     </div>
                     <div class="col-12 col-md-4 text-center text-md-right">
-                        <a href="/contato.html" class="text-decoration-none text-dark">Contato pelo site</a><br>
+                        <a href="contato.jsp" class="text-decoration-none text-dark">Contato pelo site</a><br>
                         Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">(28) 99999-0000</a>
                     </div>
                 </div>
@@ -176,7 +176,19 @@
         </footer>
     </div>
 
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+      <script src="script/node_modules/bootstrap/js/src/alert.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/carousel.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/base-component.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/button.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/collapse.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/dropdown.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/modal.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/offcanvas.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/popover.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/scrollspy.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/tab.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/toast.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/tooltip.js"></script>
 </body>
 
 </html>

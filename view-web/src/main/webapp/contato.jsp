@@ -22,9 +22,9 @@
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="script/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="script/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/estilos.css">
 
     <title>Sabor e Arte - Contato</title>
 </head>
@@ -41,20 +41,20 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/index.html">Principal</a>
+                            <a class="nav-link text-white" href="index.jsp">Principal</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/contato.html">Contato</a>
+                            <a class="nav-link text-white" href="contato.jsp">Contato</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/quemsomos.html">Quem Somos</a>
+                            <a class="nav-link text-white" href="quemsomos.jsp">Quem Somos</a>
                         </li>
                     </ul>
                     <div class="align-self-end">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="/loginGestao.html" class="nav-link text-white">Gestão</a>
+                                <a href="loginGestao.jsp" class="nav-link text-white">Gestão</a>
                             </li>
                         </ul>
                     </div>
@@ -83,7 +83,7 @@
                             <label for="txtMensagem">Mensagem</label>
                         </div>
 
-                        <button type="button" onclick="window.location.href='/confirmcontato.html'" class="btn btn-lg btn-danger">Enviar Mensagem</button>
+                        <button type="button" onclick="window.location.href='confirmcontato.jsp'" class="btn btn-lg btn-danger">Enviar Mensagem</button>
 
 
                         <p class="mt-3">
@@ -101,7 +101,7 @@
                         &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais
                     </div>
                     <div class="col-12 col-md-4 text-center">
-                        <a href="/contato.html" class="text-decoration-none text-dark">
+                        <a href="contato.jsp" class="text-decoration-none text-dark">
                             Contato pelo Site
                         </a><br>
                         Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
@@ -112,7 +112,19 @@
             </div>
         </footer>
     </div>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="script/node_modules/bootstrap/js/src/alert.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/carousel.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/base-component.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/button.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/collapse.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/dropdown.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/modal.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/offcanvas.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/popover.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/scrollspy.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/tab.js"></script><!-- comment -->
+    <script src="script/node_modules/bootstrap/js/src/toast.js"></script>
+    <script src="script/node_modules/bootstrap/js/src/tooltip.js"></script>
 </body>
 
 </html>
