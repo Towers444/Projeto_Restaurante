@@ -77,12 +77,12 @@ public class AlimentosDAO {
     /**
      * Exclui da tabela 'alimentos' um registro.
      * 
-     * @param alimento
+     * @param alimentos
      * @return 1 se for bem sucedida, 0 caso contrário
      * @throws SQLException
      * @throws ClassNotFoundException 
      */
-    public static int excluir(Alimentos alimento) throws SQLException, ClassNotFoundException {
+    public static int excluir(Alimentos alimentos) throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         
         PreparedStatement ps = null;
@@ -94,7 +94,7 @@ public class AlimentosDAO {
             
             ps = conexao.prepareStatement("DELETE FROM alimentos WHERE ingrediente = ?");
             
-            ps.setString(1, alimento.getIngrediente());
+            ps.setString(1, alimentos.getIngrediente());
             
             retorno = ps.executeUpdate();
         } finally {

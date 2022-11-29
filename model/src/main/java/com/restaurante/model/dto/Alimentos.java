@@ -37,8 +37,5 @@ public class Alimentos {
     public String getCodigo() {
         return codigo;
     }
-    
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
+
 }
