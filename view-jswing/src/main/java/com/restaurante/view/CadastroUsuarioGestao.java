@@ -11,6 +11,8 @@ import com.restaurante.model.service.ManterFuncionarios;
 import com.restaurante.model.service.ManterUsuario;
 import java.sql.SQLException;
 import java.util.HashSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -472,20 +474,24 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoAddFuncionarioActionPerformed
 
     private void botaoremProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProdutoActionPerformed
-        String stringRemoverLinha = textoLinha.getText();
+      String stringRemoverLinha = textoLinha.getText();
         int removerLinha = Integer.parseInt(stringRemoverLinha);
-        if (removerLinha <= 0 || removerLinha > contador) {
-            JOptionPane.showMessageDialog(jScrollPane1, "Número de linha inexistente", "Erro", JOptionPane.ERROR_MESSAGE);
-            textoLinha.requestFocus();
-        } else {
-            removerLinha--;
-            String valorNumeroNome = (String) tabela.getValueAt(removerLinha, 1);
-            String valorNumeroDescricao = (String) tabela.getValueAt(removerLinha, 2);
-            contador--;
+        removerLinha--;
+            DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+            String valorNumeroCpf = modelo.getValueAt(removerLinha, 0).toString();
+            String valorNumeroNome = modelo.getValueAt(removerLinha, 1).toString();
+            String valorNumeroEspecialidade = modelo.getValueAt(removerLinha, 2).toString();
+            String valorNumeroSalario = modelo.getValueAt(removerLinha, 3).toString();
+            try {
+              ManterFuncionarios.excluirFuncionarios(valorNumeroCpf, valorNumeroNome, valorNumeroEspecialidade, valorNumeroSalario);
+            } catch (NegocioException ex) {
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            }
             ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
-            //ProdutoNomeDAO.excluirProdutoNome(valorNumeroNome);
-            //ProdutoDAO.excluirProdutoDescricao(valorNumeroDescricao);
-        }
     }//GEN-LAST:event_botaoremProdutoActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed

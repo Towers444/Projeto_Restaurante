@@ -423,36 +423,21 @@ public class CadastroEstoqueGestoes extends javax.swing.JFrame {
     private void botaoremProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProdutoActionPerformed
         String stringRemoverLinha = textoLinha.getText();
         int removerLinha = Integer.parseInt(stringRemoverLinha);
-        if (removerLinha <= 0 || removerLinha > 5) {
-            JOptionPane.showMessageDialog(jPanel45, "Número de linha inexistente", "Erro", JOptionPane.ERROR_MESSAGE);
-            textoLinha.requestFocus();
-        } else {
-            removerLinha--;
-            String valorNumeroNome = (String) tabela.getValueAt(removerLinha, 0);
-            String valorNumeroQuantidade = (String) tabela.getValueAt(removerLinha, 1);
-            System.out.print("GARRRRRRRRRRRRRRRRRRRROOOOOOOOOU");
-            System.out.print(valorNumeroNome);
-            System.out.print(valorNumeroQuantidade);
+        removerLinha--;
+            DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+            
+            String valorNumeroIngrediente = modelo.getValueAt(removerLinha, 0).toString();
+            String valorNumeroQuantidade = modelo.getValueAt(removerLinha, 1).toString();
             try {
-                System.out.print("CHAMAAAAAAAAAAANDO");
-                ManterAlimentos.excluirAlimentos(valorNumeroNome, valorNumeroQuantidade);
-                System.out.print("CHAMAAAAAAAAAAAMOOOOOOOOOOOOOOOOOOOOOOOOU");
+              ManterAlimentos.excluirAlimentos(valorNumeroIngrediente, valorNumeroQuantidade);
             } catch (NegocioException ex) {
-                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
             }
-            contador--;
-            try {
-                carregarTabela(ManterAlimentos.listarAlimentos());
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+            ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
     }//GEN-LAST:event_botaoremProdutoActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed

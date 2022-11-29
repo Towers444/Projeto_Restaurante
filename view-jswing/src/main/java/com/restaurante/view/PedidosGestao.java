@@ -390,21 +390,22 @@ public class PedidosGestao extends javax.swing.JFrame {
     private void botaoremProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProdutoActionPerformed
         String stringRemoverLinha = textoLinha.getText();
         int removerLinha = Integer.parseInt(stringRemoverLinha);
-            removerLinha--;
+        removerLinha--;
             DefaultTableModel modelo = (DefaultTableModel) tabela9.getModel();
-            String valorNumeroNome = modelo.getValueAt(removerLinha, 0).toString();
-            String valorNumeroCaracteristica = modelo.getValueAt(removerLinha, 1).toString();
-            System.out.print("HELLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLOOOOOOOOOOOOOO");
-        try {
-            ManterPedidos.excluirPedidos(valorNumeroNome, valorNumeroCaracteristica);
-        } catch (NegocioException ex) {
-            Logger.getLogger(PedidosGestao.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(PedidosGestao.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PedidosGestao.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            String valorNumeroIngrediente = modelo.getValueAt(removerLinha, 0).toString();
+            String valorNumeroQuantidade = modelo.getValueAt(removerLinha, 1).toString();
+            System.out.print("Chegou");
+            try {
+              ManterPedidos.excluirPedidos(valorNumeroIngrediente, valorNumeroQuantidade);
+            } catch (NegocioException ex) {
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            }
             ((DefaultTableModel) tabela9.getModel()).removeRow(removerLinha); tabela9.repaint(); tabela9.validate();
+
     }//GEN-LAST:event_botaoremProdutoActionPerformed
 
     

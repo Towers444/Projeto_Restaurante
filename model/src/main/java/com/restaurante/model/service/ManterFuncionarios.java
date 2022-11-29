@@ -52,10 +52,9 @@ public class ManterFuncionarios {
         }
     }
 
-    public static int excluirFuncionarios(String ingrediente, String quantidade) throws NegocioException, SQLException, ClassNotFoundException {
-        
-        return 0;
-        
+    public static int excluirFuncionarios(String codigo, String nome, String especialidade, String salario) throws NegocioException, SQLException, ClassNotFoundException {
+        Funcionarios funcionario = new Funcionarios(Integer.parseInt(codigo), nome, especialidade, Integer.parseInt(salario));
+        return FuncionariosDAO.excluir(funcionario);
     }
 
     public static void alterarFuncionariosDescricao(String nomeAnterior, String novoNome) {
