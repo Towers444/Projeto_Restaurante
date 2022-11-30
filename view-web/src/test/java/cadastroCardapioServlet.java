@@ -46,6 +46,8 @@ public class cadastroCardapioServlet extends HttpServlet {
             
             ManterProduto.cadastrarProduto(nome, valor, descricao);
             
+            response.sendRedirect("gerenciarCardapio.jsp");
+            
         } catch (NegocioException ex) {
             System.out.print("Error");
         } catch (ClassNotFoundException ex) {
