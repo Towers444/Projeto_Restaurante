@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -68,7 +71,7 @@
                 </div>
             </div>
         </nav>
-
+        
         <div class="container">
             <div id="carouselMain" class="carousel slide carousel-dark" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -156,16 +159,13 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <a href="produto.jsp">
-                                <img src="img/produtos/000001.jpg" class="card-img-top">
-                            </a>
                             <div class="card-header">
-                                R$ 4,50
+                                R$ 15,00
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Banana Prata</h5>
+                                <h5 class="card-title">Lasanha a Bolonhesa</h5>
                                 <p class="card-text truncar-3l">
-                                    Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
+                                    Deliciosa massa recheada a molho bolonhesa.
                                 </p>
                             </div>
                             <div class="card-footer">
@@ -181,14 +181,13 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="img/produtos/000002.jpg" class="card-img-top">
                             <div class="card-header">
-                                R$ 4,50
+                                R$ 32,00
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Banana Prata</h5>
+                                <h5 class="card-title">Pizza de Calabresa</h5>
                                 <p class="card-text truncar-3l">
-                                    Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
+                                    Queijo, Mussarela, Oregano e Calabresa.
                                 </p>
                             </div>
                             <div class="card-footer">
@@ -204,223 +203,13 @@
                             <a href="#" class="position-absolute end-0 p-2 text-danger">
                                 <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                             </a>
-                            <img src="img/produtos/000003.jpg" class="card-img-top">
                             <div class="card-header">
-                                R$ 4,50
+                                R$ 25,00
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Banana Prata</h5>
+                                <h5 class="card-title">Camarão Empanado</h5>
                                 <p class="card-text truncar-3l">
-                                    Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-light disabled mt-2 d-block">
-                                    <small>Reabastecendo Estoque</small>
-                                </a>
-                                <small class="text-danger">
-                                    <b>Produto Esgotado</b>
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <div class="card text-center bg-light">
-                            <a href="#" class="position-absolute end-0 p-2 text-danger">
-                                <i class="bi-suit-heart-fill" style="font-size: 24px; line-height: 24px;"></i>
-                            </a>
-                            <img src="img/produtos/000004.jpg" class="card-img-top">
-                            <div class="card-header">
-                                R$ 4,50
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Banana Prata</h5>
-                                <p class="card-text truncar-3l">
-                                    Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
-                                    Adicionar ao Carrinho
-                                </a>
-                                <small class="text-success">320,5kg em estoque</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <div class="card text-center bg-light">
-                            <a href="#" class="position-absolute end-0 p-2 text-danger">
-                                <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                            </a>
-                            <img src="img/produtos/000005.jpg" class="card-img-top">
-                            <div class="card-header">
-                                R$ 4,50
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Banana Prata</h5>
-                                <p class="card-text truncar-3l">
-                                    Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
-                                    Adicionar ao Carrinho
-                                </a>
-                                <small class="text-success">320,5kg em estoque</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <div class="card text-center bg-light">
-                            <a href="#" class="position-absolute end-0 p-2 text-danger">
-                                <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                            </a>
-                            <img src="img/produtos/000006.jpg" class="card-img-top">
-                            <div class="card-header">
-                                R$ 4,50
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Banana Prata</h5>
-                                <p class="card-text truncar-3l">
-                                    Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
-                                    Adicionar ao Carrinho
-                                </a>
-                                <small class="text-success">320,5kg em estoque</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <div class="card text-center bg-light">
-                            <a href="#" class="position-absolute end-0 p-2 text-danger">
-                                <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                            </a>
-                            <img src="img/produtos/000007.jpg" class="card-img-top">
-                            <div class="card-header">
-                                R$ 4,50
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Banana Prata</h5>
-                                <p class="card-text truncar-3l">
-                                    Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
-                                    Adicionar ao Carrinho
-                                </a>
-                                <small class="text-success">320,5kg em estoque</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <div class="card text-center bg-light">
-                            <a href="#" class="position-absolute end-0 p-2 text-danger">
-                                <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                            </a>
-                            <img src="img/produtos/000008.jpg" class="card-img-top">
-                            <div class="card-header">
-                                R$ 4,50
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Banana Prata</h5>
-                                <p class="card-text truncar-3l">
-                                    Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
-                                    Adicionar ao Carrinho
-                                </a>
-                                <small class="text-success">320,5kg em estoque</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <div class="card text-center bg-light">
-                            <a href="#" class="position-absolute end-0 p-2 text-danger">
-                                <i class="bi-suit-heart-fill" style="font-size: 24px; line-height: 24px;"></i>
-                            </a>
-                            <img src="img/produtos/000009.jpg" class="card-img-top">
-                            <div class="card-header">
-                                R$ 4,50
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Banana Prata</h5>
-                                <p class="card-text truncar-3l">
-                                    Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
-                                    Adicionar ao Carrinho
-                                </a>
-                                <small class="text-success">320,5kg em estoque</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <div class="card text-center bg-light">
-                            <a href="#" class="position-absolute end-0 p-2 text-danger">
-                                <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                            </a>
-                            <img src="img/produtos/000010.jpg" class="card-img-top">
-                            <div class="card-header">
-                                R$ 4,50
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Banana Prata</h5>
-                                <p class="card-text truncar-3l">
-                                    Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
-                                    Adicionar ao Carrinho
-                                </a>
-                                <small class="text-success">320,5kg em estoque</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <div class="card text-center bg-light">
-                            <a href="#" class="position-absolute end-0 p-2 text-danger">
-                                <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                            </a>
-                            <img src="img/produtos/000011.jpg" class="card-img-top">
-                            <div class="card-header">
-                                R$ 4,50
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Banana Prata</h5>
-                                <p class="card-text truncar-3l">
-                                    Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="carrinho.jsp" class="btn btn-danger mt-2 d-block">
-                                    Adicionar ao Carrinho
-                                </a>
-                                <small class="text-success">320,5kg em estoque</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <div class="card text-center bg-light">
-                            <a href="#" class="position-absolute end-0 p-2 text-danger">
-                                <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                            </a>
-                            <img src="img/produtos/000012.jpg" class="card-img-top">
-                            <div class="card-header">
-                                R$ 4,50
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Banana Prata</h5>
-                                <p class="card-text truncar-3l">
-                                    Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
+                                    Mariscos do Mar.
                                 </p>
                             </div>
                             <div class="card-footer">

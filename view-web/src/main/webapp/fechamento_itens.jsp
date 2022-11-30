@@ -82,20 +82,20 @@
                         <div class="row g-3">
                             <div class="col-4 col-md-3 col-lg-2">
                                 <a href="#">
-                                    <img src="/img/produtos/000008.jpg" class="img-thumbnail">
+                                    <img src="" class="img-thumbnail">
                                 </a>
                             </div>
                             <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
                                 <h4>
                                     <b><a href="#" class="text-decoration-none text-danger">
-                                            Abacate Manteiga</a></b>
+                                            Lasanha a Bolsonhesa</a></b>
                                 </h4>
                                 <h5>
-                                    Abacate manteiga da melhor qualidade possível e muito fresco.
+                                    Deliciosa massa recheada a molho bolonhesa.
                                     <br>
                                     <b>
-                                        4 unidade(s) <br>
-                                        R$ 15,96
+                                        2 unidade(s) <br>
+                                        R$ 30,00
                                     </b>
                                 </h5>
                             </div>                            
@@ -105,63 +105,20 @@
                         <div class="row g-3">
                             <div class="col-4 col-md-3 col-lg-2">
                                 <a href="#">
-                                    <img src="/img/produtos/000003.jpg" class="img-thumbnail">
+                                    <img src="" class="img-thumbnail">
                                 </a>
                             </div>
                             <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
                                 <h4>
                                     <b><a href="#" class="text-decoration-none text-danger">
-                                            Abacate Manteiga</a></b>
+                                            Pizza de Calabresa</a></b>
                                 </h4>
                                 <h5>
-                                    Abacate manteiga da melhor qualidade possível e muito fresco. <br>
+                                    Queijo, Mussarela, Oregano e Calabresa.
+                                    <br>
                                     <b>
-                                        4 unidade(s) <br>
-                                        R$ 15,96
-                                    </b>
-                                </h5>
-                            </div>                            
-                        </div>
-                    </li>
-                    <li class="list-group-item py-3">
-                        <div class="row g-3">
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <a href="#">
-                                    <img src="/img/produtos/000006.jpg" class="img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
-                                <h4>
-                                    <b><a href="#" class="text-decoration-none text-danger">
-                                            Abacate Manteiga</a></b>
-                                </h4>
-                                <h5>
-                                    Abacate manteiga da melhor qualidade possível e muito fresco. <br>
-                                    <b>
-                                        4 unidade(s) <br>
-                                        R$ 15,96
-                                    </b>
-                                </h5>
-                            </div>                    
-                        </div>
-                    </li>
-                    <li class="list-group-item py-3">
-                        <div class="row g-3">
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <a href="#">
-                                    <img src="/img/produtos/000012.jpg" class="img-thumbnail">
-                                </a>
-                            </div>
-                            <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
-                                <h4>
-                                    <b><a href="#" class="text-decoration-none text-danger">
-                                            Abacate Manteiga</a></b>
-                                </h4>
-                                <h5>
-                                    Abacate manteiga da melhor qualidade possível e muito fresco. <br>
-                                    <b>
-                                        4 unidade(s) <br>
-                                        R$ 15,96
+                                        1 unidade(s) <br>
+                                        R$ 32,00
                                     </b>
                                 </h5>
                             </div>                            
@@ -170,7 +127,7 @@
                     <li class="list-group-item pt-3 pb-0">
                         <div class="text-end">
                             <h4 class="text-dark mb-3">
-                                Valor Total: R$ 63,84
+                                Valor Total: R$ 62,00
                             </h4>
                             <a href="carrinho.jsp" class="btn btn-outline-success btn-lg mb-3">
                                 Voltar ao Carrinho

@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -284,6 +287,28 @@ td button i:first-child {
       <span>Cadastro de Funcionários</span>
       <button onclick="openModal()" id="new">Incluir</i></button>
     </div>
+      
+    <sql:setDataSource var= "conexao" driver= "com.mysql.jdbc.Driver" url= "jdbc:mysql://saborearte.chwxs6wwh47k.us-east-1.rds.amazonaws.com/sys?useSSL=false" user= "admin"  password= "saborearteC*1" />
+
+    <sql:query dataSource = "${conexao}" var = "result">
+    SELECT * from funcionarios;
+    </sql:query>
+
+    <div class="divTable">
+
+    <table border = "1" width = "100%">
+
+    <c:forEach var = "row" items = "${result.rows}">
+    <tr>
+    <td><c:out value = "${row.cpf}"/> </td>
+    <td><c:out value = "${row.nome}"/> </td>
+    <td><c:out value = "${row.senha}"/> </td>
+    <td><c:out value = "${row.especialidade}"/> </td>
+    </tr>
+    </c:forEach>
+    </table>
+
+    </div>
 
     <div class="divTable">
       <table>
@@ -293,6 +318,38 @@ td button i:first-child {
             <th>Nome</th>
             <th>Função</th>
             <th>Salário</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+          <tr>
+            <th>10927221345</th>
+            <th>João Pedro Torres</th>
+            <th>Administrador</th>
+            <th>R$10.000,00</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+          <tr>
+            <th>112743328</th>
+            <th>André Henrique</th>
+            <th>Administrador</th>
+            <th>R$10.000,00</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+          <tr>
+            <th>135794235</th>
+            <th>Rayanne</th>
+            <th>Administradora</th>
+            <th>R$10.000,00</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+          <tr>
+            <th>456843246</th>
+            <th>Seynabou Colibaly</th>
+            <th>Administradora</th>
+            <th>R$10.000,00</th>
             <th class="acao">Editar</th>
             <th class="acao">Excluir</th>
           </tr>
