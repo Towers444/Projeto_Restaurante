@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -284,7 +287,32 @@
         <span>Cadastro de Funcionários</span>
         <button onclick="openModal()" id="new">Incluir</i></button>
       </div>
-  
+        
+        <sql:setDataSource var= "conexao" driver= "com.mysql.jdbc.Driver" url= "jdbc:mysql://saborearte.chwxs6wwh47k.us-east-1.rds.amazonaws.com/sys?useSSL=false" user= "admin"  password= "saborearteC*1" />
+        
+        <sql:query dataSource = "${conexao}" var = "result">
+        SELECT * from produto;
+        </sql:query>
+
+        <div class="divTable">
+        
+        <table border = "1" width = "100%">
+
+        <tr>
+        <th>Nome</th><th>Valor</th><th>Descricao</th>
+        </tr>
+
+        <c:forEach var = "row" items = "${result.rows}">
+        <tr>
+        <td><c:out value = "${row.nome}"/> </td>
+        <td><c:out value = "${row.valor}"/> </td>
+        <td><c:out value = "${row.descricao}"/> </td>
+        </tr>
+        </c:forEach>
+        </table>
+        
+        </div>
+            
       <div class="divTable">
         <table>
           <thead>
@@ -292,6 +320,27 @@
               <th>Nome do Prato</th>
               <th>Descrição</th>
               <th>Valor</th>
+              <th class="acao">Editar</th>
+              <th class="acao">Excluir</th>
+            </tr>
+            <tr>
+              <th>Lasanha a Bolonhesa</th>
+              <th>Deliciosa massa recheada a molho bolonhesa</th>
+              <th>R$15,00</th>
+              <th class="acao">Editar</th>
+              <th class="acao">Excluir</th>
+            </tr>
+            <tr>
+              <th>Pizza de Calabresa</th>
+              <th>Queijo, Mussarela, Oregano e Calabresa</th>
+              <th>R$32,00</th>
+              <th class="acao">Editar</th>
+              <th class="acao">Excluir</th>
+            </tr>
+            <tr>
+              <th>Camarão Empanado</th>
+              <th>Mariscos do Mar</th>
+              <th>R$25,00</th>
               <th class="acao">Editar</th>
               <th class="acao">Excluir</th>
             </tr>
@@ -304,7 +353,7 @@
   
       <div class="modal-container">
         <div class="modal">
-          <form action="./cadastroCardapioServlet" method="POST">
+          <form method="post" action="cadastroCardapioServlet">
             <label for="m-nome-prato">Nome do Prato</label>
             <input id="m-nome-prato" name="nome" type="text" required />
     

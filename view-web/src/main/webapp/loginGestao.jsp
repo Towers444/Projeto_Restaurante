@@ -21,10 +21,11 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
-    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="font/bootstrap-icons.css">
+    
     <link rel="stylesheet" href="css/estilos.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
 
     <title>Sabor e Arte -  Login Gestão</title>
 </head>
@@ -69,25 +70,22 @@
         <main class="flex-fill">
             <div class="container">
                 <div class="row justify-content-center">
-                    <form action="/loginServlet" method="POST" class="col-sm-10 col-md-8 col-lg-6">
+                    <form class="col-sm-10 col-md-8 col-lg-6" method="post" action="LoginServlet">
                         <h1>Identifique-se, por favor</h1>
 
                         <div class="form-floating mb-3">
-                            <input type="text" name="cpf" id="txtEmail" class="form-control" placeholder=" " autofocus>
-                            <label for="txtEmail">CPF</label>
+                            <input type="text" id="usuario" name="usuario" class="form-control" placeholder=" " autofocus>
+                            <label for="usuario">CPF</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="password" name="senha" id="txtSenha" class="form-control" placeholder=" ">
-                            <label for="txtSenha">Senha</label>
+                            <input type="password" id="senha" name="senha" class="form-control" placeholder=" ">
+                            <label for="senha">Senha</label>
                         </div>
 
-                        <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" value="" id="chkLembrar">
-                            <label for="chkLembrar" class="form-check-label">Lembrar de mim</label>
-                        </div>
+                        <button type="button" onclick="window.location.href='gestao.jsp'"
+                            class="btn btn-lg btn-danger">Entrar</button>
 
-                        <input type="submit" value="Entrar" class="btn btn-lg btn-danger">
                     </form>
                 </div>
             </div>
@@ -112,19 +110,8 @@
             </div>
         </footer>
     </div>
-     <script src="script/node_modules/bootstrap/js/src/alert.js"></script>
-    <script src="script/node_modules/bootstrap/js/src/carousel.js"></script>
-    <script src="script/node_modules/bootstrap/js/src/base-component.js"></script>
-    <script src="script/node_modules/bootstrap/js/src/button.js"></script><!-- comment -->
-    <script src="script/node_modules/bootstrap/js/src/collapse.js"></script><!-- comment -->
-    <script src="script/node_modules/bootstrap/js/src/dropdown.js"></script>
-    <script src="script/node_modules/bootstrap/js/src/modal.js"></script><!-- comment -->
-    <script src="script/node_modules/bootstrap/js/src/offcanvas.js"></script><!-- comment -->
-    <script src="script/node_modules/bootstrap/js/src/popover.js"></script><!-- comment -->
-    <script src="script/node_modules/bootstrap/js/src/scrollspy.js"></script>
-    <script src="script/node_modules/bootstrap/js/src/tab.js"></script><!-- comment -->
-    <script src="script/node_modules/bootstrap/js/src/toast.js"></script>
-    <script src="script/node_modules/bootstrap/js/src/tooltip.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 
 </html>

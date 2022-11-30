@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -290,12 +293,54 @@ td button i:first-child {
       <button onclick="openModal()" id="new">Adicionar</i></button>
     </div>
 
+    <sql:setDataSource var= "conexao" driver= "com.mysql.jdbc.Driver" url= "jdbc:mysql://saborearte.chwxs6wwh47k.us-east-1.rds.amazonaws.com/sys?useSSL=false" user= "admin"  password= "saborearteC*1" />
+        
+    <sql:query dataSource = "${conexao}" var = "result">
+    SELECT * from alimentos;
+    </sql:query>
+
+    <div class="divTable">
+
+    <table border = "1" width = "100%">
+
+    <tr>
+    <th>Nome</th><th>Quantidade</th>
+    </tr>
+
+    <c:forEach var = "row" items = "${result.rows}">
+    <tr>
+    <td><c:out value = "${row.nome}"/> </td>
+    <td><c:out value = "${row.quantidade}"/> </td>
+    </tr>
+    </c:forEach>
+    </table>
+
+    </div>
+      
     <div class="divTable">
       <table>
         <thead>
           <tr>
             <th>Nome do produto</th>
             <th>Quantidade</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+          <tr>
+            <th>Alface</th>
+            <th>15</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+          <tr>
+            <th>Farinha</th>
+            <th>13Kg</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+          <tr>
+            <th>Ovos</th>
+            <th>20</th>
             <th class="acao">Editar</th>
             <th class="acao">Excluir</th>
           </tr>
