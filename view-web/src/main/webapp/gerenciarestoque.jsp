@@ -302,53 +302,25 @@ td button i:first-child {
 
     <div class="divTable">
 
-    <table border = "1" width = "100%">
+    <table>
+    <thead>
 
     <tr>
-    <th>Nome</th><th>Quantidade</th>
+    <th>Ingrediente</th><th>Quantidade</th><th>Editar</th><th>Excluir</th>
     </tr>
 
     <c:forEach var = "row" items = "${result.rows}">
-    <tr>
-    <td><c:out value = "${row.nome}"/> </td>
-    <td><c:out value = "${row.quantidade}"/> </td>
+    <th><c:out value = "${row.ingrediente}"/> </th>
+    <th><c:out value = "${row.quantidade}"/> </th>
+    <th class="acao">Editar</th>
+    <th class="acao">Excluir</th>
     </tr>
     </c:forEach>
+    </thead>
+    <tbody>
+    </tbody>
     </table>
 
-    </div>
-      
-    <div class="divTable">
-      <table>
-        <thead>
-          <tr>
-            <th>Nome do produto</th>
-            <th>Quantidade</th>
-            <th class="acao">Editar</th>
-            <th class="acao">Excluir</th>
-          </tr>
-          <tr>
-            <th>Alface</th>
-            <th>15</th>
-            <th class="acao">Editar</th>
-            <th class="acao">Excluir</th>
-          </tr>
-          <tr>
-            <th>Farinha</th>
-            <th>13Kg</th>
-            <th class="acao">Editar</th>
-            <th class="acao">Excluir</th>
-          </tr>
-          <tr>
-            <th>Ovos</th>
-            <th>20</th>
-            <th class="acao">Editar</th>
-            <th class="acao">Excluir</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
     </div>
 
     <div class="modal-container">

@@ -43,7 +43,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="index.jsp">Principal</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="ComandaCliente.jsp">Comanda</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="contato.jsp">Contato</a>
                         </li>

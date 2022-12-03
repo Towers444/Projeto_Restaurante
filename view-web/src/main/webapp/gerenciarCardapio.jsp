@@ -68,11 +68,19 @@
       background-color: rgb(168, 17, 12);
     }
     
-    .divTable {
+    .divTable{
+      border-spacing: 10px;
+      word-break: break-all;
+      border-collapse: collapse;
+    }
+    
+    table {
       padding: 10px;
+      margin-bottom: 30px;
       width: auto; 
       height:inherit; 
       overflow:auto;
+      width: 100%;
     }
     
     .divTable::-webkit-scrollbar {
@@ -83,13 +91,6 @@
     .divTable::-webkit-scrollbar-thumb {
       border-radius: 10px;
       background-color: rgb(245, 126, 126); 
-    }
-    
-    table {
-      width: 100%;
-      border-spacing: 10px;
-      word-break: break-all;
-      border-collapse: collapse;
     }
     
     thead {
@@ -285,7 +286,7 @@
       </nav>
     <div class="container">
       <div class="header">
-        <span>Cadastro de Funcionários</span>
+        <span>Cadastro de Cardápio</span>
         <button onclick="openModal()" id="new">Incluir</i></button>
       </div>
         
@@ -297,61 +298,28 @@
 
         <div class="divTable">
         
-        <table border = "1" width = "100%">
-
+        <table>
+        <thead>
         <tr>
-        <th>Nome</th><th>Valor</th><th>Descricao</th>
+        <th>Nome do Prato</th><th>Valor</th><th>Descrição</th><th>Editar</th><th>Excluir</th>
         </tr>
 
         <c:forEach var = "row" items = "${result.rows}">
         <tr>
-        <td><c:out value = "${row.nome}"/> </td>
-        <td><c:out value = "${row.valor}"/> </td>
-        <td><c:out value = "${row.descricao}"/> </td>
+        <th><c:out value = "${row.nome}"/> </th>
+        <th><c:out value = "${row.valor}"/> </th>
+        <th><c:out value = "${row.descricao}"/> </th>
+        <th class="acao">Editar</th>
+        <th class="acao">Excluir</th>
         </tr>
         </c:forEach>
+        </thead>
+        <tbody>
+        </tbody>
         </table>
         
         </div>
-            
-      <div class="divTable">
-        <table>
-          <thead>
-            <tr>
-              <th>Nome do Prato</th>
-              <th>Descrição</th>
-              <th>Valor</th>
-              <th class="acao">Editar</th>
-              <th class="acao">Excluir</th>
-            </tr>
-            <tr>
-              <th>Lasanha a Bolonhesa</th>
-              <th>Deliciosa massa recheada a molho bolonhesa</th>
-              <th>R$15,00</th>
-              <th class="acao">Editar</th>
-              <th class="acao">Excluir</th>
-            </tr>
-            <tr>
-              <th>Pizza de Calabresa</th>
-              <th>Queijo, Mussarela, Oregano e Calabresa</th>
-              <th>R$32,00</th>
-              <th class="acao">Editar</th>
-              <th class="acao">Excluir</th>
-            </tr>
-            <tr>
-              <th>Camarão Empanado</th>
-              <th>Mariscos do Mar</th>
-              <th>R$25,00</th>
-              <th class="acao">Editar</th>
-              <th class="acao">Excluir</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-          
-        </table>
-      </div>
-  
+              
       <div class="modal-container">
         <div class="modal">
           <form method="post" action="cadastroCardapioServlet">

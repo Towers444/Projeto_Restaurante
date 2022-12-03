@@ -248,51 +248,46 @@
     <body>
         <div class="d-flex flex-column wrapper">
             <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom shadow-sm mb-3">
-                <div class="container">
-                    <a class="navbar-brand" href="/"><b>Sabor e Arte</b></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target=".navbar-collapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse">
-                        <ul class="navbar-nav flex-grow-1">
+            <div class="container">
+                <a class="navbar-brand" href="/"><b>Sabor e Arte</b></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="index.jsp">Principal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="ComandaCliente.jsp">Comanda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="contato.jsp">Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="quemsomos.jsp">Quem Somos</a>
+                        </li>
+                    </ul>
+                    <div class="align-self-end">
+                        <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="gestao.jsp">Principal</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="gerenciarCardapio.jsp">Cardápio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="gerenciarestoque.jsp">Estoque</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="gerenciarfuncionario.jsp">Funcionários</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="pedidosGestao.jsp">Pedidos</a>
+                                <a href="loginGestao.jsp" class="nav-link text-white">Gestão</a>
                             </li>
                         </ul>
-                        <div class="align-self-end">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a href="index.jsp" class="nav-link text-white">Visualizar como cliente</a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
-            </nav>
+            </div>
+        </nav>
             <div class="container">
                 <div class="header">
-                    <span>Cadastro de Funcionários</span>
-                    <button onclick="openModal()" id="new">Incluir</i></button>
+                    <span>Pedidos Solicitados</span>
                 </div>
 
                 <sql:setDataSource var= "conexao" driver= "com.mysql.jdbc.Driver" url= "jdbc:mysql://saborearte.chwxs6wwh47k.us-east-1.rds.amazonaws.com/sys?useSSL=false" user= "admin"  password= "saborearteC*1" />
 
                 <sql:query dataSource = "${conexao}" var = "result">
-                    SELECT * from funcionarios;
+                    SELECT * from pedidosCliente;
                 </sql:query>
 
                 <div class="divTable">
@@ -300,18 +295,17 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>CPF</th><th>Nome</th><th>Especialidade</th><th>Salário</th><th>Editar</th><th>Excluir</th>
+                                <th>Nome do Prato</th><th>Valor</th><th>Editar</th><th>Excluir</th>
                             </tr>
 
                             <c:forEach var = "row" items = "${result.rows}">
-                            <th><c:out value = "${row.codigo}"/> </th>
-                            <th><c:out value = "${row.nome}"/> </th>
-                            <th><c:out value = "${row.especialidade}"/> </th>
-                            <th><c:out value = "${row.salario}"/> </th>
-                            <th class="acao">Editar</th>
-                            <th class="acao">Excluir</th>
-                            </tr>
-                        </c:forEach>
+                                <tr>
+                                    <th><c:out value = "${row.nome}"/> </th>
+                                    <th><c:out value = "${row.valor}"/> </th>
+                                    <th class="acao">Editar</th>
+                                    <th class="acao">Excluir</th>
+                                </tr>
+                            </c:forEach>
                         </thead>
                         <tbody>
                         </tbody>
