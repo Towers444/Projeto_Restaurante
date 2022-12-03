@@ -9,6 +9,8 @@ import com.restaurante.model.dto.Produto;
 import com.restaurante.model.dao.ProdutoDAO;
 import com.restaurante.common.NegocioException;
 import com.restaurante.common.PersistenciaException;
+import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -21,29 +23,32 @@ public class ManterProduto {
     private ManterProduto() {
     }
 
-    public static Produto cadastrarProduto(String nome, String valor, String descricao) throws NegocioException {
+    public static int cadastrarProduto(String nome, String valor, String descricao) throws NegocioException, SQLException, ClassNotFoundException {
 
         if (nome.isEmpty()) {
             throw new NegocioException(511, "O nome é obrigatório.");
         }
 
         if (valor.isEmpty()) {
-            throw new NegocioException(511, "O valor é obrigatório.");
+            throw new NegocioException(511, "A valor é obrigatória.");
         }
-
+        
         if (descricao.isEmpty()) {
-            throw new NegocioException(511, "A descrição é obrigatória.");
+            throw new NegocioException(511, "A descricao é obrigatória.");
         }
-
+        
         try {
-            return ProdutoDAO.inserir(nome, valor, descricao);
+            Produto produto = new Produto(nome, Integer.parseInt(valor), descricao);
+            
+            return ProdutoDAO.inserir(produto);
         } catch (PersistenciaException ex) {
-            throw new NegocioException(512, "O produto cadastrado apresenta dados repetidos.");
+            throw new NegocioException(512, "O produto cadastrado apresenta itens repetidos.");
         }
     }
 
-    public static void excluirProdutoDescricao(String nome) {
-
+    public static int excluirProduto(String nome, String valor, String descricao) throws NegocioException, SQLException, ClassNotFoundException {
+        Produto produto = new Produto(nome, Integer.parseInt(valor), descricao);
+        return ProdutoDAO.excluir(produto);
     }
 
     public static void alterarProdutoDescricao(String nomeAnterior, String novoNome) {
@@ -51,9 +56,8 @@ public class ManterProduto {
     }
 
     // ao abrir a tela ou alterar/cadastrar/excluir contato
-    public static List<Produto> listarProdutos() {
-
-        return null;
+    public static HashSet<Produto> listarProduto() throws ClassNotFoundException, SQLException {
+        return ProdutoDAO.listar();
     }
 
 }

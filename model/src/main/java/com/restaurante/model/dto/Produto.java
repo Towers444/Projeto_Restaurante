@@ -13,17 +13,17 @@ public class Produto {
     
         private int codigo;
 	private String nome;
-        private String valor;
+        private int valor;
         private String descricao;
         
-        public Produto(String nome, String valor, String descricao) {
+        public Produto(String nome, int valor, String descricao) {
 		this.codigo = 0;
                 this.nome = nome;
                 this.valor = valor;
                 this.descricao = descricao;
 	}
         
-	public Produto(int codigo, String nome, String valor, String descricao) {
+	public Produto(int codigo, String nome, int valor, String descricao) {
 		this.codigo = codigo;
                 this.nome = nome;
                 this.valor = valor;
@@ -34,7 +34,7 @@ public class Produto {
 		return nome;
 	}
         
-        public String getValor() {
+        public int getValor() {
 		return valor;
 	}
         

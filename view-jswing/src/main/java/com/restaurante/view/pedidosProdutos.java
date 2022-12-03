@@ -4,6 +4,14 @@
  */
 package com.restaurante.view;
 
+import com.restaurante.common.NegocioException;
+import com.restaurante.model.dto.Produto;
+import com.restaurante.model.service.ManterPedidos;
+import com.restaurante.model.service.ManterPedidosCliente;
+import com.restaurante.model.service.ManterProduto;
+import java.sql.SQLException;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,13 +25,14 @@ public class pedidosProdutos extends javax.swing.JFrame {
      */
     public pedidosProdutos() {
         initComponents();
-    }
-
-    public void enviaPalavras(cadastroProdutos msgCadastroProdutos, String nome, String valor, String descricao, String imagem) {
-
-        initComponents();
-        carregarTabela(nome, valor, descricao, imagem);
-
+        
+        try {
+            carregarTabela(ManterProduto.listarProduto());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -61,9 +70,9 @@ public class pedidosProdutos extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         LabelTitulo6 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        textoLinha2 = new javax.swing.JTextPane();
+        textoLinhaPedido = new javax.swing.JTextPane();
         LabelTitulo7 = new javax.swing.JLabel();
-        textoDescricao = new javax.swing.JTextField();
+        textoCaracteristica = new javax.swing.JTextField();
         botaoremProduto2 = new java.awt.Button();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela4 = new javax.swing.JTable();
@@ -317,15 +326,15 @@ public class pedidosProdutos extends javax.swing.JFrame {
         LabelTitulo6.setForeground(new java.awt.Color(255, 255, 255));
         LabelTitulo6.setText("Insira  linha do produto requisitado:");
 
-        jScrollPane9.setViewportView(textoLinha2);
+        jScrollPane9.setViewportView(textoLinhaPedido);
 
         LabelTitulo7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         LabelTitulo7.setForeground(new java.awt.Color(255, 255, 255));
         LabelTitulo7.setText("Informe suas requisições adicionais:");
 
-        textoDescricao.addActionListener(new java.awt.event.ActionListener() {
+        textoCaracteristica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoDescricaoActionPerformed(evt);
+                textoCaracteristicaActionPerformed(evt);
             }
         });
 
@@ -342,11 +351,9 @@ public class pedidosProdutos extends javax.swing.JFrame {
         });
 
         tabela4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Imagem", "d", "d", "ddd"},
-            },
+            new Object [][] {},
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nome", "Valor", "Descricao"
             }
         ));
         jScrollPane1.setViewportView(tabela4);
@@ -356,8 +363,8 @@ public class pedidosProdutos extends javax.swing.JFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGap(0, 34, Short.MAX_VALUE)
-                .addComponent(textoDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(textoCaracteristica, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -376,21 +383,21 @@ public class pedidosProdutos extends javax.swing.JFrame {
                         .addComponent(LabelTitulo6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(LabelTitulo6)
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(LabelTitulo7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textoDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textoCaracteristica, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoremProduto2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -417,7 +424,7 @@ public class pedidosProdutos extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(187, 187, 187)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(851, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -442,9 +449,7 @@ public class pedidosProdutos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -455,7 +460,7 @@ public class pedidosProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoMostrarCardapioActionPerformed
 
     private void botaoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInicioActionPerformed
-        //carregarNovaPaginaInicial();
+       this.dispose();
     }//GEN-LAST:event_botaoInicioActionPerformed
 
     private void BotaoPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPedidosActionPerformed
@@ -474,12 +479,12 @@ public class pedidosProdutos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_botaoremProduto1ActionPerformed
 
-    private void textoDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoDescricaoActionPerformed
+    private void textoCaracteristicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoCaracteristicaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textoDescricaoActionPerformed
+    }//GEN-LAST:event_textoCaracteristicaActionPerformed
 
     private void botaoremProduto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProduto2ActionPerformed
-        //
+       cadastrarPedido();
     }//GEN-LAST:event_botaoremProduto2ActionPerformed
 
     /**
@@ -547,17 +552,55 @@ public class pedidosProdutos extends javax.swing.JFrame {
     private javax.swing.JTable tabela;
     private javax.swing.JTable tabela1;
     private javax.swing.JTable tabela4;
-    private javax.swing.JTextField textoDescricao;
+    private javax.swing.JTextField textoCaracteristica;
     private javax.swing.JTextPane textoLinha;
     private javax.swing.JTextPane textoLinha1;
-    private javax.swing.JTextPane textoLinha2;
+    private javax.swing.JTextPane textoLinhaPedido;
     // End of variables declaration//GEN-END:variables
 
-    public void carregarTabela(String nome, String valor, String descricao, String imagem) {
+    public void cadastrarPedido() {
 
-        DefaultTableModel modelo2 = (DefaultTableModel) tabela4.getModel();
-        Object[] dados2 = {nome, valor, descricao, imagem};
-        modelo2.addRow(dados2);
+        int cadastros = 0;
+
+        try {
+            String stringRemoverLinha = textoLinhaPedido.getText();
+            int removerLinha = Integer.parseInt(stringRemoverLinha);
+            
+            removerLinha--;
+            DefaultTableModel modelo = (DefaultTableModel) tabela4.getModel();
+            
+            String nome = modelo.getValueAt(removerLinha, 0).toString();
+            String valor = modelo.getValueAt(removerLinha, 1).toString();
+            String caracteristica  = textoCaracteristica.getText();
+            System.out.print(valor);
+            ManterPedidosCliente.cadastrarPedidosCliente(nome, valor);
+            ManterPedidos.cadastrarPedidos(nome, caracteristica);
+            if(stringRemoverLinha != null) {
+                cadastros++;
+            }
+        if (cadastros == 1) {
+            String msgDialog = "Pedido solicitado com sucesso!";
+            JOptionPane.showMessageDialog(jScrollPane1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
+        }
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            textoLinhaPedido.requestFocus();
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void carregarTabela(HashSet<Produto> lista) {
+        DefaultTableModel modelo = (DefaultTableModel) tabela4.getModel();
+        
+        modelo.getDataVector().removeAllElements();
+        modelo.fireTableDataChanged();
+        
+        for(Produto produto : lista) {
+            modelo.insertRow(modelo.getRowCount(), new Object[] {produto.getNome(), produto.getValor(), produto.getDescricao()});
+        }
 
     }
 }

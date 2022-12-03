@@ -6,6 +6,12 @@ package com.restaurante.view;
 
 import com.restaurante.model.service.ManterProduto;
 import com.restaurante.common.NegocioException;
+import com.restaurante.model.dto.Alimentos;
+import com.restaurante.model.dto.Produto;
+import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,9 +26,17 @@ public class cadastroProdutos extends javax.swing.JFrame {
      */
     public cadastroProdutos() {
         initComponents();
+        
+        try {
+            carregarTabela(ManterProduto.listarProduto());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
-    pedidosProdutos janela7 = new pedidosProdutos();
+    //pedidosProdutos janela7 = new pedidosProdutos();
     
     public int contador;
 
@@ -81,7 +95,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        TelaInicial = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
@@ -461,9 +475,10 @@ public class cadastroProdutos extends javax.swing.JFrame {
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+
             },
             new String [] {
-                "Imagem", "Nome", "Valor", "Descricao"
+                "Nome", "Valor", "Descrição"
             }
         ));
         jScrollPane5.setViewportView(tabela);
@@ -549,14 +564,14 @@ public class cadastroProdutos extends javax.swing.JFrame {
             }
         });
 
-        jButton12.setBackground(new java.awt.Color(176, 48, 39));
-        jButton12.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jButton12.setForeground(new java.awt.Color(255, 255, 255));
-        jButton12.setText("Início");
-        jButton12.setBorder(null);
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        TelaInicial.setBackground(new java.awt.Color(176, 48, 39));
+        TelaInicial.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        TelaInicial.setForeground(new java.awt.Color(255, 255, 255));
+        TelaInicial.setText("Início");
+        TelaInicial.setBorder(null);
+        TelaInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                TelaInicialActionPerformed(evt);
             }
         });
 
@@ -618,7 +633,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
                         .addComponent(jButton14))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(102, 102, 102)
-                        .addComponent(jButton12))
+                        .addComponent(TelaInicial))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addComponent(jButton11))
@@ -633,7 +648,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
-                .addComponent(jButton12)
+                .addComponent(TelaInicial)
                 .addGap(42, 42, 42)
                 .addComponent(jButton11)
                 .addGap(28, 28, 28)
@@ -675,7 +690,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 163, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 166, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -729,22 +744,32 @@ public class cadastroProdutos extends javax.swing.JFrame {
     private void botaoremProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProdutoActionPerformed
         String stringRemoverLinha = textoLinha.getText();
         int removerLinha = Integer.parseInt(stringRemoverLinha);
-        if (removerLinha <= 0 || removerLinha > contador) {
+        if (removerLinha <= 0 || removerLinha > 10) {
             JOptionPane.showMessageDialog(jScrollPane1, "Número de linha inexistente", "Erro", JOptionPane.ERROR_MESSAGE);
             textoLinha.requestFocus();
         } else {
             removerLinha--;
-            String valorNumeroNome = (String) tabela.getValueAt(removerLinha, 1);
-            String valorNumeroDescricao = (String) tabela.getValueAt(removerLinha, 2);
+            DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+            
+            String valorNumeroNome = modelo.getValueAt(removerLinha, 0).toString();
+            String valorNumeroValor = modelo.getValueAt(removerLinha, 1).toString();
+            String valorNumeroDescricao = modelo.getValueAt(removerLinha, 2).toString();
             contador--;
+            try {
+                ManterProduto.excluirProduto(valorNumeroNome, valorNumeroValor, valorNumeroDescricao);
+            } catch (NegocioException ex) {
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+            }
             ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
-            //ProdutoNomeDAO.excluirProdutoNome(valorNumeroNome);
-            //ProdutoDAO.excluirProdutoDescricao(valorNumeroDescricao);
         }
     }//GEN-LAST:event_botaoremProdutoActionPerformed
 
     private void botaoAddProdutos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdutos1ActionPerformed
-        cadastrarAgenda();
+        cadastrarProdutos();
     }//GEN-LAST:event_botaoAddProdutos1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -787,9 +812,9 @@ public class cadastroProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    private void TelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelaInicialActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_TelaInicialActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
@@ -815,12 +840,12 @@ public class cadastroProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel LabelTitulo1;
     private javax.swing.JLabel LabelTitulo2;
     private javax.swing.JLabel LabelTitulo4;
+    private javax.swing.JButton TelaInicial;
     private java.awt.Button botaoAddProdutos1;
     private javax.swing.JButton botaoEstoque;
     private java.awt.Button botaoremProduto;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -865,7 +890,7 @@ public class cadastroProdutos extends javax.swing.JFrame {
     private javax.swing.JTextPane textoValor;
     // End of variables declaration//GEN-END:variables
 
-    public void cadastrarAgenda() {
+    public void cadastrarProdutos() {
 
         int cadastros = 0;
 
@@ -887,61 +912,45 @@ public class cadastroProdutos extends javax.swing.JFrame {
             if(imagem != null) {
                 cadastros++;
             }
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoNome.requestFocus();
-        }
-        /*
-        try {
-            String nome = textoNome.getText();
-            ManterProdutoNome.cadastrarProdutoNome(nome);
-            cadastros++;
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoNome.requestFocus();
-        }
-
-        try {
-            String descricao = textoDescricao.getText();
-            ManterProdutoDescricao.cadastrarProdutoDescricao(descricao);
-            cadastros++;
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoDescricao.requestFocus();
-        }
-
-        try {
-            String valor = textoValor.getText();
-            ManterProdutoValor.cadastrarProdutoValor(valor);
-            cadastros++;
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoValor.requestFocus();
-        }
-
-        try {
-            String imagem = textoImagem.getText();
-            ManterProdutoImagem.cadastrarProdutoImagem(imagem);
-            cadastros++;
-        } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoImagem.requestFocus();
-        }*/
-
+        
         if (cadastros == 4) {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
             JOptionPane.showMessageDialog(jScrollPane1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
-            janela7.enviaPalavras(this, textoNome.getText(), textoValor.getText(), textoDescricao.getText(), textoImagem.getText());
-            carregarTabela();
+            //janela7.enviaPalavras(this, textoNome.getText(), textoValor.getText(), textoDescricao.getText(), textoImagem.getText());
+            carregarTabelaMomentanea();
         }
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            textoNome.requestFocus();
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }
 
-    public void carregarTabela() {
-
-        contador++;
+    public void carregarTabela(HashSet<Produto> lista) {
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
-        Object[] dados = {textoImagem.getText(), textoNome.getText(), textoValor.getText(), textoDescricao.getText()};
+        
+        modelo.getDataVector().removeAllElements();
+        modelo.fireTableDataChanged();
+        
+        for(Produto produto : lista) {
+            modelo.insertRow(modelo.getRowCount(), new Object[] {produto.getNome(), produto.getValor(), produto.getDescricao()});
+        }
+       
+    }
+    
+    public void carregarTabelaMomentanea() {
+        contador++;
+        
+        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
+        
+        modelo.getDataVector().removeAllElements();
+        modelo.fireTableDataChanged();
+        
+        Object[] dados = {textoNome.getText(), textoValor.getText(), textoDescricao.getText()};
         modelo.addRow(dados);
-
     }
 }

@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.restaurante.model.service;
 
@@ -8,6 +9,8 @@ import com.restaurante.model.dto.Usuario;
 import com.restaurante.model.dao.UsuarioDAO;
 import com.restaurante.common.NegocioException;
 import com.restaurante.common.PersistenciaException;
+import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -16,34 +19,54 @@ import java.util.List;
  */
 public class ManterUsuario {
 
+//public int auxiliar;
     private ManterUsuario() {
     }
 
-    public static Usuario cadastrarUsuario(String nome) throws NegocioException {
+    public static int cadastrarUsuario(String cpf, String senha) throws NegocioException, SQLException, ClassNotFoundException {
 
-        if (nome.isEmpty()) {
-            throw new NegocioException(511, "O nome do usuário é obrigatório.");
+        if (cpf.isEmpty()) {
+            throw new NegocioException(511, "O CPF é obrigatório.");
         }
 
+        if (senha.isEmpty()) {
+            throw new NegocioException(511, "A quantidade é obrigatória.");
+        }
+        
         try {
-            return UsuarioDAO.inserir(nome);
+            Usuario usuario = new Usuario(Integer.parseInt(cpf), Integer.parseInt(senha));
+            
+            return UsuarioDAO.inserir(usuario);
         } catch (PersistenciaException ex) {
-            throw new NegocioException(512, "O produto de nome '" + nome + "' já está cadastrado.");
+            throw new NegocioException(512, "O usuario cadastrado apresenta ingredientes repetidos.");
         }
     }
 
-    public static void excluirUsuario(String nome) {
+    public static int consultarUsuario(String cpf, String senha) throws NegocioException, SQLException, ClassNotFoundException {
 
+        if (cpf.isEmpty()) {
+            throw new NegocioException(511, "O CPF é obrigatório.");
+        }
+
+        if (senha.isEmpty()) {
+            throw new NegocioException(511, "A quantidade é obrigatória.");
+        }
+        
+        Usuario usuario = new Usuario(Integer.parseInt(cpf), Integer.parseInt(senha));
+        return UsuarioDAO.consultarUsuarios(usuario);
+    }
+    
+    public static int excluirUsuario(String ingrediente, String quantidade) throws NegocioException, SQLException, ClassNotFoundException {
+        return 0;
     }
 
-    public static void alterarUsuario(String nomeAnterior, String novoNome) {
+    public static void alterarUsuarioDescricao(String nomeAnterior, String novoNome) {
 
     }
 
     // ao abrir a tela ou alterar/cadastrar/excluir contato
-    public static List<Usuario> listarUsuarios() {
-
-        return null;
+    public static HashSet<Usuario> listarUsuario() throws ClassNotFoundException, SQLException {
+        return UsuarioDAO.listar();
     }
 
 }
