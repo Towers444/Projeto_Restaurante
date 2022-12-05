@@ -10,19 +10,19 @@ package com.restaurante.model.dto;
  */
 public class Usuario {
 
-    private int senha;
-    private int cpf;
+    private String senha;
+    private String cpf;
 
-    public Usuario(int senha, int cpf) {
+    public Usuario(String senha, String cpf) {
         this.senha = senha;
         this.cpf = cpf;
     }
 
-    public int getSenha() {
+    public String getSenha() {
         return senha;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 

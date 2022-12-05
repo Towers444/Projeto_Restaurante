@@ -30,11 +30,11 @@ public class ManterUsuario {
         }
 
         if (senha.isEmpty()) {
-            throw new NegocioException(511, "A quantidade é obrigatória.");
+            throw new NegocioException(511, "A senha é obrigatória.");
         }
         
         try {
-            Usuario usuario = new Usuario(Integer.parseInt(cpf), Integer.parseInt(senha));
+            Usuario usuario = new Usuario(senha, cpf);
             
             return UsuarioDAO.inserir(usuario);
         } catch (PersistenciaException ex) {
@@ -52,7 +52,7 @@ public class ManterUsuario {
             throw new NegocioException(511, "A quantidade é obrigatória.");
         }
         
-        Usuario usuario = new Usuario(Integer.parseInt(cpf), Integer.parseInt(senha));
+        Usuario usuario = new Usuario(senha, cpf);
         return UsuarioDAO.consultarUsuarios(usuario);
     }
     

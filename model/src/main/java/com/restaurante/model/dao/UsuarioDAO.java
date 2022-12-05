@@ -6,6 +6,10 @@ package com.restaurante.model.dao;
 
 import com.restaurante.common.PersistenciaException;
 import com.restaurante.model.dto.Usuario;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,9 +45,27 @@ public class UsuarioDAO {
         
         PreparedStatement ps = null; //Interage com o banco de dados a partir de comandos SQL
         
-        int retorno; //Retorna o resultado da interação com o banco de dados
+        int retorno = 0; //Retorna o resultado da interação com o banco de dados
+        
+        String hex = null;
         
         try {
+            //Código que criptografa a senha com SHA
+            
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            
+            byte[] hash = md.digest(usuario.getSenha().getBytes(StandardCharsets.UTF_8));
+        
+            BigInteger numero = new BigInteger(1, hash);
+
+            StringBuilder hexString = new StringBuilder(numero.toString(16));
+
+            while(hexString.length() < 64) {
+                hexString.insert(0, '0');
+            }
+
+            hex = hexString.toString();
+            
             conexao = ConexaoBD.conectar();
             
             /*
@@ -53,8 +75,8 @@ public class UsuarioDAO {
             */
             ps = conexao.prepareStatement("INSERT INTO usuarios VALUES(?, ?)");
             
-            ps.setInt(1, usuario.getCpf()); //Troca o primeiro '?' pela String 'ingrediente'
-            ps.setInt(2, usuario.getSenha()); //Troca o segundo '?' pelo int 'quantidade'
+            ps.setString(1, usuario.getCpf());
+            ps.setString(2, hex);
             
             /*
             * Executa o código SQL recebido por parâmetro na função prepareStatement
@@ -66,6 +88,8 @@ public class UsuarioDAO {
             * A função retorna 1 se for bem sucedida, 0 caso contrário
             */
             retorno = ps.executeUpdate();
+        } catch (NoSuchAlgorithmException ex){
+            
         } finally {
             ConexaoBD.fecharConexao(conexao, ps); //A função fecha o banco de dados no final, dando erro ou não
         }
@@ -91,9 +115,9 @@ public class UsuarioDAO {
         try {
             conexao = ConexaoBD.conectar();
             
-            ps = conexao.prepareStatement("DELETE FROM usuarios WHERE ingrediente = ?");
+            ps = conexao.prepareStatement("DELETE FROM usuarios WHERE codigo = ?");
             
-            ps.setInt(1, usuario.getCpf());
+            ps.setString(1, usuario.getCpf());
             
             retorno = ps.executeUpdate();
         } finally {
@@ -155,8 +179,8 @@ public class UsuarioDAO {
                 * Para acessar as colunas de um registro, basta utilizar a função get (existem várias, cada uma retornando um tipo diferente)
                 * As colunas recebem o mesmo nome das que constam na tabela do banco de dados
                 */
-                usuario = new Usuario(rs.getInt("cpf"),
-                        rs.getInt("senha"));
+                usuario = new Usuario(rs.getString("senha"),
+                        rs.getString("cpf"));
                 
                 lista.add(usuario);
             }
@@ -174,23 +198,43 @@ public class UsuarioDAO {
         PreparedStatement ps = null;
         
         ResultSet rs = null;
+            
+        String hex = null;
         
         try {
+            //Código que criptografa a senha com SHA
+        
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            
+            byte[] hash = md.digest(usuario.getSenha().getBytes(StandardCharsets.UTF_8));
+        
+            BigInteger numero = new BigInteger(1, hash);
+
+            StringBuilder hexString = new StringBuilder(numero.toString(16));
+
+            while(hexString.length() < 64) {
+                hexString.insert(0, '0');
+            }
+
+            hex = hexString.toString();
+            
             conexao = ConexaoBD.conectar();
             
             //Seleciona os registros que atendem aos requisitos
-            ps = conexao.prepareStatement("SELECT * FROM usuarios WHERE ingrediente = ?, ?");
+            ps = conexao.prepareStatement("SELECT * FROM usuarios WHERE codigo = ? AND senha = ?");
             
-            ps.setInt(1, usuario.getCpf());
-            ps.setInt(2, usuario.getSenha());
+            ps.setString(1, usuario.getCpf());
+            ps.setString(2, hex);
             
             rs = ps.executeQuery();
             
             //Se houver um próximo registo no ResultSet, significa que encontramos o registro desejado
             while(rs.next()) {
-                usuario = new Usuario(rs.getInt("cpf"),
-                        rs.getInt("senha"));
+                usuario = new Usuario(rs.getString("senha"),
+                        rs.getString("cpf"));
             }
+        } catch (NoSuchAlgorithmException ex) {
+        
         } finally {
             ConexaoBD.fecharConexao(conexao, ps, rs);
         }
