@@ -71,7 +71,6 @@ public class editarProdutos extends javax.swing.JFrame {
         labelLogin.setForeground(new java.awt.Color(255, 255, 255));
         labelLogin.setText("Editar Produto");
 
-
         labelSenha.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         labelSenha.setForeground(new java.awt.Color(255, 255, 255));
         labelSenha.setText("Valor:");
@@ -84,7 +83,6 @@ public class editarProdutos extends javax.swing.JFrame {
         botaoPaginaGestao.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         botaoPaginaGestao.setForeground(new java.awt.Color(255, 255, 255));
         botaoPaginaGestao.setText("Editar Produto");
-
         botaoPaginaGestao.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         botaoPaginaGestao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +136,6 @@ public class editarProdutos extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addComponent(botaoPaginaGestao, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(72, 72, 72)))))
-
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,9 +161,8 @@ public class editarProdutos extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        labelLogin1.setBackground(new java.awt.Color(255, 255, 255));
+        labelLogin1.setBackground(new java.awt.Color(225, 225, 225));
         labelLogin1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        labelLogin1.setForeground(new java.awt.Color(255, 255, 255));
         labelLogin1.setText("Sabor e Arte");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -182,18 +178,15 @@ public class editarProdutos extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(74, Short.MAX_VALUE))
-
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-
                 .addGap(37, 37, 37)
                 .addComponent(labelLogin1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
-
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -13,15 +13,10 @@ import java.util.HashSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Aluno
- */
+
 public class ComandaCliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ComandaCliente
-     */
+
     public ComandaCliente() {
         initComponents();
         
