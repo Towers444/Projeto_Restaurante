@@ -70,7 +70,7 @@
         <main class="flex-fill">
             <div class="container">
                 <div class="row justify-content-center">
-                    <form class="col-sm-10 col-md-8 col-lg-6" method="post" action="LoginServlet">
+                    <form class="col-sm-10 col-md-8 col-lg-6" method="post" action="loginServlet">
                         <h1>Identifique-se, por favor</h1>
 
                         <div class="form-floating mb-3">
@@ -83,7 +83,7 @@
                             <label for="senha">Senha</label>
                         </div>
 
-                        <button type="button" onclick="window.location.href='gestao.jsp'"
+                        <button type="submit"
                             class="btn btn-lg btn-danger">Entrar</button>
 
                     </form>
