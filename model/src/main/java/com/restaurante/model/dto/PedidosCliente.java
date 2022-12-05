@@ -14,11 +14,6 @@ public class PedidosCliente {
 	private String nome;
         private int valor;
         
-        public PedidosCliente(String nome, int valor) {
-		this.valor = 0;
-                this.nome = nome;
-	}
-        
 	public PedidosCliente(int valor, String nome) {
 		this.valor = valor;
                 this.nome = nome;

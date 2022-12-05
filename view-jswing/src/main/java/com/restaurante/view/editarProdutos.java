@@ -4,28 +4,40 @@
  */
 package com.restaurante.view;
 
-import com.restaurante.model.service.ManterSenha;
-import com.restaurante.model.service.ManterUsuario;
 import com.restaurante.common.NegocioException;
+import com.restaurante.common.PersistenciaException;
+import com.restaurante.model.service.ManterProduto;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Aluno
+ * @author Usuário
  */
-public class cadastroUsuario extends javax.swing.JFrame {
+public class editarProdutos extends javax.swing.JFrame {
 
     /**
-     * Creates new form cadastroUsuario
+     * Creates new form editarProdutos
      */
-    
-    public cadastroUsuario() {
+    public editarProdutos() {
         initComponents();
     }
 
-    PaginaGestaos janela4 = new PaginaGestaos();
-
+    private CadastroProdutosGestao frame1;
+    public String antigoNome;
+    public String antigoValor;
+    public String antigoDescricao;
+    
+    public void enviaPalavra(CadastroProdutosGestao frame1, String aNome, String aValor, String aDescricao) {
+      
+        antigoNome = aNome;
+        antigoValor = aValor;
+        antigoDescricao = aDescricao;
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,22 +47,18 @@ public class cadastroUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelValor1 = new javax.swing.JLabel();
-        button1 = new java.awt.Button();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         labelLogin = new javax.swing.JLabel();
         labelSenha = new javax.swing.JLabel();
-        textoUsuario = new javax.swing.JTextField();
+        textoNome = new javax.swing.JTextField();
         labelUsuario = new javax.swing.JLabel();
-        textoSenha = new javax.swing.JPasswordField();
         botaoPaginaGestao = new javax.swing.JButton();
+        labelSenha1 = new javax.swing.JLabel();
+        botaoPaginaGestao1 = new javax.swing.JButton();
+        textoValor = new javax.swing.JTextField();
+        textoDescricao = new javax.swing.JTextField();
         labelLogin1 = new javax.swing.JLabel();
-
-        labelValor1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        labelValor1.setText("Descrição do Produto:");
-
-        button1.setLabel("button1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,22 +72,16 @@ public class cadastroUsuario extends javax.swing.JFrame {
 
         labelSenha.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         labelSenha.setForeground(new java.awt.Color(255, 255, 255));
-        labelSenha.setText("Senha:");
+        labelSenha.setText("Valor:");
 
         labelUsuario.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         labelUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        labelUsuario.setText("Usuário:");
-
-        textoSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoSenhaActionPerformed(evt);
-            }
-        });
+        labelUsuario.setText("Nome:");
 
         botaoPaginaGestao.setBackground(new java.awt.Color(173, 28, 17));
         botaoPaginaGestao.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         botaoPaginaGestao.setForeground(new java.awt.Color(255, 255, 255));
-        botaoPaginaGestao.setText("Fazer Login");
+        botaoPaginaGestao.setText("Modificar");
         botaoPaginaGestao.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         botaoPaginaGestao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,32 +89,51 @@ public class cadastroUsuario extends javax.swing.JFrame {
             }
         });
 
+        labelSenha1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        labelSenha1.setForeground(new java.awt.Color(255, 255, 255));
+        labelSenha1.setText("Descrição:");
+
+        botaoPaginaGestao1.setBackground(new java.awt.Color(173, 28, 17));
+        botaoPaginaGestao1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        botaoPaginaGestao1.setForeground(new java.awt.Color(255, 255, 255));
+        botaoPaginaGestao1.setText("Cancelar");
+        botaoPaginaGestao1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        botaoPaginaGestao1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPaginaGestao1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 74, Short.MAX_VALUE)
-                .addComponent(botaoPaginaGestao, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(labelLogin))
+                        .addGap(24, 24, 24)
+                        .addComponent(labelUsuario))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(labelUsuario))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(labelSenha)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textoUsuario)
-                            .addComponent(textoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))))
+                            .addComponent(labelSenha1)
+                            .addComponent(labelSenha))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textoNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoValor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoDescricao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(labelLogin)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botaoPaginaGestao1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoPaginaGestao, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,15 +142,21 @@ public class cadastroUsuario extends javax.swing.JFrame {
                 .addComponent(labelLogin)
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelUsuario))
-                .addGap(44, 44, 44)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSenha)
-                    .addComponent(textoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
+                    .addComponent(textoValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelSenha1)
+                    .addComponent(textoDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
                 .addComponent(botaoPaginaGestao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(botaoPaginaGestao1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         labelLogin1.setBackground(new java.awt.Color(255, 255, 255));
@@ -142,23 +169,22 @@ public class cadastroUsuario extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(labelLogin1)))
+                .addGap(59, 59, 59)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(76, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelLogin1)
+                .addGap(175, 175, 175))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(32, 32, 32)
                 .addComponent(labelLogin1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -177,13 +203,22 @@ public class cadastroUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textoSenhaActionPerformed
-
     private void botaoPaginaGestaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPaginaGestaoActionPerformed
-        loginUsuario();
+        try {
+            editarProdutos();
+        } catch (SQLException ex) {
+            Logger.getLogger(editarProdutos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(editarProdutos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PersistenciaException ex) {
+            Logger.getLogger(editarProdutos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
     }//GEN-LAST:event_botaoPaginaGestaoActionPerformed
+
+    private void botaoPaginaGestao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPaginaGestao1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_botaoPaginaGestao1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,82 +237,69 @@ public class cadastroUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(cadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(cadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(cadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(cadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
- /*java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new cadastroUsuario().setVisible(true);
+                new editarProdutos().setVisible(true);
             }
-        });*/
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoPaginaGestao;
-    private java.awt.Button button1;
+    private javax.swing.JButton botaoPaginaGestao1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelLogin;
     private javax.swing.JLabel labelLogin1;
     private javax.swing.JLabel labelSenha;
+    private javax.swing.JLabel labelSenha1;
     private javax.swing.JLabel labelUsuario;
-    private javax.swing.JLabel labelValor1;
-    private javax.swing.JPasswordField textoSenha;
-    private javax.swing.JTextField textoUsuario;
+    private javax.swing.JTextField textoDescricao;
+    private javax.swing.JTextField textoNome;
+    private javax.swing.JTextField textoValor;
     // End of variables declaration//GEN-END:variables
 
-    public void loginUsuario() {
+public void editarProdutos() throws SQLException, ClassNotFoundException, PersistenciaException {
 
-        int cadastros = 0;
-        //try {
-            String codigo = textoUsuario.getText();
-            String senha = textoSenha.getText();
-            //int retorno = ManterUsuario.consultarUsuario(codigo, senha);
-            if(codigo != null) {
-                cadastros++;
-            }
-            if(senha != null) {
-                cadastros++;
-            }
-            if (cadastros == 2) {
+    try { 
+        
+    int cadastros = 0;
+
+        String novoNome = textoNome.getText();
+        String novoValor = textoValor.getText();
+        String novoDescricao  = textoDescricao.getText();
+        
+        ManterProduto.alterarProduto(antigoNome, antigoValor, antigoDescricao, novoNome, novoValor, novoDescricao);
+        if(novoNome != null) {
+            cadastros++;
+        }
+        if(novoValor != null) {
+            cadastros++;
+        }
+        if(novoDescricao != null) {
+            cadastros++;
+        }
+        if (cadastros == 3) {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
             JOptionPane.showMessageDialog(jPanel1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
-            if("admin".equals(textoUsuario.getText()) && "123".equals(textoSenha.getText())) {
-                carregarNovaPagina();
-            }
         }
-        /*} catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            textoUsuario.requestFocus();
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }*/
-    }
-    
-    public void carregarNovaPagina() {
+        }
         
-        if (janela4 == null) {
-            janela4 = new PaginaGestaos();
-            janela4.setLocationRelativeTo(null);
-            janela4.setVisible(true);
-            janela4.setResizable(false);
-            this.dispose();
-        } else {
-            janela4.setLocationRelativeTo(null);
-            janela4.setVisible(true);
-            janela4.setResizable(false);
-            this.dispose();
-      }
-
     }
+
 }

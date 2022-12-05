@@ -431,11 +431,11 @@ public class CadastroEstoqueGestoes extends javax.swing.JFrame {
             try {
               ManterAlimentos.excluirAlimentos(valorNumeroIngrediente, valorNumeroQuantidade);
             } catch (NegocioException ex) {
-                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroEstoqueGestoes.class.getName()).log(Level.SEVERE, null, ex);
             }
             ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
     }//GEN-LAST:event_botaoremProdutoActionPerformed

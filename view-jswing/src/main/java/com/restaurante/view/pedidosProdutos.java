@@ -573,7 +573,7 @@ public class pedidosProdutos extends javax.swing.JFrame {
             String valor = modelo.getValueAt(removerLinha, 1).toString();
             String caracteristica  = textoCaracteristica.getText();
             System.out.print(valor);
-            ManterPedidosCliente.cadastrarPedidosCliente(nome, valor);
+            ManterPedidosCliente.cadastrarPedidosCliente(valor, nome);
             ManterPedidos.cadastrarPedidos(nome, caracteristica);
             if(stringRemoverLinha != null) {
                 cadastros++;

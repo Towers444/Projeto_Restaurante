@@ -398,11 +398,11 @@ public class PedidosGestao extends javax.swing.JFrame {
             try {
               ManterPedidos.excluirPedidos(valorNumeroIngrediente, valorNumeroQuantidade);
             } catch (NegocioException ex) {
-                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PedidosGestao.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PedidosGestao.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PedidosGestao.class.getName()).log(Level.SEVERE, null, ex);
             }
             ((DefaultTableModel) tabela9.getModel()).removeRow(removerLinha); tabela9.repaint(); tabela9.validate();
 

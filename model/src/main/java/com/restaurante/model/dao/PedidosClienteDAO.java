@@ -156,8 +156,8 @@ public class PedidosClienteDAO {
                 * Para acessar as colunas de um registro, basta utilizar a função get (existem várias, cada uma retornando um tipo diferente)
                 * As colunas recebem o mesmo nome das que constam na tabela do banco de dados
                 */
-                pedidosCliente = new PedidosCliente(rs.getString("nome"),
-                        rs.getInt("valor"));
+                pedidosCliente = new PedidosCliente(rs.getInt("valor"),
+                        rs.getString("nome"));
                 
                 lista.add(pedidosCliente);
             }
@@ -189,8 +189,8 @@ public class PedidosClienteDAO {
             
             //Se houver um próximo registo no ResultSet, significa que encontramos o registro desejado
             while(rs.next()) {
-                pedidosCliente = new PedidosCliente(rs.getString("nome"),
-                        rs.getInt("valor"));
+                pedidosCliente = new PedidosCliente(rs.getInt("valor"),
+                        rs.getString("nome"));
             }
         } finally {
             ConexaoBD.fecharConexao(conexao, ps, rs);
