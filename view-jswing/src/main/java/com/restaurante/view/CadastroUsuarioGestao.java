@@ -485,11 +485,11 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
             try {
               ManterFuncionarios.excluirFuncionarios(valorNumeroCpf, valorNumeroNome, valorNumeroEspecialidade, valorNumeroSalario);
             } catch (NegocioException ex) {
-                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroUsuarioGestao.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroUsuarioGestao.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(cadastroProdutos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroUsuarioGestao.class.getName()).log(Level.SEVERE, null, ex);
             }
             ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
     }//GEN-LAST:event_botaoremProdutoActionPerformed

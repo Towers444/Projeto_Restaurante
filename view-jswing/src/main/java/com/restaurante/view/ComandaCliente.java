@@ -294,7 +294,7 @@ public class ComandaCliente extends javax.swing.JFrame {
                 {"", ""},
             },
             new String [] {
-                "Nome", "Características"
+                "Nome", "Valor"
             }
         ));
         jScrollPane2.setViewportView(tabela5);
