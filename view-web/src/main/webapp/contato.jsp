@@ -67,25 +67,32 @@
         <main class="flex-fill">
             <div class="container">
                 <div class="row justify-content-center">
-                    <form class="col-sm-10 col-md-8 col-lg-6">
+                    <form action="https://api.staticforms.xyz/submit" method="post" class="col-sm-10 col-md-8 col-lg-6">
                         <h1>Entre em Contato</h1>
 
+                        <input type="hidden" name="accessKey" value="e953c352-a47e-48ce-a2ea-9f086736b10a">
+                        
                         <div class="form-floating mb-3">
-                            <input type="text" id="txtNomeCompleto" class="form-control" placeholder=" " autofocus>
+                            <input type="text" id="txtNomeCompleto" name="name" class="form-control" placeholder=" " autofocus>
                             <label for="txtNomeCompleto">Nome Completo</label>
                         </div>
                         
                         <div class="form-floating mb-3">
-                            <input type="email" id="txtEmail" class="form-control" placeholder=" ">
+                            <input type="text" id="txtAssunto" name="subject" class="form-control" placeholder=" " autofocus>
+                            <label for="txtAssunto">Assunto</label>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="email" id="txtEmail" name="email" class="form-control" placeholder=" ">
                             <label for="txtEmail">E-mail</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <textarea id="txtMensagem" class="form-control" placeholder=" " style="height: 200px;"></textarea>
+                            <textarea id="txtMensagem" class="form-control" name="message" placeholder=" " style="height: 200px;"></textarea>
                             <label for="txtMensagem">Mensagem</label>
                         </div>
 
-                        <button type="button" onclick="window.location.href='confirmcontato.jsp'" class="btn btn-lg btn-danger">Enviar Mensagem</button>
+                        <button type="submit" onclick="window.location.href='contatoServlet'" class="btn btn-lg btn-danger">Enviar</button>
 
 
                         <p class="mt-3">
