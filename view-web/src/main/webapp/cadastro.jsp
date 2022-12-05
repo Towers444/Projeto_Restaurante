@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/estilos.css">
     
-    <title>Quitanda Online :: Cadastro</title>
+    <title>Sabor e Arte - Cadastro</title>
 </head>
 
 <body style="min-width:372px;">
@@ -165,11 +165,11 @@
             <div class="container">
                 <div class="row py-3">
                     <div class="col-12 col-md-4 text-center text-md-left">
-                        &copy; 2022 - Centro Federal de Educaçaõ Tecnológica de Minas Gerais
+                        &copy; 2022 - Sabor e Arte
                     </div>
                     <div class="col-12 col-md-4 text-center text-md-right">
                         <a href="contato.jsp" class="text-decoration-none text-dark">Contato pelo site</a><br>
-                        Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">(28) 99999-0000</a>
+                        Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">(31) 99999-0000</a>
                     </div>
                 </div>
             </div>

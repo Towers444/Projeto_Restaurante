@@ -49,7 +49,7 @@ public class loginGestaoServlet extends HttpServlet {
             }
             
             if(cadastros == 2) {
-            System.out.print("Todos os campos foram preenchidos com sucesso!");
+            System.out.print("Todos os campos foram devidamente preenchidos !");
             RequestDispatcher redirecionamento = request.getRequestDispatcher("gestao.jsp");
             redirecionamento.forward(request, response);
             }

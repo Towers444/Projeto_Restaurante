@@ -26,14 +26,14 @@
     <link rel="stylesheet" href="font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/estilos.css">
 
-    <title>Quitanda Online :: Página Principal</title>
+    <title>Sabor e Arte - Página Principal</title>
 </head>
 
 <body>
     <div class="d-flex flex-column wrapper">
         <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom shadow-sm mb-3">
             <div class="container">
-                <a class="navbar-brand" href="/"><b>Quitanda Online</b></a>
+                <a class="navbar-brand" href="/"><b>Sabor e Arte</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -78,7 +78,7 @@
             <div class="container">
                 <div class="row py-3">
                     <div class="col-12 col-md-4 text-center">
-                        &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais
+                        &copy; 2022 - Sabor e Arte
                     </div>
                     <div class="col-12 col-md-4 text-center">
                         <a href="contato.jsp" class="text-decoration-none text-dark">
@@ -86,7 +86,7 @@
                         </a><br>
                         </a><br>
                         Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
-                            (28) 99999-0000
+                            (31) 99999-0000
                         </a>
                     </div>
                 </div>

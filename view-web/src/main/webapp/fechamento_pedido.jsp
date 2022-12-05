@@ -33,7 +33,7 @@
     <div class="d-flex flex-column wrapper">
         <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom shadow-sm mb-3">
             <div class="container">
-                <a class="navbar-brand" href="/"><b>Quitanda Online</b></a>
+                <a class="navbar-brand" href="/"><b>Sabor e Arte</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target=".navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -54,7 +54,7 @@
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a href="cadastro.jsp" class="nav-link text-white">
-                                    Logado como <b>Ricardo Maroquio</b>
+                                    Logado como <b></b>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -72,6 +72,7 @@
                 </div>
             </div>
         </nav>
+        
  
         <main class="flex-fill">
             <div class="container text-center">

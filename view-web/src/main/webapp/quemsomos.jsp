@@ -81,7 +81,9 @@
                 <h5>André Parreiras</h5>
                 <p></p>
                 <h5>Seynabou Sall </h5>
-                <p></p>
+                <p>Olá pessoal, eu sou a Seynabou, tenho 17 anos e sou uma das desenvolvedoras do sistema Sabor e Arte. 
+                Sou estudante do CEFET-MG no curso de informática e estou no 2° ano. Foi um prazer desenvolver esse projeto juntamente com os demais integrantes, espero
+                que tenham gostado do projeto!</p>
                 <h5>Rayanne Mirelle</h5>
                 <p></p>
             </div>
@@ -91,7 +93,7 @@
             <div class="container">
                 <div class="row py-3">
                     <div class="col-12 col-md-4 text-center">
-                        &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais
+                        &copy; 2022 - Sabor e Arte
                     </div>
 
                     <div class="col-12 col-md-4 text-center">
@@ -99,7 +101,7 @@
                             Contato pelo Site
                         </a><br>
                         Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
-                            (28) 99999-0000
+                            (31) 99999-0000
                         </a>
                     </div>
                 </div>

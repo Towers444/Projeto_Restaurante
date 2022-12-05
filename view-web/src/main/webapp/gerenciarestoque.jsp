@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/estilos.css">
 
-    <title>Sabor e Arte - Gerenciamento do Estoque</title>
+    <title>Sabor e Arte - Gerenciamento de Estoque</title>
   <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
 
@@ -452,12 +452,13 @@ td button i:first-child {
     loadItens()
   
   </script>
+  
 
 <footer class="border-top text-muted bg-light">
   <div class="container">
       <div class="row py-3">
           <div class="col-12 col-md-4 text-center">
-              &copy; 2022 - Centro Federal de Educação Tecnológica de Minas Gerais
+              &copy; 2022 - Sabor e Arte
           </div>
           <div class="col-12 col-md-4 text-center">
               <a href="contato.jsp" class="text-decoration-none text-dark">
@@ -465,7 +466,7 @@ td button i:first-child {
               </a><br>
               </a><br>
               Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
-                  (28) 99999-0000
+                  (31) 99999-0000
               </a>
           </div>
       </div>
