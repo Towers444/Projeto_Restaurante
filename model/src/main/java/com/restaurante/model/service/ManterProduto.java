@@ -51,8 +51,12 @@ public class ManterProduto {
         return ProdutoDAO.excluir(produto);
     }
 
-    public static void alterarProdutoDescricao(String nomeAnterior, String novoNome) {
-
+    public static int alterarProduto(String nomeAnterior, String valorAnterior, String descricaoAnterior, String nomeNovo, String valorNovo, String descricaoNovo) throws SQLException, ClassNotFoundException, PersistenciaException {
+        
+       Produto antigoProduto = new Produto(nomeAnterior, Integer.parseInt(valorAnterior), descricaoAnterior);
+       Produto novoProduto = new Produto(nomeNovo, Integer.parseInt(valorNovo), descricaoNovo);
+       return ProdutoDAO.alterar(antigoProduto, novoProduto);
+       
     }
 
     // ao abrir a tela ou alterar/cadastrar/excluir contato

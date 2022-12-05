@@ -23,18 +23,18 @@ public class ManterPedidosCliente {
     private ManterPedidosCliente() {
     }
 
-    public static int cadastrarPedidosCliente(String nome, String valor) throws NegocioException, SQLException, ClassNotFoundException {
+    public static int cadastrarPedidosCliente(String valor, String nome) throws NegocioException, SQLException, ClassNotFoundException {
         
         try {
-            PedidosCliente pedidosCliente = new PedidosCliente(nome, Integer.parseInt(valor));
+            PedidosCliente pedidosCliente = new PedidosCliente(Integer.parseInt(valor), nome);
             return PedidosClienteDAO.inserir(pedidosCliente);
         } catch (PersistenciaException ex) {
             throw new NegocioException(512, "O pedido cadastrado apresenta itens repetidos.");
         }
     }
 
-    public static int excluirPedidosCliente(String nome, String valor) throws NegocioException, SQLException, ClassNotFoundException {
-        PedidosCliente pedidosCliente = new PedidosCliente(nome, Integer.parseInt(valor));
+    public static int excluirPedidosCliente(String valor, String nome) throws NegocioException, SQLException, ClassNotFoundException {
+        PedidosCliente pedidosCliente = new PedidosCliente(Integer.parseInt(valor), nome);
         return PedidosClienteDAO.excluir(pedidosCliente);
     }
 

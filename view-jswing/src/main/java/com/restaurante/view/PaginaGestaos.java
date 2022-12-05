@@ -18,7 +18,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
     }
     
     CadastroUsuarioGestao janela7 = new CadastroUsuarioGestao();
-    cadastroProdutos janela6 = new cadastroProdutos();
+    CadastroProdutosGestao janela6 = new CadastroProdutosGestao();
     PedidosGestao janela11 = new PedidosGestao();
     CadastroEstoqueGestoes janela3 = new CadastroEstoqueGestoes();
 
@@ -355,7 +355,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
     public void carregarNovaPaginaCadastroCardapio() {
 
         if (janela6 == null) {
-            janela6 = new cadastroProdutos();
+            janela6 = new CadastroProdutosGestao();
             janela6.setLocationRelativeTo(null);
             janela6.setVisible(true);
             janela6.setResizable(false);

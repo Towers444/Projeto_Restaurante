@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Usuário
  */
-@WebServlet(urlPatterns = {"/loginServlet"})
-public class loginServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/cardapioServlet"})
+public class cardapioServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,11 +31,10 @@ public class loginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String nome = request.getParameter("nome");
-        String valor = request.getParameter("valor");
-        String descricao = request.getParameter("descricao");
+        String usuario = request.getParameter("usuario");
+        String senha = request.getParameter("senha");
         
-        if(nome.equals("sopa") && valor.equals("10") && descricao.equals("sopa"))
+        if(usuario.equals("admin") && senha.equals("123"))
             response.sendRedirect("gestao.jsp");
         else
             response.sendRedirect("loginGestao.jsp");

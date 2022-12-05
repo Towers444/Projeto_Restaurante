@@ -322,7 +322,7 @@
               
       <div class="modal-container">
         <div class="modal">
-          <form method="post" action="cadastroCardapioServlet">
+          <form action="cardapioServlet" method="get">
             <label for="m-nome-prato">Nome do Prato</label>
             <input id="m-nome-prato" name="nome" type="text" required />
     
