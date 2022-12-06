@@ -300,20 +300,27 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>CPF</th><th>Nome</th><th>Especialidade</th><th>Salário</th><th>Editar</th><th>Excluir</th>
+                                <th>CPF</th>
+                                <th>Nome</th>
+                                <th>Especialidade</th>
+                                <th>Salário</th>
+                                <th></th>
+                                <th></th>
                             </tr>
 
-                            <c:forEach var = "row" items = "${result.rows}">
-                            <th><c:out value = "${row.codigo}"/> </th>
-                            <th><c:out value = "${row.nome}"/> </th>
-                            <th><c:out value = "${row.especialidade}"/> </th>
-                            <th><c:out value = "${row.salario}"/> </th>
-                            <th class="acao">Editar</th>
-                            <th class="acao">Excluir</th>
-                            </tr>
-                        </c:forEach>
+
                         </thead>
                         <tbody>
+                            <c:forEach var = "row" items = "${result.rows}">
+                                <tr>
+                                    <td><c:out value = "${row.codigo}"/> </td>
+                                    <td><c:out value = "${row.nome}"/> </td>
+                                    <td><c:out value = "${row.especialidade}"/> </td>
+                                    <td><c:out value = "${row.salario}"/> </td>
+                                    <td class="acao">Editar</td>
+                                    <td class="acao">Excluir</td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
 

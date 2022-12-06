@@ -299,19 +299,21 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Nome do Prato</th><th>Caracteristicas</th><th>Editar</th><th>Excluir</th>
+                                <th>Nome do Prato</th>
+                                <th>Caracteristicas</th>
+                                <th></th>
+                                <th></th>
                             </tr>
-
-                            <c:forEach var = "row" items = "${result.rows}">
-                                <tr>
-                                    <th><c:out value = "${row.nome}"/> </th>
-                                    <th><c:out value = "${row.caracteristica}"/> </th>
-                                    <th class="acao">Editar</th>
-                                    <th class="acao">Excluir</th>
-                                </tr>
-                            </c:forEach>
                         </thead>
                         <tbody>
+                            <c:forEach var = "row" items = "${result.rows}">
+                                <tr>
+                                    <td><c:out value = "${row.nome}"/> </td>
+                                    <td><c:out value = "${row.caracteristica}"/> </td>
+                                    <td class="acao">Editar</td>
+                                    <td class="acao">Excluir</td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
 
