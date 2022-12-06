@@ -54,10 +54,10 @@ public class FuncionariosDAO {
             */
             ps = conexao.prepareStatement("INSERT INTO funcionarios VALUES(?, ?, ?, ?)");
             
-            ps.setInt(1, funcionario.getCodigo()); //Troca o primeiro '?' pelo int 'codigo'
+            ps.setString(1, funcionario.getCodigo()); //Troca o primeiro '?' pelo int 'codigo'
             ps.setString(2, funcionario.getNome()); //Troca o segundo '?' pela string 'nome'
             ps.setString(3, funcionario.getEspecialidade()); //Troca o terceiro '?' pela string 'especialidade'
-            ps.setInt(4, funcionario.getSalario()); //Troca o quarto '?' pelo int 'salario'
+            ps.setDouble(4, funcionario.getSalario()); //Troca o quarto '?' pelo int 'salario'
             
             /*
             * Executa o código SQL recebido por parâmetro na função prepareStatement
@@ -158,10 +158,10 @@ public class FuncionariosDAO {
                 * Para acessar as colunas de um registro, basta utilizar a função get (existem várias, cada uma retornando um tipo diferente)
                 * As colunas recebem o mesmo nome das que constam na tabela do banco de dados
                 */
-                funcionario = new Funcionarios(rs.getInt("codigo"),
+                funcionario = new Funcionarios(rs.getString("codigo"),
                         rs.getString("nome"),
                         rs.getString("especialidade"),
-                        rs.getInt("salario"));
+                        rs.getDouble("salario"));
                 
                 lista.add(funcionario);
             }
@@ -193,10 +193,10 @@ public class FuncionariosDAO {
             
             //Se houver um próximo registo no ResultSet, significa que encontramos o registro desejado
             while(rs.next()) {
-                funcionario = new Funcionarios(rs.getInt("codigo"),
+                funcionario = new Funcionarios(rs.getString("codigo"),
                         rs.getString("nome"),
                         rs.getString("especialidade"),
-                        rs.getInt("salario"));
+                        rs.getDouble("salario"));
             }
         } finally {
             ConexaoBD.fecharConexao(conexao, ps, rs);

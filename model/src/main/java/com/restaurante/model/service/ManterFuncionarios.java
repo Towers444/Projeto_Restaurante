@@ -41,10 +41,10 @@ public class ManterFuncionarios {
             throw new NegocioException(511, "O salario é obrigatório.");
         }
         
-        
+        salario = salario.replace(',', '.');
         
         try {
-            Funcionarios funcionario = new Funcionarios(Integer.parseInt(codigo), nome, especialidade, Integer.parseInt(salario));
+            Funcionarios funcionario = new Funcionarios(codigo, nome, especialidade, Double.parseDouble(salario));
             
             return FuncionariosDAO.inserir(funcionario);
         } catch (PersistenciaException ex) {
@@ -53,7 +53,9 @@ public class ManterFuncionarios {
     }
 
     public static int excluirFuncionarios(String codigo, String nome, String especialidade, String salario) throws NegocioException, SQLException, ClassNotFoundException {
-        Funcionarios funcionario = new Funcionarios(Integer.parseInt(codigo), nome, especialidade, Integer.parseInt(salario));
+        salario = salario.replace(',', '.');
+        
+        Funcionarios funcionario = new Funcionarios(codigo, nome, especialidade, Double.parseDouble(salario));
         return FuncionariosDAO.excluir(funcionario);
     }
 

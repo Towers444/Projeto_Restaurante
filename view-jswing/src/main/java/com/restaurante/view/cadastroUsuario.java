@@ -224,25 +224,24 @@ public class cadastroUsuario extends javax.swing.JFrame {
     public void loginUsuario() {
 
         int cadastros = 0;
-        //try {
+        try {
             String codigo = textoUsuario.getText();
-            String senha = textoSenha.getPassword().toString();
-            //int retorno = ManterUsuario.consultarUsuario(codigo, senha);
+            String senha = String.valueOf(textoSenha.getPassword());
+            int retorno = ManterUsuario.consultarUsuario(codigo, senha);
 
-            //if (retorno == 1) {
-                
-                if ("admin".equals(textoUsuario.getText()) && "123".equals(textoSenha.getText())) {
-                    carregarNovaPagina();
-                }
-            //}
-        /*} catch (NegocioException ex) {
+            if (retorno == 1) {
+                carregarNovaPagina();
+            } else {
+                JOptionPane.showMessageDialog(jPanel1, "Login ou senha incorretos", "Erro", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             textoUsuario.requestFocus();
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }*/
+        }
     }
 
     public void carregarNovaPagina() {

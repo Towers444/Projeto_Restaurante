@@ -221,27 +221,25 @@ public class UsuarioDAO {
             conexao = ConexaoBD.conectar();
             
             //Seleciona os registros que atendem aos requisitos
-            ps = conexao.prepareStatement("SELECT * FROM usuarios WHERE codigo = ? AND senha = ?");
+            ps = conexao.prepareStatement("SELECT * FROM usuarios WHERE (codigo = ? AND senha = ?)");
             
             ps.setString(1, usuario.getCpf());
             ps.setString(2, hex);
             
+            System.out.println(usuario.getCpf() + " " + usuario.getSenha());
+            System.out.println(hex);
+            System.out.println(ps.toString());
+            
             rs = ps.executeQuery();
             
             //Se houver um próximo registo no ResultSet, significa que encontramos o registro desejado
-            while(rs.next()) {
-                usuario = new Usuario(rs.getString("senha"),
-                        rs.getString("cpf"));
-            }
+            if(rs.next())
+                return 1;
         } catch (NoSuchAlgorithmException ex) {
         
         } finally {
             ConexaoBD.fecharConexao(conexao, ps, rs);
         }
-        if (usuario != null) {
-            return 1;
-        } else {
-            return -1;
-        }
+        return 0;
     }
 }

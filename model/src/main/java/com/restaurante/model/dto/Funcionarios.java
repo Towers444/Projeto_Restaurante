@@ -10,44 +10,34 @@ package com.restaurante.model.dto;
  * @author Aluno
  */
 public class Funcionarios {
-    
-        private int codigo;
-	private String nome;
-        private String especialidade;
-        private int salario;
-        
-        public Funcionarios(String nome, String senha, String especialidade, int salario) {
-		this.codigo = 0;
-                this.nome = nome;
-                this.especialidade = especialidade;
-                this.salario = salario;
-	}
-        
-	public Funcionarios(int codigo, String nome, String especialidade, int salario) {
-		this.codigo = codigo;
-                this.nome = nome;
-                this.especialidade = especialidade;
-                this.salario = salario;
-	}
 
-	public int getCogigo() {
-		return codigo;
-	}
-        
-        public String getNome() {
-		return nome;
-	}
-        
-        public String getEspecialidade() {
-		return especialidade;
-	}
-        
-        public int getSalario() {
-		return salario;
-	}
+    private String codigo;
+    private String nome;
+    private String especialidade;
+    private double salario;
 
-    public int getCodigo() {
-        return codigo;
+    public Funcionarios(String codigo, String nome, String especialidade, double salario) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.especialidade = especialidade;
+        this.salario = salario;
     }
     
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEspecialidade() {
+        return especialidade;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
 }

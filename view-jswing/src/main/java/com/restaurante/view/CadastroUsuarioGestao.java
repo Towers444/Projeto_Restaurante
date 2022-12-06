@@ -611,7 +611,7 @@ public class CadastroUsuarioGestao extends javax.swing.JFrame {
             if (cadastros == 4) {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
             JOptionPane.showMessageDialog(jScrollPane1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
-            carregarTabelaMomentanea();
+            carregarTabela(ManterFuncionarios.listarFuncionarios());
         }
         } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(jScrollPane1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
