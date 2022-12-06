@@ -325,7 +325,7 @@
 
                 <div class="modal-container">
                     <div class="modal">
-                        <form action="cardapioServlet" method="get">
+                        <form action="cardapioServlet?op=a" method="post">
                             <label for="m-nome-prato">Nome do Prato</label>
                             <input id="m-nome-prato" name="nome" type="text" required />
 

@@ -56,7 +56,7 @@ public class ProdutoDAO {
             ps = conexao.prepareStatement("INSERT INTO produto VALUES(?, ?, ?)");
             
             ps.setString(1, produto.getNome()); //Troca o primeiro '?' pela String 'ingrediente'
-            ps.setInt(2, produto.getValor()); //Troca o segundo '?' pelo int 'quantidade'
+            ps.setDouble(2, produto.getValor()); //Troca o segundo '?' pelo int 'quantidade'
             ps.setString(3, produto.getDescricao()); //Troca o terceiro '?' pela String 'descricao'
             
             /*

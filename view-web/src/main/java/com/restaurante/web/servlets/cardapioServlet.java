@@ -5,6 +5,8 @@ package com.restaurante.web.servlets;
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+import com.restaurante.common.NegocioException;
+import com.restaurante.model.service.ManterProduto;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,6 +14,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,16 +36,30 @@ public class cardapioServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
-        
-        String usuario = request.getParameter("usuario");
-        String senha = request.getParameter("senha");
-        
-        if(usuario.equals("admin") && senha.equals("123"))
-            response.sendRedirect("gestao.jsp");
-        else
-            response.sendRedirect("loginGestao.jsp");
-        
+
+        String nome = request.getParameter("nome");
+        String descricao = request.getParameter("descricao");
+        String valor = request.getParameter("valor");
+
+        String op = request.getParameter("op");
+            
+        try {  
+            switch(op) {
+                case "a":
+                    ManterProduto.cadastrarProduto(nome, valor, descricao);
+                    break;
+            }
+            
+            response.sendRedirect("gerenciarCardapio.jsp");
+        } catch (NegocioException ex) {
+            Logger.getLogger(cardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(cardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(cardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

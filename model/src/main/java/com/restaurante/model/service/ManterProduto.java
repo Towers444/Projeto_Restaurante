@@ -38,7 +38,7 @@ public class ManterProduto {
         }
         
         try {
-            Produto produto = new Produto(nome, Integer.parseInt(valor), descricao);
+            Produto produto = new Produto(nome, Double.parseDouble(valor.replace(',', '.')), descricao);
             
             return ProdutoDAO.inserir(produto);
         } catch (PersistenciaException ex) {
