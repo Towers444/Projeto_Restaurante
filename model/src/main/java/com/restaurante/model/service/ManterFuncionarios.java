@@ -48,7 +48,7 @@ public class ManterFuncionarios {
             
             return FuncionariosDAO.inserir(funcionario);
         } catch (PersistenciaException ex) {
-            throw new NegocioException(512, "O funcionarios cadastrado apresenta ingredientes repetidos.");
+            throw new NegocioException(512, "O funcionarios cadastrado apresenta itens repetidos.");
         }
     }
 
@@ -59,8 +59,11 @@ public class ManterFuncionarios {
         return FuncionariosDAO.excluir(funcionario);
     }
 
-    public static void alterarFuncionariosDescricao(String nomeAnterior, String novoNome) {
-
+    public static int alterarFuncionario(String codigoAnterior, String nomeAnterior, String especialidadeAnterior, String salarioAnterior, String codigoNovo, String nomeNovo, String especialidadeNovo, String salarioNovo) throws SQLException, ClassNotFoundException, PersistenciaException {
+        
+       Funcionarios antigoFuncionario = new Funcionarios(codigoAnterior, nomeAnterior, especialidadeAnterior, Double.parseDouble(salarioAnterior.replace(',', '.')));
+       Funcionarios novoFuncionario = new Funcionarios(codigoNovo, nomeNovo, especialidadeNovo, Double.parseDouble(salarioNovo.replace(',', '.')));
+       return FuncionariosDAO.alterar(antigoFuncionario, novoFuncionario);
     }
 
     // ao abrir a tela ou alterar/cadastrar/excluir contato

@@ -25,8 +25,10 @@ public class ManterPedidosCliente {
 
     public static int cadastrarPedidosCliente(String valor, String nome) throws NegocioException, SQLException, ClassNotFoundException {
         
+        valor = valor.replace(',', '.');
+        
         try {
-            PedidosCliente pedidosCliente = new PedidosCliente(Integer.parseInt(valor), nome);
+            PedidosCliente pedidosCliente = new PedidosCliente(Double.parseDouble(valor), nome);
             return PedidosClienteDAO.inserir(pedidosCliente);
         } catch (PersistenciaException ex) {
             throw new NegocioException(512, "O pedido cadastrado apresenta itens repetidos.");
@@ -34,7 +36,9 @@ public class ManterPedidosCliente {
     }
 
     public static int excluirPedidosCliente(String valor, String nome) throws NegocioException, SQLException, ClassNotFoundException {
-        PedidosCliente pedidosCliente = new PedidosCliente(Integer.parseInt(valor), nome);
+        valor = valor.replace(',', '.');
+        
+        PedidosCliente pedidosCliente = new PedidosCliente(Double.parseDouble(valor), nome);
         return PedidosClienteDAO.excluir(pedidosCliente);
     }
 

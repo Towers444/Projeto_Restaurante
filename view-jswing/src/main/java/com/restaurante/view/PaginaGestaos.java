@@ -12,10 +12,10 @@ public class PaginaGestaos extends javax.swing.JFrame {
         initComponents();
     }
     
-    CadastroUsuarioGestao janela7 = new CadastroUsuarioGestao();
+    CadastroFuncionarioGestao janela7 = new CadastroFuncionarioGestao();
     CadastroProdutosGestao janela6 = new CadastroProdutosGestao();
-    PedidosGestao janela11 = new PedidosGestao();
-    CadastroEstoqueGestoes janela3 = new CadastroEstoqueGestoes();
+    ConsultarPedidosGestao janela11 = new ConsultarPedidosGestao();
+    CadastroEstoqueGestao janela3 = new CadastroEstoqueGestao();
 
 
     @SuppressWarnings("unchecked")
@@ -331,7 +331,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
     public void carregarNovaPaginaFuncionarios() {
 
         if (janela7 == null) {
-            janela7 = new CadastroUsuarioGestao();
+            janela7 = new CadastroFuncionarioGestao();
             janela7.setLocationRelativeTo(null);
             janela7.setVisible(true);
             janela7.setResizable(false);
@@ -361,7 +361,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
     public void carregarNovaPaginaPedidosGestao() {
 
         if (janela11 == null) {
-            janela11 = new PedidosGestao();
+            janela11 = new ConsultarPedidosGestao();
             janela11.setLocationRelativeTo(null);
             janela11.setVisible(true);
             janela11.setResizable(false);
@@ -376,7 +376,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
     public void carregarNovaPaginaCadastroEstoqueGestao() {
 
         if (janela3 == null) {
-            janela3 = new CadastroEstoqueGestoes();
+            janela3 = new CadastroEstoqueGestao();
             janela3.setLocationRelativeTo(null);
             janela3.setVisible(true);
             janela3.setResizable(false);

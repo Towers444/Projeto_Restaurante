@@ -12,9 +12,9 @@ package com.restaurante.model.dto;
 public class PedidosCliente {
     
 	private String nome;
-        private int valor;
+        private Double valor;
         
-	public PedidosCliente(int valor, String nome) {
+	public PedidosCliente(Double valor, String nome) {
 		this.valor = valor;
                 this.nome = nome;
 	}
@@ -23,7 +23,7 @@ public class PedidosCliente {
 		return nome;
 	}
         
-        public int getValor() {
+        public Double getValor() {
 		return valor;
 	}
     

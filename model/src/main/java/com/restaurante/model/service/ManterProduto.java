@@ -47,14 +47,14 @@ public class ManterProduto {
     }
 
     public static int excluirProduto(String nome, String valor, String descricao) throws NegocioException, SQLException, ClassNotFoundException {
-        Produto produto = new Produto(nome, Integer.parseInt(valor), descricao);
+        Produto produto = new Produto(nome, Double.parseDouble(valor.replace(',', '.')), descricao);
         return ProdutoDAO.excluir(produto);
     }
 
     public static int alterarProduto(String nomeAnterior, String valorAnterior, String descricaoAnterior, String nomeNovo, String valorNovo, String descricaoNovo) throws SQLException, ClassNotFoundException, PersistenciaException {
         
-       Produto antigoProduto = new Produto(nomeAnterior, Integer.parseInt(valorAnterior), descricaoAnterior);
-       Produto novoProduto = new Produto(nomeNovo, Integer.parseInt(valorNovo), descricaoNovo);
+       Produto antigoProduto = new Produto(nomeAnterior, Double.parseDouble(valorAnterior.replace(',', '.')), descricaoAnterior);
+       Produto novoProduto = new Produto(nomeNovo, Double.parseDouble(valorNovo.replace(',', '.')), descricaoNovo);
        return ProdutoDAO.alterar(antigoProduto, novoProduto);
        
     }

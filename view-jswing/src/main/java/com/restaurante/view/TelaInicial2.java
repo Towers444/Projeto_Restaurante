@@ -109,14 +109,14 @@ public class TelaInicial2 extends javax.swing.JFrame {
 
     private void botaoPaginaGestaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPaginaGestaoActionPerformed
         carregarNovaPaginaGestao();
-        setVisible(false);
-        dispose();
+       //setVisible(false);
+        //dispose();
     }//GEN-LAST:event_botaoPaginaGestaoActionPerformed
 
     private void botaoPaginaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPaginaClienteActionPerformed
         carregarNovaPaginaCliente();
-        setVisible(false);
-        dispose();
+        //setVisible(false);
+        //dispose();
     }//GEN-LAST:event_botaoPaginaClienteActionPerformed
 
     /**

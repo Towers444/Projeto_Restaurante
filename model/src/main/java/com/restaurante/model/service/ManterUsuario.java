@@ -56,12 +56,17 @@ public class ManterUsuario {
         return UsuarioDAO.consultarUsuarios(usuario);
     }
     
-    public static int excluirUsuario(String ingrediente, String quantidade) throws NegocioException, SQLException, ClassNotFoundException {
-        return 0;
+    public static int excluirUsuario(String codigo, String senha) throws NegocioException, SQLException, ClassNotFoundException {
+       Usuario usuario = new Usuario(codigo, senha);
+        return UsuarioDAO.excluir(usuario);
     }
 
-    public static void alterarUsuarioDescricao(String nomeAnterior, String novoNome) {
+    public static int alterarUsuario(String codigoAnterior,  String senhaAnterior, String codigoNovo, String senhaNovo) throws SQLException, ClassNotFoundException, PersistenciaException {
 
+        Usuario antigoFuncionario = new Usuario(codigoAnterior, senhaAnterior);
+       Usuario novoFuncionario = new Usuario(codigoNovo, senhaNovo);
+       return UsuarioDAO.alterar(antigoFuncionario, novoFuncionario);
+        
     }
 
     // ao abrir a tela ou alterar/cadastrar/excluir contato

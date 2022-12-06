@@ -5,8 +5,8 @@
 package com.restaurante.view;
 
 import com.restaurante.common.NegocioException;
-import com.restaurante.model.dto.Produto;
-import com.restaurante.model.service.ManterProduto;
+import com.restaurante.model.dto.Pedidos;
+import com.restaurante.model.service.ManterPedidos;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.logging.Level;
@@ -18,25 +18,22 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Usuário
  */
-public class CadastroProdutosGestao extends javax.swing.JFrame {
+public class ConsultarPedidosGestao extends javax.swing.JFrame {
 
     /**
-     * Creates new form CadastroProdutosGestao
+     * Creates new form ConsultarPedidosGestao
      */
-    public CadastroProdutosGestao() {
+    public ConsultarPedidosGestao() {
         initComponents();
-        
+                
         try {
-            carregarTabela(ManterProduto.listarProduto());
+            carregarTabela(ManterPedidos.listarPedidos());
         } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(jScrollPane5, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(jScrollPane5, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    adicionarProdutos janela1 = new adicionarProdutos();
-    editarProdutos janela2 = new editarProdutos();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,8 +55,6 @@ public class CadastroProdutosGestao extends javax.swing.JFrame {
         TelaInicial = new javax.swing.JButton();
         LabelTitulo3 = new javax.swing.JLabel();
         botaoremProduto = new java.awt.Button();
-        botaoEditarProdutos = new java.awt.Button();
-        botaoAddProdutos2 = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,7 +67,7 @@ public class CadastroProdutosGestao extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Valor", "Descrição"
+                "Nome", "Características"
             }
         ));
         jScrollPane5.setViewportView(tabela);
@@ -96,7 +91,7 @@ public class CadastroProdutosGestao extends javax.swing.JFrame {
 
         LabelTitulo1.setBackground(new java.awt.Color(255, 255, 255));
         LabelTitulo1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        LabelTitulo1.setText("Cardápio do Restaurante. ");
+        LabelTitulo1.setText("Pedidos para a Cozinha");
 
         jPanel7.setBackground(new java.awt.Color(173, 28, 17));
         jPanel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,35 +122,11 @@ public class CadastroProdutosGestao extends javax.swing.JFrame {
         botaoremProduto.setBackground(new java.awt.Color(173, 28, 17));
         botaoremProduto.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         botaoremProduto.setForeground(new java.awt.Color(255, 255, 255));
-        botaoremProduto.setLabel("Remover Item");
+        botaoremProduto.setLabel("Finalizar Item");
         botaoremProduto.setName(""); // NOI18N
         botaoremProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoremProdutoActionPerformed(evt);
-            }
-        });
-
-        botaoEditarProdutos.setActionCommand("Editar Produto");
-        botaoEditarProdutos.setBackground(new java.awt.Color(173, 28, 17));
-        botaoEditarProdutos.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        botaoEditarProdutos.setForeground(new java.awt.Color(255, 255, 255));
-        botaoEditarProdutos.setLabel("Editar Produto");
-        botaoEditarProdutos.setName(""); // NOI18N
-        botaoEditarProdutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoEditarProdutosActionPerformed(evt);
-            }
-        });
-
-        botaoAddProdutos2.setActionCommand("Adicionar Produto");
-        botaoAddProdutos2.setBackground(new java.awt.Color(173, 28, 17));
-        botaoAddProdutos2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        botaoAddProdutos2.setForeground(new java.awt.Color(255, 255, 255));
-        botaoAddProdutos2.setLabel("Adicionar Produto");
-        botaoAddProdutos2.setName(""); // NOI18N
-        botaoAddProdutos2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAddProdutos2ActionPerformed(evt);
             }
         });
 
@@ -168,16 +139,13 @@ public class CadastroProdutosGestao extends javax.swing.JFrame {
                 .addComponent(LabelTitulo3)
                 .addGap(50, 50, 50))
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botaoAddProdutos2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoEditarProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel10Layout.createSequentialGroup()
-                            .addGap(102, 102, 102)
-                            .addComponent(TelaInicial))
-                        .addGroup(jPanel10Layout.createSequentialGroup()
-                            .addGap(63, 63, 63)
-                            .addComponent(botaoremProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(TelaInicial))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(botaoremProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(68, 68, 68))
         );
         jPanel10Layout.setVerticalGroup(
@@ -187,13 +155,9 @@ public class CadastroProdutosGestao extends javax.swing.JFrame {
                 .addComponent(TelaInicial)
                 .addGap(29, 29, 29)
                 .addComponent(LabelTitulo3)
-                .addGap(38, 38, 38)
-                .addComponent(botaoAddProdutos2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(botaoEditarProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addGap(32, 32, 32)
                 .addComponent(botaoremProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 171, Short.MAX_VALUE))
+                .addGap(0, 294, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -263,61 +227,26 @@ public class CadastroProdutosGestao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoEditarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarProdutosActionPerformed
-        int removerLinha = tabela.getSelectedRow();
-        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
-
-        String antigoNome = modelo.getValueAt(removerLinha, 0).toString();
-        String antigoValor = modelo.getValueAt(removerLinha, 1).toString();
-        String antigoDescricao = modelo.getValueAt(removerLinha, 2).toString();
-        
-        if (janela2 == null) {
-            janela2 = new editarProdutos();
-            janela2.setLocationRelativeTo(null);
-            janela2.setVisible(true);
-            janela2.setResizable(false);
-        } else {
-            janela2.setLocationRelativeTo(null);
-            janela2.setVisible(true);
-            janela2.setResizable(false);
-      }
-        janela2.enviaPalavra(this, antigoNome, antigoValor, antigoDescricao);
-    }//GEN-LAST:event_botaoEditarProdutosActionPerformed
+    private void TelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelaInicialActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_TelaInicialActionPerformed
 
     private void botaoremProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProdutoActionPerformed
         int removerLinha = tabela.getSelectedRow();
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
-        String valorNumeroNome = modelo.getValueAt(removerLinha, 0).toString();
-        String valorNumeroValor = modelo.getValueAt(removerLinha, 1).toString();
-        String valorNumeroDescricao = modelo.getValueAt(removerLinha, 2).toString();
-
+        String valorNumeroIngrediente = modelo.getValueAt(removerLinha, 0).toString();
+        String valorNumeroQuantidade = modelo.getValueAt(removerLinha, 1).toString();
         try {
-            ManterProduto.excluirProduto(valorNumeroNome, valorNumeroValor, valorNumeroDescricao);
+          ManterPedidos.excluirPedidos(valorNumeroIngrediente, valorNumeroQuantidade);
         } catch (NegocioException ex) {
-            Logger.getLogger(CadastroProdutosGestao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PedidosGestao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(CadastroProdutosGestao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PedidosGestao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CadastroProdutosGestao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PedidosGestao.class.getName()).log(Level.SEVERE, null, ex);
         }
         ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
     }//GEN-LAST:event_botaoremProdutoActionPerformed
-
-    private void TelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelaInicialActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_TelaInicialActionPerformed
-    private void botaoAddProdutos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdutos2ActionPerformed
-        if (janela1 == null) {
-            janela1 = new adicionarProdutos();
-            janela1.setLocationRelativeTo(null);
-            janela1.setVisible(true);
-            janela1.setResizable(false);
-        } else {
-            janela1.setLocationRelativeTo(null);
-            janela1.setVisible(true);
-            janela1.setResizable(false);
-      }
-    }//GEN-LAST:event_botaoAddProdutos2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -336,20 +265,20 @@ public class CadastroProdutosGestao extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroProdutosGestao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarPedidosGestao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroProdutosGestao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarPedidosGestao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroProdutosGestao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarPedidosGestao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroProdutosGestao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConsultarPedidosGestao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroProdutosGestao().setVisible(true);
+                new ConsultarPedidosGestao().setVisible(true);
             }
         });
     }
@@ -358,8 +287,6 @@ public class CadastroProdutosGestao extends javax.swing.JFrame {
     private javax.swing.JLabel LabelTitulo1;
     private javax.swing.JLabel LabelTitulo3;
     private javax.swing.JButton TelaInicial;
-    private java.awt.Button botaoAddProdutos2;
-    private java.awt.Button botaoEditarProdutos;
     private java.awt.Button botaoremProduto;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
@@ -370,16 +297,16 @@ public class CadastroProdutosGestao extends javax.swing.JFrame {
     private javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 
-    public void carregarTabela(HashSet<Produto> lista) {
+public void carregarTabela(HashSet<Pedidos> lista) {
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         
         modelo.getDataVector().removeAllElements();
         modelo.fireTableDataChanged();
         
-        for(Produto produto : lista) {
-            modelo.insertRow(modelo.getRowCount(), new Object[] {produto.getNome(), produto.getValor(), produto.getDescricao()});
+        for(Pedidos pedidos : lista) {
+            modelo.insertRow(modelo.getRowCount(), new Object[] {pedidos.getNome(), pedidos.getCaracteristica()});
         }
-       
+
     }
 
 }

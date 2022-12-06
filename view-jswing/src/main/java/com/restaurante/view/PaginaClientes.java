@@ -12,8 +12,8 @@ public class PaginaClientes extends javax.swing.JFrame {
         initComponents();
     }
 
-    pedidosProdutos janela8 = new pedidosProdutos();
-    ComandaCliente janela9 = new ComandaCliente();
+    CadastrarPedidosCliente janela8 = new CadastrarPedidosCliente();
+    ConsultarComandaCliente janela9 = new ConsultarComandaCliente();
     
 
     @SuppressWarnings("unchecked")
@@ -263,7 +263,7 @@ public class PaginaClientes extends javax.swing.JFrame {
     public void carregarNovaPaginaPedidos() {
 
         if (janela8 == null) {
-            janela8 = new pedidosProdutos();
+            janela8 = new CadastrarPedidosCliente();
             janela8.setLocationRelativeTo(null);
             janela8.setVisible(true);
             janela8.setResizable(false);
@@ -278,7 +278,7 @@ public class PaginaClientes extends javax.swing.JFrame {
     public void carregarNovaPaginaComandaCliente() {
 
         if (janela9 == null) {
-            janela9 = new ComandaCliente();
+            janela9 = new ConsultarComandaCliente();
             janela9.setLocationRelativeTo(null);
             janela9.setVisible(true);
             janela9.setResizable(false);

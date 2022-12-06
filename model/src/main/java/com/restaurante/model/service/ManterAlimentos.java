@@ -9,6 +9,7 @@ import com.restaurante.model.dto.Alimentos;
 import com.restaurante.model.dao.AlimentosDAO;
 import com.restaurante.common.NegocioException;
 import com.restaurante.common.PersistenciaException;
+
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.List;
@@ -47,8 +48,12 @@ public class ManterAlimentos {
         return AlimentosDAO.excluir(alimento);
     }
 
-    public static void alterarAlimentosDescricao(String nomeAnterior, String novoNome) {
+    public static int alterarAlimentos(String ingredienteAnterior, String quantidadeAnterior, String novoIngrediente, String novoQuantidade) throws SQLException, ClassNotFoundException, PersistenciaException {
 
+        Alimentos antigoAlimento = new Alimentos(ingredienteAnterior, Integer.parseInt(quantidadeAnterior));
+       Alimentos novoAlimento = new Alimentos(novoIngrediente, Integer.parseInt(novoQuantidade));
+       return AlimentosDAO.alterar(antigoAlimento, novoAlimento);
+        
     }
 
     // ao abrir a tela ou alterar/cadastrar/excluir contato

@@ -55,7 +55,7 @@ public class PedidosClienteDAO {
             ps = conexao.prepareStatement("INSERT INTO pedidosCliente VALUES(?, ?)");
             
             ps.setString(1, pedidosCliente.getNome()); //Troca o primeiro '?' pela String 'nome'
-            ps.setInt(2, pedidosCliente.getValor()); //Troca o segundo '?' pela String 'valor'
+            ps.setDouble(2, pedidosCliente.getValor()); //Troca o segundo '?' pela String 'valor'
             
             /*
             * Executa o código SQL recebido por parâmetro na função prepareStatement
@@ -156,7 +156,7 @@ public class PedidosClienteDAO {
                 * Para acessar as colunas de um registro, basta utilizar a função get (existem várias, cada uma retornando um tipo diferente)
                 * As colunas recebem o mesmo nome das que constam na tabela do banco de dados
                 */
-                pedidosCliente = new PedidosCliente(rs.getInt("valor"),
+                pedidosCliente = new PedidosCliente(rs.getDouble("valor"),
                         rs.getString("nome"));
                 
                 lista.add(pedidosCliente);
@@ -189,7 +189,7 @@ public class PedidosClienteDAO {
             
             //Se houver um próximo registo no ResultSet, significa que encontramos o registro desejado
             while(rs.next()) {
-                pedidosCliente = new PedidosCliente(rs.getInt("valor"),
+                pedidosCliente = new PedidosCliente(rs.getDouble("valor"),
                         rs.getString("nome"));
             }
         } finally {

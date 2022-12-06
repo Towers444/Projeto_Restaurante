@@ -94,7 +94,7 @@ public class FuncionariosDAO {
         try {
             conexao = ConexaoBD.conectar();
             
-            ps = conexao.prepareStatement("DELETE FROM funcionarios WHERE ingrediente = ?");
+            ps = conexao.prepareStatement("DELETE FROM funcionarios WHERE nome = ?");
             
             ps.setString(1, funcionario.getNome());
             
