@@ -74,12 +74,12 @@
                         <h1>Identifique-se, por favor</h1>
 
                         <div class="form-floating mb-3">
-                            <input type="text" id="usuario" name="usuario" class="form-control" placeholder=" " autofocus>
+                            <input type="text" id="usuario" name="usuario" class="form-control" placeholder=" " autofocus required>
                             <label for="usuario">CPF</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="password" id="senha" name="senha" class="form-control" placeholder=" ">
+                            <input type="password" id="senha" name="senha" class="form-control" placeholder=" " required>
                             <label for="senha">Senha</label>
                         </div>
 
