@@ -36,10 +36,13 @@ public class cadastroEstoqueServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        String nome = request.getParameter("nome");
+        String quantidade = request.getParameter("quantidade");
+        
         try {
             
-            String nome = request.getParameter("nome");
-            String quantidade = request.getParameter("quantidade");
+            
             
             ManterAlimentos.cadastrarAlimentos(nome, quantidade);
             

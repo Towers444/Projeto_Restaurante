@@ -325,9 +325,22 @@
 
                     </div>
 
-                    <div class="modal-container">
+                    div class="modal-container">
                         <div class="modal">
                             <form action="./cadastroEstoqueServlet" method="POST">
+                                <label for="m-nome">Nome do produto</label>
+                                <input id="m-nome" name="nome" type="text" required />
+
+                                <label for="m-quantidade">Quantidade</label>
+                                <input id="m-quantidade" name="quantidade" type="number" required />
+
+                                <input type="submit" value="Salvar" />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-container">
+                        <div class="modal">
+                            <form action="cadastroEstoqueServlet?op=a" method="POST">
                                 <label for="m-nome">Nome do produto</label>
                                 <input id="m-nome" name="nome" type="text" required />
 
