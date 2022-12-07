@@ -297,7 +297,7 @@ public class editarProdutos extends javax.swing.JFrame {
         if (cadastros == 3) {
             String msgDialog = "Todos os campos foram cadastrados com sucesso!";
             JOptionPane.showMessageDialog(jPanel1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
-            ManterProduto.listarProduto();
+            CadastroProdutosGestao.atualizarTabela();
         }
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
