@@ -302,7 +302,6 @@
                                 <th>Nome do Prato</th>
                                 <th>Caracteristicas</th>
                                 <th></th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -310,8 +309,7 @@
                                 <tr>
                                     <td><c:out value = "${row.nome}"/> </td>
                                     <td><c:out value = "${row.caracteristica}"/> </td>
-                                    <td class="acao">Editar</td>
-                                    <td class="acao">Excluir</td>
+                                    <td class="acao"><button class="btn btn-danger mt-2 d-block" data-nome="${row.nome}" data-caracteristica="${row.caracteristica  }" onclick="openModal(this)" id="new">Concluir</button></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
@@ -319,18 +317,31 @@
 
                 </div>
 
+                <div class="modal-container" id="fechar">
+                    <div class="modal">
+                        <form action="pedidoServlet?op=f" method="post">
+                            <label for="m-cpf">Nome do prato</label>
+                            <input id="m-nome" name="nome" type="text" required />
+
+                            <label for="m-nome">Características</label>
+                            <input id="m-caracteristica" name="caracteristica" type="text" required />
+                            
+                            <input type="submit" value="Salvar" />
+                        </form>
+                    </div>
+                </div>
+
+
                 <script>
                     const modal = document.querySelector('.modal-container')
                     const tbody = document.querySelector('tbody')
                     const sNome = document.querySelector('#m-nome')
-                    const sFuncao = document.querySelector('#m-funcao')
-                    const sSalario = document.querySelector('#m-salario')
-                    const btnSalvar = document.querySelector('#btnSalvar')
+                    const sCaracteristica = document.querySelector('#m-caracteristica')
 
                     let itens
                     let id
 
-                    function openModal(edit = false, index = 0) {
+                    function openModal(target) {
                         modal.classList.add('active')
 
                         modal.onclick = e => {
@@ -338,18 +349,9 @@
                                 modal.classList.remove('active')
                             }
                         }
-
-                        if (edit) {
-                            sNome.value = itens[index].nome
-                            sFuncao.value = itens[index].funcao
-                            sSalario.value = itens[index].salario
-                            id = index
-                        } else {
-                            sNome.value = ''
-                            sFuncao.value = ''
-                            sSalario.value = ''
-                    }
-
+                        
+                        sNome.value = target.getAttribute('data-nome')
+                        sCaracteristica.value = target.getAttribute('data-caracteristica')
                     }
 
                     function editItem(index) {

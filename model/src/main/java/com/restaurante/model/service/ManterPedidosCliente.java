@@ -41,6 +41,11 @@ public class ManterPedidosCliente {
         PedidosCliente pedidosCliente = new PedidosCliente(Double.parseDouble(valor), nome);
         return PedidosClienteDAO.excluir(pedidosCliente);
     }
+    
+    public static int excluirPedidosCliente(String nome) throws NegocioException, SQLException, ClassNotFoundException {
+        PedidosCliente pedidosCliente = new PedidosCliente(0.0, nome);
+        return PedidosClienteDAO.excluirServlet(pedidosCliente);
+    }
 
     public static void alterarPedidosClienteDescricao(String nomeAnterior, String novoNome) {
 

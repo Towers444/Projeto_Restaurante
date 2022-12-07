@@ -53,11 +53,14 @@ public class pedidoServlet extends HttpServlet {
                 case "a":
                     ManterPedidos.cadastrarPedidos(nome, descricao);
                     ManterPedidosCliente.cadastrarPedidosCliente(valor, nome);
+                    response.sendRedirect("index.jsp");
+                    break;
+                case "f":
+                    ManterPedidos.excluirPedidos(nome, descricao);
+                    ManterPedidosCliente.excluirPedidosCliente(nome);
+                    response.sendRedirect("pedidosGestao.jsp");
                     break;
             }
-            
-            response.sendRedirect("index.jsp");
-            
         } catch (NegocioException ex) {
             System.out.print("Error");
         } catch (ClassNotFoundException ex) {

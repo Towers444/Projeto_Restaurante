@@ -104,6 +104,28 @@ public class PedidosClienteDAO {
         return retorno;
     }
     
+    public static int excluirServlet(PedidosCliente pedidosCliente) throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        
+        PreparedStatement ps = null;
+        
+        int retorno;
+        
+        try {
+            conexao = ConexaoBD.conectar();
+            
+            ps = conexao.prepareStatement("DELETE FROM pedidosCliente WHERE nome = ?");
+            
+            ps.setString(1, pedidosCliente.getNome());
+            
+            retorno = ps.executeUpdate();
+        } finally {
+            ConexaoBD.fecharConexao(conexao, ps);
+        }
+        
+        return retorno;
+    }
+    
     /**
      * Altera qualquer valor de qualquer registro da tabela 'pedidosCliente'
      * 
