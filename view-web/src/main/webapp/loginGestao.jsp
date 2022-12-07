@@ -54,13 +54,7 @@
                             <li class="nav-item">
                                 <a href="loginGestao.jsp" class="nav-link text-white">Gestão</a>
                             </li>
-                            <li class="nav-item">
-                                <span class="badge rounded-pill bg-light text-danger position-absolute ms-4 mt-0"
-                                    title="5 produto(s) no carrinho"><small>5</small></span>
-                                <a href="carrinho.jsp" class="nav-link text-white">
-                                    <i class="bi-cart" style="font-size:24px;line-height:24px;"></i>
-                                </a>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>

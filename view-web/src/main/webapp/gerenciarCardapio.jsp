@@ -273,6 +273,9 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="pedidosGestao.jsp">Pedidos</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="fornecedores.jsp">Fornecedores</a>
+                            </li>
                         </ul>
                         <div class="align-self-end">
                             <ul class="navbar-nav">
