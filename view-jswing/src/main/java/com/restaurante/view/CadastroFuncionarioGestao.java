@@ -8,6 +8,7 @@ import com.restaurante.common.NegocioException;
 import com.restaurante.model.dto.Funcionarios;
 import com.restaurante.model.service.ManterFuncionarios;
 import com.restaurante.model.service.ManterProduto;
+import com.restaurante.model.service.ManterUsuario;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.logging.Level;
@@ -58,7 +59,7 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         TelaInicial = new javax.swing.JButton();
         LabelTitulo3 = new javax.swing.JLabel();
-        botaoremProduto = new java.awt.Button();
+        botaoRemoverFuncionario = new java.awt.Button();
         botaoEditarProdutos = new java.awt.Button();
         botaoAddProdutos2 = new java.awt.Button();
 
@@ -124,15 +125,15 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
         LabelTitulo3.setForeground(new java.awt.Color(255, 255, 255));
         LabelTitulo3.setText("Recursos Disponíveis.");
 
-        botaoremProduto.setActionCommand("Remover Item");
-        botaoremProduto.setBackground(new java.awt.Color(173, 28, 17));
-        botaoremProduto.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        botaoremProduto.setForeground(new java.awt.Color(255, 255, 255));
-        botaoremProduto.setLabel("Remover Funcionário");
-        botaoremProduto.setName(""); // NOI18N
-        botaoremProduto.addActionListener(new java.awt.event.ActionListener() {
+        botaoRemoverFuncionario.setActionCommand("Remover Item");
+        botaoRemoverFuncionario.setBackground(new java.awt.Color(173, 28, 17));
+        botaoRemoverFuncionario.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        botaoRemoverFuncionario.setForeground(new java.awt.Color(255, 255, 255));
+        botaoRemoverFuncionario.setLabel("Remover Funcionário");
+        botaoRemoverFuncionario.setName(""); // NOI18N
+        botaoRemoverFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoremProdutoActionPerformed(evt);
+                botaoRemoverFuncionarioActionPerformed(evt);
             }
         });
 
@@ -178,7 +179,7 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botaoAddProdutos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoEditarProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoremProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65))
         );
         jPanel10Layout.setVerticalGroup(
@@ -193,7 +194,7 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(botaoEditarProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
-                .addComponent(botaoremProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botaoRemoverFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 171, Short.MAX_VALUE))
         );
 
@@ -268,7 +269,7 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_TelaInicialActionPerformed
 
-    private void botaoremProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoremProdutoActionPerformed
+    private void botaoRemoverFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverFuncionarioActionPerformed
         int removerLinha = tabela.getSelectedRow();
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         String valorNumeroCodigo = modelo.getValueAt(removerLinha, 0).toString();
@@ -278,6 +279,7 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
 
         try {
             ManterFuncionarios.excluirFuncionarios(valorNumeroCodigo, valorNumeroNome, valorNumeroEspecialidade, valorNumeroSalario);
+            ManterUsuario.excluirUsuario(valorNumeroCodigo);
         } catch (NegocioException ex) {
             Logger.getLogger(CadastroProdutosGestao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -286,7 +288,7 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
             Logger.getLogger(CadastroProdutosGestao.class.getName()).log(Level.SEVERE, null, ex);
         }
         ((DefaultTableModel) tabela.getModel()).removeRow(removerLinha); tabela.repaint(); tabela.validate();
-    }//GEN-LAST:event_botaoremProdutoActionPerformed
+    }//GEN-LAST:event_botaoRemoverFuncionarioActionPerformed
 
     private void botaoEditarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarProdutosActionPerformed
         int removerLinha = tabela.getSelectedRow();
@@ -366,7 +368,7 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
     private javax.swing.JButton TelaInicial;
     private java.awt.Button botaoAddProdutos2;
     private java.awt.Button botaoEditarProdutos;
-    private java.awt.Button botaoremProduto;
+    private java.awt.Button botaoRemoverFuncionario;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

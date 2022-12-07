@@ -305,7 +305,6 @@
                                 <th>Valor</th>
                                 <th>Descrição</th>
                                 <th></th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -314,8 +313,7 @@
                                     <td><c:out value = "${row.nome}"/> </td>
                                     <td><c:out value = "${row.valor}"/> </td>
                                     <td><c:out value = "${row.descricao}"/> </td>
-                                    <td class="acao">Editar</td>
-                                    <td class="acao">Excluir</td>
+                                    <td class="acao"><button class="btn btn-danger mt-2 d-block" data-nome="${row.nome}" data-descricao="${row.descricao}" data-valor="${row.valor}" onclick="openModalExcluir(this)" id="new">Excluir </button></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
@@ -323,7 +321,7 @@
 
                 </div>
 
-                <div class="modal-container">
+                <div class="modal-container" id="adicionar">
                     <div class="modal">
                         <form action="cardapioServlet?op=a" method="post">
                             <label for="m-nome-prato">Nome do Prato</label>
@@ -339,10 +337,28 @@
                         </form>
                     </div>
                 </div>
+                    
+                <div class="modal-container" id="excluir">
+                    <div class="modal">
+                        <h1>Deseja remover o prato do cardápio?</h1>
+                        <form action="cardapioServlet?op=e" method="post">
+                            <label for="e-nome-prato">Nome do Prato</label>
+                            <input id="e-nome-prato" name="nome" type="text" required />
+
+                            <label for="e-descricao">Descrição</label>
+                            <input id="e-descricao" name="descricao" type="text" required />
+
+                            <label for="e-valor">Valor</label>
+                            <input id="e-valor" name="valor" type="number" required />
+
+                            <input type="submit" value="Sim" />
+                        </form>
+                    </div>
+                </div>
 
             </div>
             <script>
-                const modal = document.querySelector('.modal-container')
+                const modal = document.querySelector('#adicionar')
                 const tbody = document.querySelector('tbody')
                 const sNome = document.querySelector('#m-nome-prato')
                 const sFuncao = document.querySelector('#m-descricao')
@@ -370,8 +386,27 @@
                         sNomePrato.value = ''
                         sDescricao.value = ''
                         sValor.value = ''
+                    }
                 }
+                
+                const modalExcluir = document.querySelector('#excluir')
 
+                function openModalExcluir(target) {
+                    modalExcluir.classList.add('active')
+
+                    modalExcluir.onclick = e => {
+                        if (e.target.className.indexOf('modal-container') !== -1) {
+                            modalExcluir.classList.remove('active')
+                        }
+                    }
+
+                    nome = modalExcluir.querySelector('#e-nome-prato')
+                    descricao = modalExcluir.querySelector('#e-descricao')
+                    valor = modalExcluir.querySelector('#e-valor')
+                    
+                    nome.value = target.getAttribute('data-nome')
+                    descricao.value = target.getAttribute('data-descricao')
+                    valor.value = target.getAttribute('data-valor')
                 }
 
                 function editItem(index) {

@@ -56,8 +56,8 @@ public class ManterUsuario {
         return UsuarioDAO.consultarUsuarios(usuario);
     }
     
-    public static int excluirUsuario(String codigo, String senha) throws NegocioException, SQLException, ClassNotFoundException {
-       Usuario usuario = new Usuario(codigo, senha);
+    public static int excluirUsuario(String codigo) throws NegocioException, SQLException, ClassNotFoundException {
+        Usuario usuario = new Usuario("", codigo);
         return UsuarioDAO.excluir(usuario);
     }
 

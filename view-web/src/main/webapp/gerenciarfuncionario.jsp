@@ -305,7 +305,6 @@
                                 <th>Especialidade</th>
                                 <th>Salário</th>
                                 <th></th>
-                                <th></th>
                             </tr>
 
 
@@ -317,14 +316,13 @@
                                     <td><c:out value = "${row.nome}"/> </td>
                                     <td><c:out value = "${row.especialidade}"/> </td>
                                     <td><c:out value = "${row.salario}"/> </td>
-                                    <td class="acao">Editar</td>
-                                    <td class="acao">Excluir</td>
+                                    <td class="acao"><button class="btn btn-danger mt-2 d-block" data-cpf="${row.codigo}" data-nome="${row.nome}" data-funcao="${row.especialidade}" data-salario="${row.salario}" onclick="openModalExcluir(this)" id="new">Excluir </button></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
                     </table>
                     
-                    <div class="modal-container">
+                    <div class="modal-container" id="adicionar">
                         <div class="modal">
                             <form action="funcionarioServlet?op=a" method="post">
                                 <label for="m-cpf">CPF</label>
@@ -345,11 +343,32 @@
                                 <input type="submit" value="Salvar" />
                             </form>
                         </div>
-                    </div> 
+                    </div>
+                    
+                    <div class="modal-container" id="excluir">
+                        <div class="modal">
+                            <form action="funcionarioServlet?op=e" method="post">
+                                <label for="e-cpf">CPF</label>
+                                <input id="e-cpf" name="cpf" type="text" required />
+                                
+                                <label for="e-nome">Nome</label>
+                                <input id="e-nome" name="nome" type="text" required />
+
+                                <label for="e-funcao">Função</label>
+                                <input id="e-funcao" name="funcao" type="text" required />
+
+                                <label for="e-salario">Salário</label>
+                                <input id="e-salario" name="salario" type="number" required />
+                                
+                                <input type="submit" value="Salvar" />
+                            </form>
+                        </div>
+                    </div>
+                    
                 </div>
 
                 <script>
-                    const modal = document.querySelector('.modal-container')
+                    const modal = document.querySelector('#adicionar')
                     const tbody = document.querySelector('tbody')
                     const sCpf = document.querySelector('#m-cpf')
                     const sNome = document.querySelector('#m-nome')
@@ -383,8 +402,29 @@
                             sFuncao.value = ''
                             sSalario.value = ''
                             sSenha.value = ''
+                        }
                     }
+                    
+                    const modalExcluir = document.querySelector('#excluir')
 
+                    function openModalExcluir(target) {
+                        modalExcluir.classList.add('active')
+
+                        modalExcluir.onclick = e => {
+                            if (e.target.className.indexOf('modal-container') !== -1) {
+                                modalExcluir.classList.remove('active')
+                            }
+                        }
+
+                        cpf = modalExcluir.querySelector('#e-cpf')
+                        nome = modalExcluir.querySelector('#e-nome')
+                        funcao = modalExcluir.querySelector('#e-funcao')
+                        salario = modalExcluir.querySelector('#e-salario')
+
+                        cpf.value = target.getAttribute('data-cpf')
+                        nome.value = target.getAttribute('data-nome')
+                        funcao.value = target.getAttribute('data-funcao')
+                        salario.value = target.getAttribute('data-salario')
                     }
 
                     function editItem(index) {

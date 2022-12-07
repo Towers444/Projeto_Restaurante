@@ -47,6 +47,9 @@ public class cadastroEstoqueServlet extends HttpServlet {
                 case "a":
                     ManterAlimentos.cadastrarAlimentos(nome, quantidade);
                     break;
+                case "e":
+                    ManterAlimentos.excluirAlimentos(nome, quantidade);
+                    break;
             }
             
             response.sendRedirect("gerenciarestoque.jsp");
