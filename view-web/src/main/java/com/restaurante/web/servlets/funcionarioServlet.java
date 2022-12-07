@@ -4,7 +4,6 @@ package com.restaurante.web.servlets;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
 import com.restaurante.common.NegocioException;
 import com.restaurante.model.service.ManterAlimentos;
 import com.restaurante.model.service.ManterFuncionarios;
@@ -22,8 +21,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Usuário
  */
-@WebServlet(urlPatterns = {"/cadastroFuncionarioServlet"})
-public class cadastroFuncionarioServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/funcionarioServlet"})
+public class funcionarioServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,24 +36,32 @@ public class cadastroFuncionarioServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        String op = request.getParameter("op");
+        
+        String cpf = request.getParameter("cpf");
+        String nome = request.getParameter("nome");
+        String funcao = request.getParameter("funcao");
+        String salario = request.getParameter("salario");
+        String senha = request.getParameter("senha");
+
         try {
-            
-            String cpf = request.getParameter("cpf");
-            String nome = request.getParameter("nome");
-            String senha = request.getParameter("senha");
-            String especialidade = request.getParameter("especialidade"); 
-            String salario = request.getParameter("salario");
-            
-            ManterFuncionarios.cadastrarFuncionarios(cpf, nome, especialidade, salario);
-            ManterUsuario.cadastrarUsuario(nome, senha);
-            
-            } catch (NegocioException ex) {
-                System.out.print("Error");
-            } catch (ClassNotFoundException ex) {
-                System.out.print("Error");
-            } catch (SQLException ex) {
-                System.out.print("Error");
+            switch(op) {
+                case "a":
+                    ManterFuncionarios.cadastrarFuncionarios(cpf, nome, funcao, salario);
+                    ManterUsuario.cadastrarUsuario(cpf, senha);
+                    break;
             }
+            
+            response.sendRedirect("gerenciarfuncionario.jsp");
+
+        } catch (NegocioException ex) {
+            System.out.print("Error");
+        } catch (ClassNotFoundException ex) {
+            System.out.print("Error");
+        } catch (SQLException ex) {
+            System.out.print("Error");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

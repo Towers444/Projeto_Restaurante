@@ -249,7 +249,7 @@
         <div class="d-flex flex-column wrapper">
             <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom shadow-sm mb-3">
                 <div class="container">
-                    <a class="navbar-brand" href="/"><b>Sabor e Arte</b></a>
+                    <a class="navbar-brand" href="index.jsp"><b>Sabor e Arte</b></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target=".navbar-collapse">
                         <span class="navbar-toggler-icon"></span>
@@ -323,15 +323,39 @@
                             </c:forEach>
                         </tbody>
                     </table>
+                    
+                    <div class="modal-container">
+                        <div class="modal">
+                            <form action="funcionarioServlet?op=a" method="post">
+                                <label for="m-cpf">CPF</label>
+                                <input id="m-cpf" name="cpf" type="text" required />
+                                
+                                <label for="m-nome">Nome</label>
+                                <input id="m-nome" name="nome" type="text" required />
 
+                                <label for="m-funcao">Função</label>
+                                <input id="m-funcao" name="funcao" type="text" required />
+
+                                <label for="m-salario">Salário</label>
+                                <input id="m-salario" name="salario" type="number" required />
+                                
+                                <label for="m-senha">Senha</label>
+                                <input id="m-senha" name="senha" type="password" required />
+                                
+                                <input type="submit" value="Salvar" />
+                            </form>
+                        </div>
+                    </div> 
                 </div>
 
                 <script>
                     const modal = document.querySelector('.modal-container')
                     const tbody = document.querySelector('tbody')
+                    const sCpf = document.querySelector('#m-cpf')
                     const sNome = document.querySelector('#m-nome')
                     const sFuncao = document.querySelector('#m-funcao')
                     const sSalario = document.querySelector('#m-salario')
+                    const sSenha = document.querySelector('#m-senha')
                     const btnSalvar = document.querySelector('#btnSalvar')
 
                     let itens
@@ -347,14 +371,18 @@
                         }
 
                         if (edit) {
+                            sCpf.value = itens[index].cpf
                             sNome.value = itens[index].nome
                             sFuncao.value = itens[index].funcao
                             sSalario.value = itens[index].salario
+                            sSenha.value = itens[index].senha
                             id = index
                         } else {
+                            sCpf.value = ''
                             sNome.value = ''
                             sFuncao.value = ''
                             sSalario.value = ''
+                            sSenha.value = ''
                     }
 
                     }
@@ -374,9 +402,11 @@
                         let tr = document.createElement('tr')
 
                         tr.innerHTML = `
+                  <td>${item.cpf}</td>      
                   <td>${item.nome}</td>
                   <td>${item.funcao}</td>
                   <td>R$ ${item.salario}</td>
+                  <td>${item.senha}</td>
                   <td class="acao">
                     <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
                   </td>
@@ -396,11 +426,13 @@
                         e.preventDefault();
 
                         if (id !== undefined) {
+                            itens[id].cpf = sCpf.value
                             itens[id].nome = sNome.value
                             itens[id].funcao = sFuncao.value
                             itens[id].salario = sSalario.value
+                            itens[id].senha = sSenha.value
                         } else {
-                            itens.push({'nome': sNome.value, 'funcao': sFuncao.value, 'salario': sSalario.value})
+                            itens.push({'cpf': sCpf.value, 'nome': sNome.value, 'funcao': sFuncao.value, 'salario': sSalario.value, 'senha': sSenha.value})
                         }
 
                         setItensBD()
