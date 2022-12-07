@@ -376,12 +376,11 @@
                         SELECT * from produto;
                     </sql:query>   
 
+                    <%! int index = 0; %>    
+                            
                     <div class="organizacao">    
                         <div class="row g-6">
                             <c:forEach var = "row" items = "${result.rows}">
-
-
-
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                                     <div class="card text-center bg-light">
                                         <a href="#" class="position-absolute end-0 p-2 text-danger">
@@ -397,12 +396,13 @@
                                             </p>
                                         </div>
                                         <div class="card-footer">
-                                            <button class="btn btn-danger mt-2 d-block" onclick="openModal()" id="new"></i> Adicionar ao Carrinho </button>
+                                            <button class="btn btn-danger mt-2 d-block" data-nome="${row.nome}" data-descricao="${row.descricao}" data-valor="${row.valor}" onclick="openModal(true, this)" id="new"></i> Adicionar ao Carrinho </button>
                                             <small class="text-success">320,5kg em estoque</small>
                                         </div>
                                     </div>
                                 </div>
-
+                                            
+                                <% index++; %>
                             </c:forEach>
                         </div>
 
@@ -471,11 +471,11 @@
 
     <div class="modal-container">
         <div class="modal">
-            <form method="post" action="cadastroCardapioServlet">
+            <form method="post" action="pedidoServlet?op=a">
                 <label for="m-nome-prato">Nome do Prato</label>
                 <input id="m-nome-prato" name="nome" type="text" required />
 
-                <label for="m-descricao">Descrição</label>
+                <label for="m-descricao">Características</label>
                 <input id="m-descricao" name="descricao" type="text" required />
 
                 <label for="m-valor">Valor</label>
@@ -490,14 +490,14 @@
         const modal = document.querySelector('.modal-container')
         const tbody = document.querySelector('tbody')
         const sNome = document.querySelector('#m-nome-prato')
-        const sFuncao = document.querySelector('#m-descricao')
-        const sSalario = document.querySelector('#m-valor')
+        const sDescricao = document.querySelector('#m-descricao')
+        const sValor = document.querySelector('#m-valor')
         const btnSalvar = document.querySelector('#btnSalvo')
 
         let itens
         let id
 
-        function openModal(edit = false, index = 0) {
+        function openModal(edit = false, target) {
             modal.classList.add('active')
 
             modal.onclick = e => {
@@ -507,15 +507,13 @@
             }
 
             if (edit) {
-                sNomePrato.value = itens[index].nomeprato
-                sDescricao.value = itens[index].descricao
-                sValor.value = itens[index].valor
-                id = index
+                sNome.value = target.getAttribute('data-nome')
+                sValor.value = target.getAttribute('data-valor')
             } else {
                 sNomePrato.value = ''
                 sDescricao.value = ''
                 sValor.value = ''
-        }
+            }
 
         }
 

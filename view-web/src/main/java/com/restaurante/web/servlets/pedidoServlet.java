@@ -8,6 +8,8 @@ package com.restaurante.web.servlets;
 import com.restaurante.model.service.ManterProduto;
 import com.restaurante.common.NegocioException;
 import com.restaurante.model.dto.Produto;
+import com.restaurante.model.service.ManterPedidos;
+import com.restaurante.model.service.ManterPedidosCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -24,8 +26,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Usuário
  */
-@WebServlet(urlPatterns = {"/cadastroCardapioServlet"})
-public class cadastroCardapioServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/pedidoServlet"})
+public class pedidoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,16 +41,22 @@ public class cadastroCardapioServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, NegocioException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        String op = request.getParameter("op");
+        
+        String nome = request.getParameter("nome");
+        String valor = request.getParameter("valor");
+        String descricao = request.getParameter("descricao");
+        
         try {
+            switch(op) {
+                case "a":
+                    ManterPedidos.cadastrarPedidos(nome, descricao);
+                    ManterPedidosCliente.cadastrarPedidosCliente(valor, nome);
+                    break;
+            }
             
-            int cadastros = 0;
-            String nome = request.getParameter("nome");
-            String valor = request.getParameter("valor");
-            String descricao = request.getParameter("descricao");
-            
-            ManterProduto.cadastrarProduto(nome, valor, descricao);
-            
-            response.sendRedirect("gerenciarCardapio.jsp");
+            response.sendRedirect("index.jsp");
             
         } catch (NegocioException ex) {
             System.out.print("Error");
@@ -74,11 +82,11 @@ public class cadastroCardapioServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NegocioException ex) {
-            Logger.getLogger(cadastroCardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pedidoServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(cadastroCardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pedidoServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(cadastroCardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pedidoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -96,11 +104,11 @@ public class cadastroCardapioServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NegocioException ex) {
-            Logger.getLogger(cadastroCardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pedidoServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(cadastroCardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pedidoServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(cadastroCardapioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pedidoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
