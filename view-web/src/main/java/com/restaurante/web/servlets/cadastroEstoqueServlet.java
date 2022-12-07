@@ -37,14 +37,19 @@ public class cadastroEstoqueServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        String op = request.getParameter("op");
+        
         String nome = request.getParameter("nome");
         String quantidade = request.getParameter("quantidade");
         
         try {
+            switch(op) {
+                case "a":
+                    ManterAlimentos.cadastrarAlimentos(nome, quantidade);
+                    break;
+            }
             
-            
-            
-            ManterAlimentos.cadastrarAlimentos(nome, quantidade);
+            response.sendRedirect("gerenciarestoque.jsp");
             
         } catch (NegocioException ex) {
             System.out.print("Error");
