@@ -169,8 +169,6 @@
                     </div>
                     <div class="col-12 col-md-4 text-center text-md-right">
                         <a href="contato.jsp" class="text-decoration-none text-dark">Contato pelo site</a><br>
-                        Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">(31) 99999-0000</a>
-                    </div>
                 </div>
             </div>
         </footer>

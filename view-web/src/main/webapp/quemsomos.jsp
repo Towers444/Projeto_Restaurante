@@ -75,7 +75,7 @@
         <main class="flex-fill">
             <div class="container">
                 <h1>Quem Somos</h1>
-                <h4>Conheça um poucos mais os desenvolvedores do nosso sistema:</h4> 
+                <h4>Conheça os desenvolvedores do nosso sistema:</h4> 
                 <h5>João Torres</h5>
                 <p></p>
                 <h5>André Parreiras</h5>
@@ -104,9 +104,7 @@
                         <a href="contato.jsp" class="text-decoration-none text-dark">
                             Contato pelo Site
                         </a><br>
-                        Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
-                            (31) 99999-0000
-                        </a>
+
                     </div>
                 </div>
             </div>

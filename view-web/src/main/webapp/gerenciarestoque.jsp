@@ -475,9 +475,7 @@
                                     Contato pelo Site
                                 </a><br>
                                 </a><br>
-                                Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
-                                    (31) 99999-0000
-                                </a>
+
                             </div>
                         </div>
                     </div>

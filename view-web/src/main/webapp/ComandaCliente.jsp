@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="font/bootstrap-icons.css">
         <link rel="stylesheet" href="css/estilos.css">
 
-        <title>Sabor e Arte - Gerenciamento dos Funcionários</title>
+        <title>Sabor e Arte - Comanda</title>
     </head>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
@@ -428,9 +428,6 @@
                                     Contato pelo Site
                                 </a><br>
                                 </a><br>
-                                Telefone: <a href="phone:28999990000" class="text-decoration-none text-dark">
-                                    (28) 99999-0000
-                                </a>
                             </div>
                         </div>
                     </div>
