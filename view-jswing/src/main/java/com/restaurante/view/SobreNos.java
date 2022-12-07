@@ -4,36 +4,19 @@
  */
 package com.restaurante.view;
 
-import com.restaurante.model.dto.Produto;
-import com.restaurante.model.service.ManterProduto;
-import java.sql.SQLException;
-import java.util.HashSet;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Usuário
  */
-public class CadastrarPedidosCliente extends javax.swing.JFrame {
+public class SobreNos extends javax.swing.JFrame {
 
     /**
-     * Creates new form CadastrarPedidosCliente
+     * Creates new form SobreNos
      */
-    public CadastrarPedidosCliente() {
+    public SobreNos() {
         initComponents();
-        
-        try {
-            carregarTabela(ManterProduto.listarProduto());
-        } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
     }
 
-    adicionarPedido janela1 = new adicionarPedido();
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,53 +27,19 @@ public class CadastrarPedidosCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tabela = new javax.swing.JTable();
         LabelTitulo1 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         TelaInicial = new javax.swing.JButton();
-        LabelTitulo3 = new javax.swing.JLabel();
-        botaoAddProdutos2 = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(235, 191, 16));
 
-        jPanel3.setBackground(new java.awt.Color(173, 48, 19));
-
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nome", "Valor", "Descrição"
-            }
-        ));
-        jScrollPane5.setViewportView(tabela);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
-
         LabelTitulo1.setBackground(new java.awt.Color(255, 255, 255));
         LabelTitulo1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        LabelTitulo1.setText("Cardápio do Restaurante. ");
+        LabelTitulo1.setText("Sobre Nós:");
 
         jPanel7.setBackground(new java.awt.Color(173, 28, 17));
         jPanel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -112,50 +61,21 @@ public class CadastrarPedidosCliente extends javax.swing.JFrame {
             }
         });
 
-        LabelTitulo3.setBackground(new java.awt.Color(255, 255, 255));
-        LabelTitulo3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        LabelTitulo3.setForeground(new java.awt.Color(255, 255, 255));
-        LabelTitulo3.setText("Recursos Disponíveis.");
-
-        botaoAddProdutos2.setActionCommand("Adicionar Produto");
-        botaoAddProdutos2.setBackground(new java.awt.Color(173, 28, 17));
-        botaoAddProdutos2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        botaoAddProdutos2.setForeground(new java.awt.Color(255, 255, 255));
-        botaoAddProdutos2.setLabel("Adicionar Pedido");
-        botaoAddProdutos2.setName(""); // NOI18N
-        botaoAddProdutos2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAddProdutos2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LabelTitulo3)
-                .addGap(50, 50, 50))
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botaoAddProdutos2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(TelaInicial)
-                        .addGap(46, 46, 46)))
-                .addGap(68, 68, 68))
+                .addGap(97, 97, 97)
+                .addComponent(TelaInicial)
+                .addGap(114, 114, 114))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(TelaInicial)
-                .addGap(29, 29, 29)
-                .addComponent(LabelTitulo3)
-                .addGap(38, 38, 38)
-                .addComponent(botaoAddProdutos2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 288, Short.MAX_VALUE))
+                .addGap(0, 412, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -186,15 +106,9 @@ public class CadastrarPedidosCliente extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(51, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LabelTitulo1)
-                        .addGap(153, 153, 153))))
+                .addGap(266, 266, 266)
+                .addComponent(LabelTitulo1)
+                .addContainerGap(279, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,10 +116,8 @@ public class CadastrarPedidosCliente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(LabelTitulo1)
-                        .addGap(29, 29, 29)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(52, 52, 52)
+                        .addComponent(LabelTitulo1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -229,27 +141,6 @@ public class CadastrarPedidosCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_TelaInicialActionPerformed
 
-    private void botaoAddProdutos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdutos2ActionPerformed
-    int removerLinha = tabela.getSelectedRow();
-        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
-
-        String nome = modelo.getValueAt(removerLinha, 0).toString();
-        String valor = modelo.getValueAt(removerLinha, 1).toString();    
-        
-        if (janela1 == null) {
-            janela1 = new adicionarPedido();
-            janela1.setLocationRelativeTo(null);
-            janela1.setVisible(true);
-            janela1.setResizable(false);
-        } else {
-            janela1.setLocationRelativeTo(null);
-            janela1.setVisible(true);
-            janela1.setResizable(false);
-        }
-        
-        janela1.enviaPalavra(this, nome, valor);
-    }//GEN-LAST:event_botaoAddProdutos2ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -267,58 +158,30 @@ public class CadastrarPedidosCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastrarPedidosCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SobreNos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastrarPedidosCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SobreNos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastrarPedidosCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SobreNos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastrarPedidosCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SobreNos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastrarPedidosCliente().setVisible(true);
+                new SobreNos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelTitulo1;
-    private javax.swing.JLabel LabelTitulo3;
     private javax.swing.JButton TelaInicial;
-    private java.awt.Button botaoAddProdutos2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane5;
-    private static javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
-
-    public static void carregarTabela(HashSet<Produto> lista) {
-        DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
-        
-        modelo.getDataVector().removeAllElements();
-        modelo.fireTableDataChanged();
-        
-        for(Produto produto : lista) {
-            modelo.insertRow(modelo.getRowCount(), new Object[] {produto.getNome(), produto.getValor(), produto.getDescricao()});
-        }
-       
-    }
-    
-    public static void atualizarTabela() {
-        try {
-            carregarTabela(ManterProduto.listarProduto());
-        } catch (ClassNotFoundException ex) {
-            
-        } catch (SQLException ex) {
-            
-        }
-    }
-    
 }

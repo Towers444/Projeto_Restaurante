@@ -366,12 +366,12 @@ public class CadastroEstoqueGestao extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable tabela;
+    private static javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 
-    public void carregarTabela(HashSet<Alimentos> lista) {
+    public static void carregarTabela(HashSet<Alimentos> lista) {
+       
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
-        
         modelo.getDataVector().removeAllElements();
         modelo.fireTableDataChanged();
         
@@ -379,5 +379,15 @@ public class CadastroEstoqueGestao extends javax.swing.JFrame {
             modelo.insertRow(modelo.getRowCount(), new Object[] {alimento.getIngrediente(), alimento.getQuantidade()});
         }
     
+    }
+    
+    public static void atualizarTabela() {
+        try {
+            carregarTabela(ManterAlimentos.listarAlimentos());
+        } catch (ClassNotFoundException ex) {
+            
+        } catch (SQLException ex) {
+            
+        }
     }
 }

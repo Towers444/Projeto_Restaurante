@@ -69,8 +69,14 @@
             <div class="container">
                 <h1>Quem Somos</h1>
                 <h4>Conheça os desenvolvedores do nosso sistema:</h4> 
-                <h5>João Torres</h5>
-                <p></p>
+                <h5>João Pedro Torres</h5>
+                <p>Meu nome é João Pedro Torres, nasci no dia 04/01/2006, tendo hoje 16 anos. Com minha
+                    origem em Betim, apesar de morar em São Joaquim de Bicas. Quanto aos meus gostos,
+                    adoro viajar, praticar esportes, assistir filmes e séries, além de também sentir
+                    prazer em desenhar e aprender mais sobre o mundo em que vivemos. Me mostrando bastante
+                    curioso e otimista. Gosto muito de exatas e também de biologia quando o assunto são
+                    os animais e hoje me encontro estudando no Cefet, do qual sigo explorando o curso
+                    técnico de informática desde 2021.</p>>
                 <h5>André Parreiras</h5>
                 <p>Sou o André HP e amo a programação, me identifico mais com o front end mas sou apaixonado em todas as áreas, 
                     principalmente na construção de sites. Atualmente sou estudante de informática e realizo projetos simples
