@@ -324,20 +324,6 @@
                     </table>
 
                     </div>
-
-                    div class="modal-container">
-                        <div class="modal">
-                            <form action="./cadastroEstoqueServlet" method="POST">
-                                <label for="m-nome">Nome do produto</label>
-                                <input id="m-nome" name="nome" type="text" required />
-
-                                <label for="m-quantidade">Quantidade</label>
-                                <input id="m-quantidade" name="quantidade" type="number" required />
-
-                                <input type="submit" value="Salvar" />
-                            </form>
-                        </div>
-                    </div>
                     <div class="modal-container">
                         <div class="modal">
                             <form action="cadastroEstoqueServlet?op=a" method="POST">
@@ -357,11 +343,7 @@
                     const modal = document.querySelector('.modal-container')
                     const tbody = document.querySelector('tbody')
                     const sNome = document.querySelector('#m-nome')
-                    const sCodigo = document.querySelector('#m-codigo')
                     const sQuantidade = document.querySelector('#m-quantidade')
-                    const sData = document.querySelector('#m-data')
-                    const sTemperatura = document.querySelector('#m-temperatura')
-                    const sDisponibilidade = document.querySelector('#m-disponibilidade')
                     const btnSalvar = document.querySelector('#btnSalvar')
 
                     let itens
@@ -378,19 +360,11 @@
 
                         if (edit) {
                             sNome.value = itens[index].nome
-                            sCodigo.value = itens[index].codigo
                             sQuantidade.value = itens[index].quantidade
-                            sData.value = itens[index].data
-                            sTemperatura.value = itens[index].temperatura
-                            sDisponibilidade.value = itens[index].disponibilidade
                             id = index
                         } else {
                             sNome.value = ''
-                            sCodigo.value = ''
                             sQuantidade.value = ''
-                            sData.value = ''
-                            sTemperatura.value = ''
-                            sDisponibilidade.value = ''
                     }
 
                     }
@@ -411,11 +385,7 @@
 
                         tr.innerHTML = `
                       <td>${item.nome}</td>
-                      <td>${item.codigo}</td>
                       <td>R$ ${item.quantidade}</td>
-                      <td>R$ ${item.data}</td>
-                      <td>R$ ${item.temperatura}</td>
-                      <td>R$ ${item.disponibilidade}</td>
                       <td class="acao">
                         <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
                       </td>
@@ -428,7 +398,7 @@
 
                     btnSalvar.onclick = e => {
 
-                        if (sNome.value == '' || sCodigo.value == '' || sQuantidade.value == '' || sData.value == '' || sTemperatura.value == '' || sDisponibilidade.value == '') {
+                        if (sNome.value == '' || sQuantidade.value == '') {
                             return
                         }
 
@@ -436,13 +406,9 @@
 
                         if (id !== undefined) {
                             itens[id].nome = sNome.value
-                            itens[id].codigo = sCodigo.value
                             itens[id].quantidade = sQuantidade.value
-                            itens[id].data = sData.value
-                            itens[id].temperatura = sTemperatura.value
-                            itens[id].disponibilidade = sDisponibilidade.value
                         } else {
-                            itens.push({'nome': sNome.value, 'codigo': sCodigo.value, 'quantidade': sQuantidade.value, 'data': sData.value, 'temperatura': sTemperatura.value, 'disponibilidade': sDisponibilidade.value})
+                            itens.push({'nome': sNome.value, 'quantidade': sQuantidade.value})
                         }
 
                         setItensBD()
