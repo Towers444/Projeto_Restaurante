@@ -1,8 +1,4 @@
-<%-- 
-    Document   : contato
-    Created on : 29 de nov de 2022, 09:32:51
-    Author     : Aluno
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>

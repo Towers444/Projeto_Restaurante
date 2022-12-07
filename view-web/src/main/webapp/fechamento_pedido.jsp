@@ -1,8 +1,4 @@
-<%-- 
-    Document   : fechamento_pedido
-    Created on : 29 de nov de 2022, 09:36:57
-    Author     : Aluno
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>

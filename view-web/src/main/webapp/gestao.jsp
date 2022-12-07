@@ -1,8 +1,4 @@
-<%-- 
-    Document   : gestao
-    Created on : 29 de nov de 2022, 09:42:01
-    Author     : Aluno
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
@@ -27,6 +23,12 @@
         <link rel="stylesheet" href="css/estilos.css">
 
         <title>Sabor e Arte - Página Gestão</title>
+        <style>
+            p {
+                font-style: italic;
+                font-size: small;
+            }
+        </style>
     </head>
 
     <body>
