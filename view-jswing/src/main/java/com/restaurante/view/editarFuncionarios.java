@@ -320,6 +320,7 @@ public void editarFuncionarios() throws SQLException, ClassNotFoundException, Pe
     if (cadastros == 4) {
         String msgDialog = "Todos os campos foram cadastrados com sucesso!";
         JOptionPane.showMessageDialog(jPanel1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
+        CadastroFuncionarioGestao.atualizarTabela();
     }
         
     }

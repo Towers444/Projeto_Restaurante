@@ -247,6 +247,7 @@ public class adicionarEstoque extends javax.swing.JFrame {
             if (cadastros == 2) {
                 String msgDialog = "Todos os campos foram cadastrados com sucesso!";
                 JOptionPane.showMessageDialog(jPanel1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
+                CadastroEstoqueGestao.atualizarTabela();
             }
         } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);

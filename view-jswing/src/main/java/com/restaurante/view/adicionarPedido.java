@@ -241,6 +241,7 @@ public class adicionarPedido extends javax.swing.JFrame {
         if (cadastros == 1) {
             String msgDialog = "Pedido solicitado com sucesso!";
             JOptionPane.showMessageDialog(jPanel1, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
+            CadastrarPedidosCliente.atualizarTabela();
         }
         } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);

@@ -279,7 +279,7 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
 
         try {
             ManterFuncionarios.excluirFuncionarios(valorNumeroCodigo, valorNumeroNome, valorNumeroEspecialidade, valorNumeroSalario);
-            ManterUsuario.excluirUsuario(valorNumeroCodigo);
+            //ManterUsuario.excluirUsuario(valorNumeroCodigo);
         } catch (NegocioException ex) {
             Logger.getLogger(CadastroProdutosGestao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -299,7 +299,6 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
         String antigoEspecialidade = modelo.getValueAt(removerLinha, 2).toString();
         String antigoSalario = modelo.getValueAt(removerLinha, 3).toString();
         
-        System.out.print("PASSSSSSSSSSSSSSSSSSSSOOOOOOOOOOOUUUUUUUUUUUUU");
         
         if (janela2 == null) {
             janela2 = new editarFuncionarios();
@@ -312,6 +311,15 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
             janela2.setResizable(false);
         }
         janela2.enviaPalavra(this, antigoCodigo, antigoNome, antigoEspecialidade, antigoSalario);
+        
+        try {
+            carregarTabela(ManterFuncionarios.listarFuncionarios());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(jPanel1, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_botaoEditarProdutosActionPerformed
 
     private void botaoAddProdutos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAddProdutos2ActionPerformed
@@ -325,6 +333,8 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
             janela1.setVisible(true);
             janela1.setResizable(false);
         }
+        
+        
     }//GEN-LAST:event_botaoAddProdutos2ActionPerformed
 
     /**
@@ -375,10 +385,10 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable tabela;
+    private static javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 
-    public void carregarTabela(HashSet<Funcionarios> lista) {
+    private static void carregarTabela(HashSet<Funcionarios> lista) {
 
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         modelo.getDataVector().removeAllElements();
@@ -389,4 +399,13 @@ public class CadastroFuncionarioGestao extends javax.swing.JFrame {
         }
     }
     
+    public static void atualizarTabela() {
+        try {
+            carregarTabela(ManterFuncionarios.listarFuncionarios());
+        } catch (ClassNotFoundException ex) {
+            
+        } catch (SQLException ex) {
+            
+        }
+    }
 }

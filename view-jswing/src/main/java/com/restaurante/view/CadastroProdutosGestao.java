@@ -367,10 +367,10 @@ public class CadastroProdutosGestao extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable tabela;
+    private static javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 
-    public void carregarTabela(HashSet<Produto> lista) {
+    public static void carregarTabela(HashSet<Produto> lista) {
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         
         modelo.getDataVector().removeAllElements();
@@ -380,6 +380,16 @@ public class CadastroProdutosGestao extends javax.swing.JFrame {
             modelo.insertRow(modelo.getRowCount(), new Object[] {produto.getNome(), produto.getValor(), produto.getDescricao()});
         }
        
+    }
+    
+    public static void atualizarTabela() {
+        try {
+            carregarTabela(ManterProduto.listarProduto());
+        } catch (ClassNotFoundException ex) {
+            
+        } catch (SQLException ex) {
+            
+        }
     }
 
 }
