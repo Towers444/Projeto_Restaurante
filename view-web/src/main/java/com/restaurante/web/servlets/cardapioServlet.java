@@ -50,6 +50,8 @@ public class cardapioServlet extends HttpServlet {
                 case "a":
                     ManterProduto.cadastrarProduto(nome, valor, descricao);
                     break;
+                case "e":
+                    ManterProduto.excluirProduto(nome, valor, descricao);
             }
             
             response.sendRedirect("gerenciarCardapio.jsp");
