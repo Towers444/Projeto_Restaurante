@@ -51,6 +51,10 @@ public class funcionarioServlet extends HttpServlet {
                     ManterFuncionarios.cadastrarFuncionarios(cpf, nome, funcao, salario);
                     ManterUsuario.cadastrarUsuario(cpf, senha);
                     break;
+                case "e":
+                    ManterFuncionarios.excluirFuncionarios(cpf, nome, funcao, salario);
+                    ManterUsuario.excluirUsuario(cpf);
+                    break;
             }
             
             response.sendRedirect("gerenciarfuncionario.jsp");
