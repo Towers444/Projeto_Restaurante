@@ -79,13 +79,17 @@
                 <h5>João Torres</h5>
                 <p></p>
                 <h5>André Parreiras</h5>
-                <p></p>
+                <p>Sou o André HP e amo a programação, me identifico mais com o front end mas sou apaixonado em todas as áreas, 
+                    principalmente na construção de sites. Atualmente sou estudante de informática e realizo projetos simples
+                    junto aos estudos no CEFET-MG</p>
                 <h5>Seynabou Sall </h5>
-                <p>Olá pessoal, eu sou a Seynabou, tenho 17 anos e sou uma das desenvolvedoras do sistema Sabor e Arte. 
-                Sou estudante do CEFET-MG no curso de informática e estou no 2° ano. Foi um prazer desenvolver esse projeto juntamente com os demais integrantes, espero
+                <p>Olá pessoal, eu sou a Seynabou, sou uma das desenvolvedoras do sistema Sabor e Arte. 
+                Sou estudante do CEFET-MG no curso de informática e estou no 2° ano. Essa nunca foi a minha área dos sonhos, porém
+                venho buscando me descobrir nela nos últimos anos. Foi um prazer e um desafio desenvolver esse projeto juntamente com os demais integrantes, espero
                 que tenham gostado do projeto!</p>
                 <h5>Rayanne Mirelle</h5>
-                <p></p>
+                <p>Olá pessoal! Tudo bem? Me chamo Rayanne, fui uma das desenvolvedoras do projeto e espero que tenham gostado. 
+                    Foi um projeto bem complicado e cheio de obstáculos, mas no fim o resultado foi bom!</p>
             </div>
         </main>
 
