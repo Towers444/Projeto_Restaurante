@@ -26,19 +26,19 @@ public class ManterFuncionarios {
     public static int cadastrarFuncionarios(String codigo, String nome, String especialidade, String salario) throws NegocioException, SQLException, ClassNotFoundException {
 
         if (codigo.isEmpty()) {
-            throw new NegocioException(511, "O codigo é obrigatório.");
+            throw new NegocioException(511, "O código é obrigatório!");
         }
 
         if (nome.isEmpty()) {
-            throw new NegocioException(511, "O nome é obrigatório.");
+            throw new NegocioException(511, "O nome é obrigatório!");
         }
         
         if (especialidade.isEmpty()) {
-            throw new NegocioException(511, "A especialidade é obrigatória.");
+            throw new NegocioException(511, "A especialidade é obrigatória!");
         }
         
         if (salario.isEmpty()) {
-            throw new NegocioException(511, "O salario é obrigatório.");
+            throw new NegocioException(511, "O salário é obrigatório!");
         }
         
         
@@ -48,7 +48,7 @@ public class ManterFuncionarios {
             
             return FuncionariosDAO.inserir(funcionario);
         } catch (PersistenciaException ex) {
-            throw new NegocioException(512, "O funcionarios cadastrado apresenta ingredientes repetidos.");
+            throw new NegocioException(512, "O funcionários cadastrado apresenta ingredientes repetidos.");
         }
     }
 

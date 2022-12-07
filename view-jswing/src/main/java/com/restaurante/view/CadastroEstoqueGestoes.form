@@ -39,7 +39,7 @@
     <Container class="javax.swing.JPanel" name="jPanel45">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="10" green="bf" red="eb" type="rgb"/>
+          <Color blue="72" green="eb" red="ed" type="rgb"/>
         </Property>
       </Properties>
 
@@ -383,7 +383,7 @@
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="24" style="0"/>
+                  <Font name="Times New Roman" size="24" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>

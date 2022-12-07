@@ -26,15 +26,15 @@ public class ManterProduto {
     public static int cadastrarProduto(String nome, String valor, String descricao) throws NegocioException, SQLException, ClassNotFoundException {
 
         if (nome.isEmpty()) {
-            throw new NegocioException(511, "O nome é obrigatório.");
+            throw new NegocioException(511, "O nome é obrigatório!");
         }
 
         if (valor.isEmpty()) {
-            throw new NegocioException(511, "A valor é obrigatória.");
+            throw new NegocioException(511, "A valor é obrigatório!");
         }
         
         if (descricao.isEmpty()) {
-            throw new NegocioException(511, "A descricao é obrigatória.");
+            throw new NegocioException(511, "A descricao é obrigatória!");
         }
         
         try {
@@ -42,7 +42,7 @@ public class ManterProduto {
             
             return ProdutoDAO.inserir(produto);
         } catch (PersistenciaException ex) {
-            throw new NegocioException(512, "O produto cadastrado apresenta itens repetidos.");
+            throw new NegocioException(512, "O produto cadastrado apresenta itens repetidos!");
         }
     }
 

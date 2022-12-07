@@ -75,7 +75,7 @@ public class CadastroEstoqueGestoes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel45.setBackground(new java.awt.Color(235, 191, 16));
+        jPanel45.setBackground(new java.awt.Color(237, 235, 114));
 
         LabelTitulo23.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         LabelTitulo23.setForeground(new java.awt.Color(255, 255, 255));
@@ -221,7 +221,7 @@ public class CadastroEstoqueGestoes extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(173, 28, 17));
         jPanel7.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Olá, seja bem vindo!");
 
@@ -394,9 +394,7 @@ public class CadastroEstoqueGestoes extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel45Layout.createSequentialGroup()
-                                .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(130, 130, 130)))))
+                            .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -548,7 +546,7 @@ public class CadastroEstoqueGestoes extends javax.swing.JFrame {
         
 
             if (cadastros == 2) {
-                String msgDialog = "Todos os campos foram cadastrados com sucesso!";
+                String msgDialog = "Todos os campos foram cadastrados com sucesso.";
                 JOptionPane.showMessageDialog(jPanel45, msgDialog, "Confirmação", JOptionPane.INFORMATION_MESSAGE);
                 carregarTabela(ManterAlimentos.listarAlimentos());
             }

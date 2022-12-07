@@ -22,13 +22,13 @@ public class ManterSenha {
     public static Senha cadastrarSenha(String nome) throws NegocioException {
 
         if (nome.isEmpty()) {
-            throw new NegocioException(511, "A senha é obrigatório.");
+            throw new NegocioException(511, "A senha é obrigatória.");
         }
 
         try {
             return SenhaDAO.inserir(nome);
         } catch (PersistenciaException ex) {
-            throw new NegocioException(512, "O senha '" + nome + "' já está cadastrado.");
+            throw new NegocioException(512, "O senha '" + nome + "' já está cadastrado!");
         }
     }
 

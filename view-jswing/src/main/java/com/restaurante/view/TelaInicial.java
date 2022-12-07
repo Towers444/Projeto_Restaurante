@@ -41,7 +41,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Sistema Sabor e Arte");
+        jLabel1.setText("Sistema Restaurante");
 
         botaoPaginaGestao.setBackground(new java.awt.Color(173, 28, 17));
         botaoPaginaGestao.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -74,7 +74,7 @@ public class TelaInicial extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(235, Short.MAX_VALUE)
+                .addContainerGap(247, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)

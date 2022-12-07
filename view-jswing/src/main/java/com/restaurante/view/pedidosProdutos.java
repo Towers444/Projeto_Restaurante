@@ -318,7 +318,7 @@ public class pedidosProdutos extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Sistema Sabor e Arte");
+        jLabel9.setText("Sistema Restaurante");
 
         jPanel7.setBackground(new java.awt.Color(173, 48, 19));
 

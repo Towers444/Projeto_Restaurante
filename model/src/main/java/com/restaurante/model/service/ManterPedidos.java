@@ -26,14 +26,14 @@ public class ManterPedidos {
     public static int cadastrarPedidos(String nome, String caracteristica) throws NegocioException, SQLException, ClassNotFoundException {
         
         if (caracteristica.isEmpty()) {
-            throw new NegocioException(511, "A caracteristica é obrigatória.");
+            throw new NegocioException(511, "A característica é obrigatória.");
         }
         
         try {
             Pedidos pedidos = new Pedidos(nome, caracteristica);
             return PedidosDAO.inserir(pedidos);
         } catch (PersistenciaException ex) {
-            throw new NegocioException(512, "O pedido cadastrado apresenta itens repetidos.");
+            throw new NegocioException(512, "O pedido cadastrado apresenta itens repetidos!");
         }
     }
 

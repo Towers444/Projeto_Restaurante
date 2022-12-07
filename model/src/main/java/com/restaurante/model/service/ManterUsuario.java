@@ -26,11 +26,11 @@ public class ManterUsuario {
     public static int cadastrarUsuario(String cpf, String senha) throws NegocioException, SQLException, ClassNotFoundException {
 
         if (cpf.isEmpty()) {
-            throw new NegocioException(511, "O CPF é obrigatório.");
+            throw new NegocioException(511, "O CPF é obrigatório!");
         }
 
         if (senha.isEmpty()) {
-            throw new NegocioException(511, "A quantidade é obrigatória.");
+            throw new NegocioException(511, "A quantidade é obrigatória!");
         }
         
         try {
@@ -38,18 +38,18 @@ public class ManterUsuario {
             
             return UsuarioDAO.inserir(usuario);
         } catch (PersistenciaException ex) {
-            throw new NegocioException(512, "O usuario cadastrado apresenta ingredientes repetidos.");
+            throw new NegocioException(512, "O usuário cadastrado apresenta ingredientes repetidos!");
         }
     }
 
     public static int consultarUsuario(String cpf, String senha) throws NegocioException, SQLException, ClassNotFoundException {
 
         if (cpf.isEmpty()) {
-            throw new NegocioException(511, "O CPF é obrigatório.");
+            throw new NegocioException(511, "O CPF é obrigatório!");
         }
 
         if (senha.isEmpty()) {
-            throw new NegocioException(511, "A quantidade é obrigatória.");
+            throw new NegocioException(511, "A quantidade é obrigatória!");
         }
         
         Usuario usuario = new Usuario(Integer.parseInt(cpf), Integer.parseInt(senha));

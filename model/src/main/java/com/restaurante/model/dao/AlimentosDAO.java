@@ -66,12 +66,12 @@ public class ProdutoDAOa {
     public static Produto inserir(String nome, String valor, String descricao) throws PersistenciaException {
 
         if (consultarPorNome(nome, valor, descricao) != null) {
-            System.out.print("Faltou nome");
-            throw new PersistenciaException("Violação de campo unico: nome");
+            System.out.print("Nome não informado");
+            throw new PersistenciaException("Violação de campo único: nome");
         }
         if (consultarPorDescricao(nome, valor, descricao) != null) {
-            System.out.print("Faltou descricao");
-            throw new PersistenciaException("Violação de campo unico: descricao");
+            System.out.print("Descrição não informada");
+            throw new PersistenciaException("Violação de campo único: descrição");
         }
         if (consultarPorNome(nome, valor, descricao) == null && consultarPorDescricao(nome, valor, descricao) == null) {
             

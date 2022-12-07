@@ -197,7 +197,7 @@ public class PaginaGestaos extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Sistema Sabor e Arte");
+        jLabel10.setText("Sistema Restaurante");
 
         jTextArea2.setBackground(new java.awt.Color(235, 191, 16));
         jTextArea2.setColumns(20);

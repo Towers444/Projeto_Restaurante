@@ -26,11 +26,11 @@ public class ManterAlimentos {
     public static int cadastrarAlimentos(String ingrediente, String quantidade) throws NegocioException, SQLException, ClassNotFoundException {
 
         if (ingrediente.isEmpty()) {
-            throw new NegocioException(511, "O ingrediente é obrigatório.");
+            throw new NegocioException(511, "O ingrediente é obrigatório!");
         }
 
         if (quantidade.isEmpty()) {
-            throw new NegocioException(511, "A quantidade é obrigatória.");
+            throw new NegocioException(511, "A quantidade é obrigatória!");
         }
         
         try {
@@ -38,7 +38,7 @@ public class ManterAlimentos {
             
             return AlimentosDAO.inserir(alimento);
         } catch (PersistenciaException ex) {
-            throw new NegocioException(512, "O alimentos cadastrado apresenta ingredientes repetidos.");
+            throw new NegocioException(512, "O alimento cadastrado apresenta ingredientes repetidos.");
         }
     }
 
