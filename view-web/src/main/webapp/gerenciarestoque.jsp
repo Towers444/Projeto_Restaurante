@@ -308,7 +308,6 @@
                                 <th>Ingrediente</th>
                                 <th>Quantidade</th>
                                 <th></th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -316,15 +315,14 @@
                                 <tr>
                                     <td><c:out value = "${row.ingrediente}"/> </td>
                                     <td><c:out value = "${row.quantidade}"/> </td>
-                                    <td class="acao">Editar</td>
-                                    <td class="acao">Excluir</td>
+                                    <td class="acao"><button class="btn btn-danger mt-2 d-block" data-nome="${row.ingrediente}" data-quantidade="${row.quantidade}" onclick="openModalExcluir(this)" id="new">Excluir </button></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
                     </table>
 
                     </div>
-                    <div class="modal-container">
+                    <div class="modal-container" id="adicionar">
                         <div class="modal">
                             <form action="cadastroEstoqueServlet?op=a" method="POST">
                                 <label for="m-nome">Nome do produto</label>
@@ -337,10 +335,24 @@
                             </form>
                         </div>
                     </div>
+                    
+                    <div class="modal-container" id="excluir">
+                        <div class="modal">
+                            <form action="cadastroEstoqueServlet?op=e" method="POST">
+                                <label for="e-nome">Nome do produto</label>
+                                <input id="e-nome" name="nome" type="text" required />
+
+                                <label for="e-quantidade">Quantidade</label>
+                                <input id="e-quantidade" name="quantidade" type="number" required />
+
+                                <input type="submit" value="Salvar" />
+                            </form>
+                        </div>
+                    </div>
 
                 </div>
                 <script>
-                    const modal = document.querySelector('.modal-container')
+                    const modal = document.querySelector('#adicionar')
                     const tbody = document.querySelector('tbody')
                     const sNome = document.querySelector('#m-nome')
                     const sQuantidade = document.querySelector('#m-quantidade')
@@ -365,8 +377,25 @@
                         } else {
                             sNome.value = ''
                             sQuantidade.value = ''
+                        }   
                     }
+                    
+                    const modalExcluir = document.querySelector('#excluir')
 
+                    function openModalExcluir(target) {
+                        modalExcluir.classList.add('active')
+
+                        modalExcluir.onclick = e => {
+                            if (e.target.className.indexOf('modal-container') !== -1) {
+                                modalExcluir.classList.remove('active')
+                            }
+                        }
+
+                        nome = modalExcluir.querySelector('#e-nome')
+                        quantidade = modalExcluir.querySelector('#e-quantidade')
+
+                        nome.value = target.getAttribute('data-nome')
+                        quantidade.value = target.getAttribute('data-quantidade')
                     }
 
                     function editItem(index) {

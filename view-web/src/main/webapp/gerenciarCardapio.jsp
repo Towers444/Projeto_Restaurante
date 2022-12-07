@@ -342,13 +342,13 @@
                     <div class="modal">
                         <h1>Deseja remover o prato do cardápio?</h1>
                         <form action="cardapioServlet?op=e" method="post">
-                            <label for="m-nome-prato">Nome do Prato</label>
+                            <label for="e-nome-prato">Nome do Prato</label>
                             <input id="e-nome-prato" name="nome" type="text" required />
 
-                            <label for="m-descricao">Descrição</label>
+                            <label for="e-descricao">Descrição</label>
                             <input id="e-descricao" name="descricao" type="text" required />
 
-                            <label for="m-valor">Valor</label>
+                            <label for="e-valor">Valor</label>
                             <input id="e-valor" name="valor" type="number" required />
 
                             <input type="submit" value="Sim" />
