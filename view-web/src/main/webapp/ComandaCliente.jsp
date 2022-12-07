@@ -297,8 +297,6 @@
                             <tr>
                                 <th>Nome do Prato</th>
                                 <th>Valor</th>
-                                <th></th>
-                                <th></th>
                             </tr>
 
                             
@@ -308,8 +306,6 @@
                                 <tr>
                                     <td><c:out value = "${row.nome}"/> </td>
                                     <td><c:out value = "${row.valor}"/> </td>
-                                    <td class="acao">Editar</td>
-                                    <td class="acao">Excluir</td>
                                 </tr>
                             </c:forEach>
                         </tbody>
